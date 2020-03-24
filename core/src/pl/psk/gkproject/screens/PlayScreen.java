@@ -4,9 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
 
@@ -14,25 +15,48 @@ public class PlayScreen implements Screen {
     private final PlatformGame game;
     private final OrthographicCamera gameCamera = new OrthographicCamera();
     private final Viewport gameViewport;
-    Texture texture = new Texture("badlogic.jpg");
+    private final TmxMapLoader mapLoader;
+    private final TiledMap map;
+    private final OrthogonalTiledMapRenderer renderer;
 
     public PlayScreen(PlatformGame game) {
         this.game = game;
-        this.gameViewport = new FitViewport(800, 480, gameCamera);
+        gameViewport = new FitViewport(PlatformGame.V_WIDTH, PlatformGame.V_HEIGHT, gameCamera);
+        mapLoader = new TmxMapLoader();
+        map = mapLoader.load("level1.tmx");
+        renderer = new OrthogonalTiledMapRenderer(map);
+        gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
     }
 
     @Override
     public void show() {
     }
 
+    public void handleInput(float dt) {
+        if (Gdx.input.isTouched()) {
+            gameCamera.position.x += 100 * dt;
+        }
+    }
+
+    public void update(float dt) {
+        handleInput(dt);
+
+        gameCamera.update();
+        renderer.setView(gameCamera);
+    }
+
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1, 0, 0, 1);
+        update(delta);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        renderer.render();
+
         game.getBatch().setProjectionMatrix(gameCamera.combined);
         game.getBatch().begin();
-        game.getBatch().draw(texture, 0, 0);
         game.getBatch().end();
+
     }
 
     @Override

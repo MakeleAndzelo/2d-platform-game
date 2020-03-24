@@ -8,6 +8,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import pl.psk.gkproject.screens.PlayScreen;
 
 public class PlatformGame extends Game {
+	public static final int V_WIDTH = 400;
+	public static final int V_HEIGHT = 800;
+
 	SpriteBatch batch;
 	
 	@Override

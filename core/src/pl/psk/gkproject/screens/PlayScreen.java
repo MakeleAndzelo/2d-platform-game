@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -20,6 +21,7 @@ import pl.psk.gkproject.sprites.Mario;
 
 public class PlayScreen implements Screen {
     private final PlatformGame game;
+    private final TextureAtlas atlas = new TextureAtlas("platform_game.pack");
     private final OrthographicCamera gameCamera = new OrthographicCamera();
     private final Viewport gameViewport;
     private final TmxMapLoader mapLoader;
@@ -38,7 +40,7 @@ public class PlayScreen implements Screen {
         map = mapLoader.load("level1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
-        player = new Mario(world);
+        player = new Mario(world, this);
 
         BodyDef bodyDef = new BodyDef();
         PolygonShape polygonShape = new PolygonShape();
@@ -94,6 +96,10 @@ public class PlayScreen implements Screen {
         }
     }
 
+    public TextureAtlas getAtlas() {
+        return atlas;
+    }
+
     @Override
     public void show() {
     }
@@ -114,6 +120,8 @@ public class PlayScreen implements Screen {
     public void update(float dt) {
         handleInput(dt);
 
+        player.update(dt);
+
         world.step(1 / 60f, 6, 2);
         gameCamera.position.x = player.body.getPosition().x;
         gameCamera.update();
@@ -129,6 +137,11 @@ public class PlayScreen implements Screen {
         renderer.render();
 
         box2DDebugRenderer.render(world, gameCamera.combined);
+
+        game.getBatch().setProjectionMatrix(gameCamera.combined);
+        game.getBatch().begin();
+        player.draw(game.getBatch());
+        game.getBatch().end();
     }
 
     @Override

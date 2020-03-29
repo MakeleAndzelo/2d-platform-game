@@ -15,6 +15,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
+import pl.psk.gkproject.sprites.Mario;
 
 public class PlayScreen implements Screen {
     private final PlatformGame game;
@@ -27,6 +28,8 @@ public class PlayScreen implements Screen {
     private World world = new World(new Vector2(0, 0), true);
     private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer();
 
+    private final Mario player;
+
     public PlayScreen(PlatformGame game) {
         this.game = game;
         gameViewport = new FitViewport(PlatformGame.V_WIDTH, PlatformGame.V_HEIGHT, gameCamera);
@@ -34,6 +37,7 @@ public class PlayScreen implements Screen {
         map = mapLoader.load("level1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
+        player = new Mario(world);
 
         BodyDef bodyDef = new BodyDef();
         PolygonShape polygonShape = new PolygonShape();
@@ -101,6 +105,8 @@ public class PlayScreen implements Screen {
 
     public void update(float dt) {
         handleInput(dt);
+
+        world.step(1/60f, 6, 2);
 
         gameCamera.update();
         renderer.setView(gameCamera);

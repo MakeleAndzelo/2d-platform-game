@@ -17,6 +17,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
+import pl.psk.gkproject.WorldContactListener;
 import pl.psk.gkproject.sprites.Mario;
 
 public class PlayScreen implements Screen {
@@ -41,6 +42,7 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
         player = new Mario(world, this);
+        world.setContactListener(new WorldContactListener());
 
         BodyDef bodyDef = new BodyDef();
         PolygonShape polygonShape = new PolygonShape();
@@ -80,7 +82,7 @@ public class PlayScreen implements Screen {
             body = world.createBody(bodyDef);
             polygonShape.setAsBox(rect.getWidth() / 2 / PlatformGame.PPM, rect.getHeight() / 2 / PlatformGame.PPM);
             fixtureDef.shape = polygonShape;
-            body.createFixture(fixtureDef);
+            body.createFixture(fixtureDef).setUserData("bricks");
         }
 
         for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
@@ -92,7 +94,7 @@ public class PlayScreen implements Screen {
             body = world.createBody(bodyDef);
             polygonShape.setAsBox(rect.getWidth() / 2 / PlatformGame.PPM, rect.getHeight() / 2 / PlatformGame.PPM);
             fixtureDef.shape = polygonShape;
-            body.createFixture(fixtureDef);
+            body.createFixture(fixtureDef).setUserData("coins");
         }
     }
 

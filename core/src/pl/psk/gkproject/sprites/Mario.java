@@ -3,6 +3,7 @@ package pl.psk.gkproject.sprites;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.sun.media.sound.SF2SoundbankReader;
@@ -55,6 +56,14 @@ public class Mario extends Sprite {
 
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);
+
+        EdgeShape head  = new EdgeShape();
+        head.set(new Vector2(-2 / PlatformGame.PPM, 5 / PlatformGame.PPM), new Vector2(2 / PlatformGame.PPM, 5 / PlatformGame.PPM));
+        fixtureDef.shape = head;
+        fixtureDef.isSensor = true;
+
+        body.createFixture(fixtureDef).setUserData("head");
+
     }
 
     public void update(float dt) {

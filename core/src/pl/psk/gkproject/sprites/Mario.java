@@ -53,6 +53,8 @@ public class Mario extends Sprite {
         FixtureDef fixtureDef = new FixtureDef();
         CircleShape shape = new CircleShape();
         shape.setRadius(6 / PlatformGame.PPM);
+        fixtureDef.filter.categoryBits = PlatformGame.MARIO_BIT;
+        fixtureDef.filter.maskBits = PlatformGame.DEFAULT_BIT | PlatformGame.COIN_BIT | PlatformGame.BRICK_BIT;
 
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);

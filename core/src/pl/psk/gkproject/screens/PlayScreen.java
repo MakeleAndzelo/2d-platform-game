@@ -42,7 +42,6 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
         player = new Mario(world, this);
-        world.setContactListener(new WorldContactListener());
 
         BodyDef bodyDef = new BodyDef();
         PolygonShape polygonShape = new PolygonShape();
@@ -82,8 +81,17 @@ public class PlayScreen implements Screen {
             body = world.createBody(bodyDef);
             polygonShape.setAsBox(rect.getWidth() / 2 / PlatformGame.PPM, rect.getHeight() / 2 / PlatformGame.PPM);
             fixtureDef.shape = polygonShape;
-            body.createFixture(fixtureDef).setUserData("bricks");
+
+            Filter filter = new Filter();
+            filter.categoryBits = PlatformGame.BRICK_BIT;
+
+            Fixture fixture = body.createFixture(fixtureDef);
+            fixture.setUserData("bricks");
+            fixture.setFilterData(filter);
         }
+
+        world.setContactListener(new WorldContactListener(world, map));
+
 
         for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
@@ -94,7 +102,13 @@ public class PlayScreen implements Screen {
             body = world.createBody(bodyDef);
             polygonShape.setAsBox(rect.getWidth() / 2 / PlatformGame.PPM, rect.getHeight() / 2 / PlatformGame.PPM);
             fixtureDef.shape = polygonShape;
-            body.createFixture(fixtureDef).setUserData("coins");
+
+            Filter filter = new Filter();
+            filter.categoryBits = PlatformGame.COIN_BIT;
+
+            Fixture fixture = body.createFixture(fixtureDef);
+            fixture.setUserData("coins");
+            fixture.setFilterData(filter);
         }
     }
 

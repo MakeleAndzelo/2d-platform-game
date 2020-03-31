@@ -4,6 +4,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.physics.box2d.*;
+import pl.psk.gkproject.scenes.Hud;
 
 public class WorldContactListener implements ContactListener {
     private World world;
@@ -30,6 +31,7 @@ public class WorldContactListener implements ContactListener {
                 TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
                 TiledMapTileLayer.Cell cell = layer.getCell((int)(object.getBody().getPosition().x * PlatformGame.PPM / 16), (int)(object.getBody().getPosition().y * PlatformGame.PPM / 16));
                 cell.setTile(tileSet.getTile(BLANK_COIN));
+                Hud.addScore(20);
             }
 
             if (object.getUserData() == "bricks") {
@@ -55,6 +57,5 @@ public class WorldContactListener implements ContactListener {
 
     @Override
     public void postSolve(Contact contact, ContactImpulse impulse) {
-
     }
 }

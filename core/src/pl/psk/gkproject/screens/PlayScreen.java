@@ -18,6 +18,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.WorldContactListener;
+import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.sprites.Mario;
 
 public class PlayScreen implements Screen {
@@ -31,11 +32,13 @@ public class PlayScreen implements Screen {
 
     private World world = new World(new Vector2(0, -10), true);
     private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer();
+    private Hud hud;
 
     private final Mario player;
 
     public PlayScreen(PlatformGame game) {
         this.game = game;
+        hud = new Hud(game.getBatch());
         gameViewport = new FitViewport(PlatformGame.V_WIDTH / PlatformGame.PPM, PlatformGame.V_HEIGHT / PlatformGame.PPM, gameCamera);
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("level1.tmx");
@@ -150,10 +153,12 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+
         renderer.render();
 
         box2DDebugRenderer.render(world, gameCamera.combined);
-
+        game.getBatch().setProjectionMatrix(hud.stage.getCamera().combined);
+        hud.stage.draw();
         game.getBatch().setProjectionMatrix(gameCamera.combined);
         game.getBatch().begin();
         player.draw(game.getBatch());

@@ -3,7 +3,10 @@ package pl.psk.gkproject;
 import com.badlogic.gdx.Game;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import pl.psk.gkproject.screens.MenuScreen;
 import pl.psk.gkproject.screens.PlayScreen;
+
+import java.awt.*;
 
 public class PlatformGame extends Game {
 	public static final int V_WIDTH = 400;
@@ -21,7 +24,7 @@ public class PlatformGame extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new PlayScreen(this));
+		setScreen(new MenuScreen(this));
 	}
 
 	@Override

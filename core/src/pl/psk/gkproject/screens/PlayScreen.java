@@ -44,19 +44,19 @@ public class PlayScreen implements Screen {
         world.setContactListener(new WorldContactListener(world, map));
 
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
-            new Ground(world, ((RectangleMapObject) object).getRectangle());
+            new Ground(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
         }
 
         for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
-            new Pipe(world, ((RectangleMapObject) object).getRectangle());
+            new Pipe(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
         }
 
         for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
-            new Brick(world, ((RectangleMapObject) object).getRectangle());
+            new Brick(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
         }
 
         for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
-            new Coin(world, ((RectangleMapObject) object).getRectangle());
+            new Coin(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
 
         }
     }

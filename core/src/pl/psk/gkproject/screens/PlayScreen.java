@@ -11,7 +11,6 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -19,15 +18,13 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.WorldContactListener;
 import pl.psk.gkproject.scenes.Hud;
-import pl.psk.gkproject.sprites.Mario;
+import pl.psk.gkproject.sprites.*;
 
 public class PlayScreen implements Screen {
     private final PlatformGame game;
     private final TextureAtlas atlas = new TextureAtlas("platform_game.pack");
     private final OrthographicCamera gameCamera = new OrthographicCamera();
     private final Viewport gameViewport;
-    private final TmxMapLoader mapLoader;
-    private final TiledMap map;
     private final OrthogonalTiledMapRenderer renderer;
 
     private World world = new World(new Vector2(0, -10), true);
@@ -38,80 +35,29 @@ public class PlayScreen implements Screen {
 
     public PlayScreen(PlatformGame game) {
         this.game = game;
+        TiledMap map = new TmxMapLoader().load("level1.tmx");
         hud = new Hud(game.getBatch());
         gameViewport = new FitViewport(PlatformGame.V_WIDTH / PlatformGame.PPM, PlatformGame.V_HEIGHT / PlatformGame.PPM, gameCamera);
-        mapLoader = new TmxMapLoader();
-        map = mapLoader.load("level1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
         player = new Mario(world, this);
-
-        BodyDef bodyDef = new BodyDef();
-        PolygonShape polygonShape = new PolygonShape();
-        FixtureDef fixtureDef = new FixtureDef();
-        Body body;
+        world.setContactListener(new WorldContactListener(world, map));
 
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bodyDef.type = BodyDef.BodyType.StaticBody;
-            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / PlatformGame.PPM, (rect.getY() + rect.getHeight() / 2) / PlatformGame.PPM);
-
-            body = world.createBody(bodyDef);
-            polygonShape.setAsBox(rect.getWidth() / 2 / PlatformGame.PPM, rect.getHeight() / 2 / PlatformGame.PPM);
-            fixtureDef.shape = polygonShape;
-            body.createFixture(fixtureDef);
+            new Ground(world, ((RectangleMapObject) object).getRectangle());
         }
 
         for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bodyDef.type = BodyDef.BodyType.StaticBody;
-            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / PlatformGame.PPM, (rect.getY() + rect.getHeight() / 2) / PlatformGame.PPM);
-
-            body = world.createBody(bodyDef);
-            polygonShape.setAsBox(rect.getWidth() / 2 / PlatformGame.PPM, rect.getHeight() / 2 / PlatformGame.PPM);
-            fixtureDef.shape = polygonShape;
-            body.createFixture(fixtureDef);
+            new Pipe(world, ((RectangleMapObject) object).getRectangle());
         }
 
         for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bodyDef.type = BodyDef.BodyType.StaticBody;
-            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / PlatformGame.PPM, (rect.getY() + rect.getHeight() / 2) / PlatformGame.PPM);
-
-            body = world.createBody(bodyDef);
-            polygonShape.setAsBox(rect.getWidth() / 2 / PlatformGame.PPM, rect.getHeight() / 2 / PlatformGame.PPM);
-            fixtureDef.shape = polygonShape;
-
-            Filter filter = new Filter();
-            filter.categoryBits = PlatformGame.BRICK_BIT;
-
-            Fixture fixture = body.createFixture(fixtureDef);
-            fixture.setUserData("bricks");
-            fixture.setFilterData(filter);
+            new Brick(world, ((RectangleMapObject) object).getRectangle());
         }
 
-        world.setContactListener(new WorldContactListener(world, map));
-
-
         for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            new Coin(world, ((RectangleMapObject) object).getRectangle());
 
-            bodyDef.type = BodyDef.BodyType.StaticBody;
-            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / PlatformGame.PPM, (rect.getY() + rect.getHeight() / 2) / PlatformGame.PPM);
-
-            body = world.createBody(bodyDef);
-            polygonShape.setAsBox(rect.getWidth() / 2 / PlatformGame.PPM, rect.getHeight() / 2 / PlatformGame.PPM);
-            fixtureDef.shape = polygonShape;
-
-            Filter filter = new Filter();
-            filter.categoryBits = PlatformGame.COIN_BIT;
-
-            Fixture fixture = body.createFixture(fixtureDef);
-            fixture.setUserData("coins");
-            fixture.setFilterData(filter);
         }
     }
 

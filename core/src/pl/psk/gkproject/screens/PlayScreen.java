@@ -70,7 +70,7 @@ public class PlayScreen implements Screen {
     }
 
     public void handleInput(float dt) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && Mario.State.JUMPING != player.currentState) {
             player.body.applyLinearImpulse(new Vector2(0, 4), player.body.getWorldCenter(), true);
         }
 

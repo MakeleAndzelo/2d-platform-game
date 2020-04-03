@@ -11,6 +11,7 @@ public abstract class AbstractTiledSprite {
     protected final PolygonShape polygonShape = new PolygonShape();
     protected final FixtureDef fixtureDef = new FixtureDef();
     protected final Body body;
+    protected Fixture fixture;
 
     public AbstractTiledSprite(World world, Rectangle rectangle) {
         this.world = world;
@@ -32,6 +33,6 @@ public abstract class AbstractTiledSprite {
         );
 
         fixtureDef.shape = polygonShape;
-        body.createFixture(fixtureDef);
+        fixture = body.createFixture(fixtureDef);
     }
 }

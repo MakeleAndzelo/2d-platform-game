@@ -16,8 +16,11 @@ public class Brick extends AbstractTiledSprite {
         Filter filter = new Filter();
         filter.categoryBits = PlatformGame.BRICK_BIT;
 
-        Fixture fixture = body.createFixture(fixtureDef);
-        fixture.setUserData("bricks");
+        fixture.setUserData(this);
+        fixture.setFilterData(filter);
+    }
+
+    public void setFixtureFilter(Filter filter) {
         fixture.setFilterData(filter);
     }
 }

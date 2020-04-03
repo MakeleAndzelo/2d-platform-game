@@ -41,7 +41,7 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
         player = new Mario(world, this);
-        world.setContactListener(new WorldContactListener(world, map));
+        world.setContactListener(new WorldContactListener(map));
 
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
             new Ground(world, ((RectangleMapObject) object).getRectangle()).makeFixture();

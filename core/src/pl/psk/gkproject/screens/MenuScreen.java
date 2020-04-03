@@ -31,7 +31,7 @@ public class MenuScreen implements Screen {
         handleInput();
         game.getBatch().begin();
         game.getBatch().draw(background, 0, 0, 700, 480);
-        game.getBatch().draw(playBtn, (PlatformGame.V_WIDTH) - (playBtn.getWidth() - 20), PlatformGame.V_HEIGHT);
+        game.getBatch().draw(playBtn, (PlatformGame.V_WIDTH) - (playBtn.getWidth() + 20), PlatformGame.V_HEIGHT);
         game.getBatch().end();
     }
 

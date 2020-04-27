@@ -3,6 +3,7 @@ package pl.psk.gkproject.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -28,14 +29,15 @@ public class PlayScreen implements Screen {
     private final OrthogonalTiledMapRenderer renderer;
 
     private World world = new World(new Vector2(0, -10), true);
+    private TiledMap map = new TmxMapLoader().load("level1.tmx");
     private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer();
     private Hud hud;
+    private Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
 
     private final Mario player;
 
     public PlayScreen(PlatformGame game) {
         this.game = game;
-        TiledMap map = new TmxMapLoader().load("level1.tmx");
         hud = new Hud(game.getBatch());
         gameViewport = new FitViewport(PlatformGame.V_WIDTH / PlatformGame.PPM, PlatformGame.V_HEIGHT / PlatformGame.PPM, gameCamera);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
@@ -59,6 +61,18 @@ public class PlayScreen implements Screen {
             new Coin(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
 
         }
+
+        music.setLooping(true);
+        music.setVolume(0.02f);
+        music.play();
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public TiledMap getMap() {
+        return map;
     }
 
     public TextureAtlas getAtlas() {

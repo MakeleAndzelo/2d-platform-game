@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
-import com.sun.media.sound.SF2SoundbankReader;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.screens.PlayScreen;
 
@@ -54,7 +53,7 @@ public class Mario extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(6 / PlatformGame.PPM);
         fixtureDef.filter.categoryBits = PlatformGame.MARIO_BIT;
-        fixtureDef.filter.maskBits = PlatformGame.DEFAULT_BIT | PlatformGame.COIN_BIT | PlatformGame.BRICK_BIT;
+        fixtureDef.filter.maskBits = PlatformGame.GROUND_BIT | PlatformGame.COIN_BIT | PlatformGame.BRICK_BIT;
 
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);

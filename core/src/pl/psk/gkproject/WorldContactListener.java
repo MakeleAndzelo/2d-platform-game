@@ -1,5 +1,6 @@
 package pl.psk.gkproject;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
@@ -32,8 +33,15 @@ public class WorldContactListener implements ContactListener {
                         (int) (object.getBody().getPosition().x * PlatformGame.PPM / 16),
                         (int) (object.getBody().getPosition().y * PlatformGame.PPM / 16)
                 );
+
+                if (Coin.BLANK_COIN == cell.getTile().getId()) {
+                    PlatformGame.manager.get("audio/sounds/bump.wav", Sound.class).play();
+                } else {
+                    PlatformGame.manager.get("audio/sounds/coin.wav", Sound.class).play();
+                    Hud.addScore(20);
+                }
+
                 cell.setTile(tileSet.getTile(Coin.BLANK_COIN));
-                Hud.addScore(20);
             }
 
             if (object.getUserData() instanceof Brick) {
@@ -47,6 +55,7 @@ public class WorldContactListener implements ContactListener {
                         (int) (object.getBody().getPosition().y * PlatformGame.PPM / 16)
                 );
                 cell.setTile(null);
+                PlatformGame.manager.get("audio/sounds/breakblock.wav", Sound.class).play();
             }
         }
     }

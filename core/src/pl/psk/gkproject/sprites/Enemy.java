@@ -14,6 +14,7 @@ public abstract class Enemy extends Sprite {
         screen = playScreen;
         world = playScreen.getWorld();
         setPosition(x, y);
+        define();
     }
 
     protected abstract void define();

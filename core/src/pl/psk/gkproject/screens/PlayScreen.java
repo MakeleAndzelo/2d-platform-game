@@ -35,6 +35,7 @@ public class PlayScreen implements Screen {
     private Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
 
     private final Mario player;
+    private Goomba goomba = new Goomba(this, .32f, .32f);
 
     public PlayScreen(PlatformGame game) {
         this.game = game;
@@ -100,7 +101,6 @@ public class PlayScreen implements Screen {
         handleInput(dt);
 
         player.update(dt);
-
         world.step(1 / 60f, 6, 2);
         gameCamera.position.x = player.body.getPosition().x;
         gameCamera.update();
@@ -122,6 +122,7 @@ public class PlayScreen implements Screen {
         game.getBatch().setProjectionMatrix(gameCamera.combined);
         game.getBatch().begin();
         player.draw(game.getBatch());
+        goomba.draw(game.getBatch());
         game.getBatch().end();
     }
 

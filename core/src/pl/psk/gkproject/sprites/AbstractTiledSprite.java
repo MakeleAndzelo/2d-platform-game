@@ -33,6 +33,7 @@ public abstract class AbstractTiledSprite {
         );
 
         fixtureDef.shape = polygonShape;
+
         fixture = body.createFixture(fixtureDef);
     }
 }

@@ -1,6 +1,7 @@
 package pl.psk.gkproject.sprites;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import pl.psk.gkproject.screens.PlayScreen;
@@ -11,6 +12,7 @@ public abstract class Enemy extends Sprite {
     public Body body;
     protected boolean setToDestroy = false;
     protected boolean destroyed = false;
+    public Vector2 velocity = new Vector2(1, 0);
 
     public Enemy(PlayScreen playScreen, float x, float y) {
         screen = playScreen;
@@ -22,4 +24,14 @@ public abstract class Enemy extends Sprite {
     protected abstract void define();
 
     public abstract void hitOnHead();
+
+    public void reverseVelocity(boolean x, boolean y) {
+        if (x) {
+            velocity.x = -velocity.x;
+        }
+
+        if (y) {
+            velocity.y = -velocity.y;
+        }
+    }
 }

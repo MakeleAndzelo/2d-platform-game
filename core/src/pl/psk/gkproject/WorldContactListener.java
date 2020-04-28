@@ -65,12 +65,17 @@ public class WorldContactListener implements ContactListener {
         if (cdef == (PlatformGame.ENEMY_BIT_HEAD | PlatformGame.MARIO_BIT)) {
             if (PlatformGame.ENEMY_BIT_HEAD == fixA.getFilterData().categoryBits) {
                 ((Enemy) fixA.getUserData()).hitOnHead();
-            }
-
-            if (PlatformGame.ENEMY_BIT_HEAD == fixB.getFilterData().categoryBits) {
+            } else {
                 ((Enemy) fixB.getUserData()).hitOnHead();
             }
+        }
 
+        if (cdef == (PlatformGame.ENEMY_BIT | PlatformGame.OBJECT_BIT)) {
+            if (PlatformGame.ENEMY_BIT == fixA.getFilterData().categoryBits) {
+                ((Enemy) fixA.getUserData()).reverseVelocity(true, false);
+            } else {
+                ((Enemy) fixB.getUserData()).reverseVelocity(true, false);
+            }
         }
     }
 

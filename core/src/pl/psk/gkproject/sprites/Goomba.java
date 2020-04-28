@@ -2,9 +2,11 @@ package pl.psk.gkproject.sprites;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.utils.Array;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.screens.PlayScreen;
@@ -28,14 +30,23 @@ public class Goomba extends Enemy {
 
     public void update(float dt) {
         stateTime += dt;
-        setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y / 2);
-        setRegion(walkAnimation.getKeyFrame(stateTime, true));
+
+        if (setToDestroy && !destroyed) {
+            world.destroyBody(body);
+            destroyed = true;
+            setRegion(new TextureRegion(screen.getAtlas().findRegion("goomba"), 32, 0, 16, 16));
+        }
+
+        if (!destroyed) {
+            setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y / 2);
+            setRegion(walkAnimation.getKeyFrame(stateTime, true));
+        }
     }
 
     @Override
     protected void define() {
         BodyDef bodyDef = new BodyDef();
-        bodyDef.position.set(32 / PlatformGame.PPM, 32 / PlatformGame.PPM);
+        bodyDef.position.set(getX(), getY());
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         body = world.createBody(bodyDef);
 
@@ -52,5 +63,23 @@ public class Goomba extends Enemy {
 
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);
+
+        PolygonShape head = new PolygonShape();
+        Vector2[] vertice = new Vector2[4];
+        vertice[0] = new Vector2(-5, 8).scl(1 / PlatformGame.PPM);
+        vertice[1] = new Vector2(5, 8).scl(1 / PlatformGame.PPM);
+        vertice[2] = new Vector2(-3, 3).scl(1 / PlatformGame.PPM);
+        vertice[3] = new Vector2(3, 3).scl(1 / PlatformGame.PPM);
+        head.set(vertice);
+
+        fixtureDef.shape = head;
+        fixtureDef.restitution = 0.5f;
+        fixtureDef.filter.categoryBits = PlatformGame.ENEMY_BIT_HEAD;
+        body.createFixture(fixtureDef).setUserData(this);
+    }
+
+    @Override
+    public void hitOnHead() {
+        setToDestroy = true;
     }
 }

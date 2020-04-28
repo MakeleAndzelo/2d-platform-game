@@ -9,6 +9,8 @@ public abstract class Enemy extends Sprite {
     protected World world;
     protected PlayScreen screen;
     public Body body;
+    protected boolean setToDestroy = false;
+    protected boolean destroyed = false;
 
     public Enemy(PlayScreen playScreen, float x, float y) {
         screen = playScreen;
@@ -18,4 +20,6 @@ public abstract class Enemy extends Sprite {
     }
 
     protected abstract void define();
+
+    public abstract void hitOnHead();
 }

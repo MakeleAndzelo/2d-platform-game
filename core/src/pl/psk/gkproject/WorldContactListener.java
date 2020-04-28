@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.sprites.Brick;
 import pl.psk.gkproject.sprites.Coin;
+import pl.psk.gkproject.sprites.Enemy;
 
 public class WorldContactListener implements ContactListener {
     private TiledMap map;
@@ -22,6 +23,8 @@ public class WorldContactListener implements ContactListener {
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
+
+        int cdef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
         if (fixA.getUserData() == "head" || fixB.getUserData() == "head") {
             Fixture head = fixA.getUserData() == "head" ? fixA : fixB;
@@ -57,6 +60,17 @@ public class WorldContactListener implements ContactListener {
                 cell.setTile(null);
                 PlatformGame.manager.get("audio/sounds/breakblock.wav", Sound.class).play();
             }
+        }
+
+        if (cdef == (PlatformGame.ENEMY_BIT_HEAD | PlatformGame.MARIO_BIT)) {
+            if (PlatformGame.ENEMY_BIT_HEAD == fixA.getFilterData().categoryBits) {
+                ((Enemy) fixA.getUserData()).hitOnHead();
+            }
+
+            if (PlatformGame.ENEMY_BIT_HEAD == fixB.getFilterData().categoryBits) {
+                ((Enemy) fixB.getUserData()).hitOnHead();
+            }
+
         }
     }
 

@@ -12,7 +12,7 @@ import pl.psk.gkproject.screens.PlayScreen;
 public class Goomba extends Enemy {
     private float stateTime = 0.0f;
     private Array<TextureRegion> frames = new Array<>();
-    private Animation<TextureRegion> walkAnimation = new Animation<>(0.4f, frames);
+    private Animation<TextureRegion> walkAnimation;
 
     public Goomba(PlayScreen playScreen, float x, float y) {
         super(playScreen, x, y);
@@ -21,12 +21,15 @@ public class Goomba extends Enemy {
             frames.add(new TextureRegion(screen.getAtlas().findRegion("goomba"), i * 16, 0, 16, 16));
         }
 
+        walkAnimation = new Animation<>(0.4f, frames);
+
         setBounds(getX(), getY(), 16 / PlatformGame.PPM, 16 / PlatformGame.PPM);
     }
 
     public void update(float dt) {
         stateTime += dt;
         setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y / 2);
+        setRegion(walkAnimation.getKeyFrame(stateTime, true));
     }
 
     @Override
@@ -44,7 +47,8 @@ public class Goomba extends Enemy {
                 | PlatformGame.COIN_BIT
                 | PlatformGame.BRICK_BIT
                 | PlatformGame.ENEMY_BIT
-                | PlatformGame.OBJECT_BIT;
+                | PlatformGame.OBJECT_BIT
+                | PlatformGame.MARIO_BIT;
 
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);

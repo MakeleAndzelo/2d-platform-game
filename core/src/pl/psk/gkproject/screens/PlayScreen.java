@@ -35,7 +35,7 @@ public class PlayScreen implements Screen {
     private Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
 
     private final Mario player;
-    private Goomba goomba = new Goomba(this, .32f, .32f);
+    private Goomba goomba;
 
     public PlayScreen(PlatformGame game) {
         this.game = game;
@@ -44,6 +44,7 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
         player = new Mario(world, this);
+        goomba = new Goomba(this, .32f, .32f);
         world.setContactListener(new WorldContactListener(map));
 
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
@@ -101,6 +102,7 @@ public class PlayScreen implements Screen {
         handleInput(dt);
 
         player.update(dt);
+        goomba.update(dt);
         world.step(1 / 60f, 6, 2);
         gameCamera.position.x = player.body.getPosition().x;
         gameCamera.update();

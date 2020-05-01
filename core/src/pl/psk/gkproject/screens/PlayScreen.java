@@ -12,8 +12,10 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
@@ -33,9 +35,9 @@ public class PlayScreen implements Screen {
     private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer();
     private Hud hud;
     private Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
+    private Array<Goomba> goombas = new Array<>();
 
     private final Mario player;
-    private Goomba goomba;
 
     public PlayScreen(PlatformGame game) {
         this.game = game;
@@ -44,7 +46,6 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
         player = new Mario(world, this);
-        goomba = new Goomba(this, 5.32f, .16f);
         world.setContactListener(new WorldContactListener(map));
 
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
@@ -61,7 +62,11 @@ public class PlayScreen implements Screen {
 
         for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
             new Coin(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
+        }
 
+        for (MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rectangle =((RectangleMapObject) object).getRectangle();
+            goombas.add(new Goomba(this,rectangle.getX() / PlatformGame.PPM, rectangle.getY() / PlatformGame.PPM));
         }
 
         music.setLooping(true);
@@ -102,7 +107,9 @@ public class PlayScreen implements Screen {
         handleInput(dt);
 
         player.update(dt);
-        goomba.update(dt);
+        for(Enemy enemy : goombas) {
+            enemy.update(dt);
+        }
         world.step(1 / 60f, 6, 2);
         gameCamera.position.x = player.body.getPosition().x;
         gameCamera.update();
@@ -124,7 +131,9 @@ public class PlayScreen implements Screen {
         game.getBatch().setProjectionMatrix(gameCamera.combined);
         game.getBatch().begin();
         player.draw(game.getBatch());
-        goomba.draw(game.getBatch());
+        for(Enemy enemy : goombas) {
+            enemy.draw(game.getBatch());
+        }
         game.getBatch().end();
     }
 

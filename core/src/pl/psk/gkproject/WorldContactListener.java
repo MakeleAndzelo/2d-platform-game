@@ -77,6 +77,11 @@ public class WorldContactListener implements ContactListener {
                 ((Enemy) fixB.getUserData()).reverseVelocity(true, false);
             }
         }
+
+        if (cdef == (PlatformGame.ENEMY_BIT)) {
+            ((Enemy) fixA.getUserData()).reverseVelocity(true, false);
+            ((Enemy) fixB.getUserData()).reverseVelocity(true, false);
+        }
     }
 
     @Override

@@ -36,4 +36,8 @@ public abstract class AbstractTiledSprite {
 
         fixture = body.createFixture(fixtureDef);
     }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
 }

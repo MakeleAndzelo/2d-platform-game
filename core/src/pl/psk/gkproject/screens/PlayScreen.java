@@ -27,6 +27,7 @@ import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.sprites.*;
 
 import java.util.PriorityQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class PlayScreen implements Screen {
     private final PlatformGame game;
@@ -45,7 +46,7 @@ public class PlayScreen implements Screen {
     private final Mario player;
 
     private Array<Item> items = new Array<>();
-    private PriorityQueue<ItemDef> itemsToSpawn = new PriorityQueue<>();
+    private LinkedBlockingQueue<ItemDef> itemsToSpawn = new LinkedBlockingQueue<>();
 
     public PlayScreen(PlatformGame game) {
         this.game = game;

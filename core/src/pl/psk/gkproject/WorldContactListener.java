@@ -1,6 +1,7 @@
 package pl.psk.gkproject;
 
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
@@ -48,8 +49,12 @@ public class WorldContactListener implements ContactListener {
                 if (Coin.BLANK_COIN == cell.getTile().getId()) {
                     PlatformGame.manager.get("audio/sounds/bump.wav", Sound.class).play();
                 } else {
-                    PlatformGame.manager.get("audio/sounds/coin.wav", Sound.class).play();
-                    playScreen.spawnItem(new ItemDef(new Vector2(object.getBody().getPosition().x, object.getBody().getPosition().y + 16 / PlatformGame.PPM), Mushroom.class));
+                    if (Math.random() > 0.5) {
+                        playScreen.spawnItem(new ItemDef(new Vector2(object.getBody().getPosition().x, object.getBody().getPosition().y + 16 / PlatformGame.PPM), Mushroom.class));
+                        PlatformGame.manager.get("audio/sounds/powerup_spawn.wav", Sound.class).play();
+                    } else {
+                        PlatformGame.manager.get("audio/sounds/coin.wav", Sound.class).play();
+                    }
                     Hud.addScore(20);
                 }
 

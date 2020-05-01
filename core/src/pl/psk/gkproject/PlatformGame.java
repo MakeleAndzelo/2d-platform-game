@@ -34,6 +34,7 @@ public class PlatformGame extends Game {
 		manager.load("audio/sounds/bump.wav", Sound.class);
 		manager.load("audio/sounds/breakblock.wav", Sound.class);
 		manager.load("audio/sounds/powerup_spawn.wav", Sound.class);
+		manager.load("audio/sounds/powerup.wav", Sound.class);
 		manager.finishLoading();
 		batch = new SpriteBatch();
 		setScreen(new MenuScreen(this));

@@ -4,8 +4,12 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import pl.psk.gkproject.items.ItemDef;
+import pl.psk.gkproject.items.Mushroom;
 import pl.psk.gkproject.scenes.Hud;
+import pl.psk.gkproject.screens.PlayScreen;
 import pl.psk.gkproject.sprites.Brick;
 import pl.psk.gkproject.sprites.Coin;
 import pl.psk.gkproject.sprites.Enemy;
@@ -13,10 +17,12 @@ import pl.psk.gkproject.sprites.Enemy;
 public class WorldContactListener implements ContactListener {
     private TiledMap map;
     private static TiledMapTileSet tileSet;
+    private PlayScreen playScreen;
 
-    public WorldContactListener(TiledMap map) {
+    public WorldContactListener(TiledMap map, PlayScreen playScreen) {
         this.map = map;
         tileSet = map.getTileSets().getTileSet("tileset_gutter");
+        this.playScreen = playScreen;
     }
 
     @Override
@@ -41,6 +47,7 @@ public class WorldContactListener implements ContactListener {
                     PlatformGame.manager.get("audio/sounds/bump.wav", Sound.class).play();
                 } else {
                     PlatformGame.manager.get("audio/sounds/coin.wav", Sound.class).play();
+                    playScreen.spawnItem(new ItemDef(new Vector2(object.getBody().getPosition().x, object.getBody().getPosition().y + 16 / PlatformGame.PPM), Mushroom.class));
                     Hud.addScore(20);
                 }
 

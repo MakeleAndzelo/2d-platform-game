@@ -20,8 +20,13 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.WorldContactListener;
+import pl.psk.gkproject.items.Item;
+import pl.psk.gkproject.items.ItemDef;
+import pl.psk.gkproject.items.Mushroom;
 import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.sprites.*;
+
+import java.util.PriorityQueue;
 
 public class PlayScreen implements Screen {
     private final PlatformGame game;
@@ -39,6 +44,9 @@ public class PlayScreen implements Screen {
 
     private final Mario player;
 
+    private Array<Item> items = new Array<>();
+    private PriorityQueue<ItemDef> itemsToSpawn = new PriorityQueue<>();
+
     public PlayScreen(PlatformGame game) {
         this.game = game;
         hud = new Hud(game.getBatch());
@@ -46,7 +54,7 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
         player = new Mario(world, this);
-        world.setContactListener(new WorldContactListener(map));
+        world.setContactListener(new WorldContactListener(map, this));
 
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
             new Ground(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
@@ -65,8 +73,8 @@ public class PlayScreen implements Screen {
         }
 
         for (MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rectangle =((RectangleMapObject) object).getRectangle();
-            goombas.add(new Goomba(this,rectangle.getX() / PlatformGame.PPM, rectangle.getY() / PlatformGame.PPM));
+            Rectangle rectangle = ((RectangleMapObject) object).getRectangle();
+            goombas.add(new Goomba(this, rectangle.getX() / PlatformGame.PPM, rectangle.getY() / PlatformGame.PPM));
         }
 
         music.setLooping(true);
@@ -103,12 +111,31 @@ public class PlayScreen implements Screen {
         }
     }
 
+    public void spawnItem(ItemDef itemDef) {
+        itemsToSpawn.add(itemDef);
+    }
+
+    public void handleSpawningItems() {
+        if (!itemsToSpawn.isEmpty()) {
+            ItemDef itemDef = itemsToSpawn.poll();
+
+            if (itemDef.type == Mushroom.class) {
+                items.add(new Mushroom(this, itemDef.position.x, itemDef.position.y));
+            }
+        }
+    }
+
     public void update(float dt) {
         handleInput(dt);
+        handleSpawningItems();
 
         player.update(dt);
-        for(Enemy enemy : goombas) {
+        for (Enemy enemy : goombas) {
             enemy.update(dt);
+        }
+
+        for (Item item : items) {
+            item.update(dt);
         }
         world.step(1 / 60f, 6, 2);
         gameCamera.position.x = player.body.getPosition().x;
@@ -131,8 +158,12 @@ public class PlayScreen implements Screen {
         game.getBatch().setProjectionMatrix(gameCamera.combined);
         game.getBatch().begin();
         player.draw(game.getBatch());
-        for(Enemy enemy : goombas) {
+        for (Enemy enemy : goombas) {
             enemy.draw(game.getBatch());
+        }
+
+        for (Item item : items) {
+            item.draw(game.getBatch());
         }
         game.getBatch().end();
     }

@@ -21,6 +21,7 @@ public class PlatformGame extends Game {
 	public static final short OBJECT_BIT = 32;
 	public static final short ENEMY_BIT = 64;
 	public static final short ENEMY_BIT_HEAD = 128;
+	public static final short ITEM_BIT = 256;
 
 	SpriteBatch batch;
 

@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import pl.psk.gkproject.items.Item;
 import pl.psk.gkproject.items.ItemDef;
 import pl.psk.gkproject.items.Mushroom;
 import pl.psk.gkproject.scenes.Hud;
@@ -13,6 +14,7 @@ import pl.psk.gkproject.screens.PlayScreen;
 import pl.psk.gkproject.sprites.Brick;
 import pl.psk.gkproject.sprites.Coin;
 import pl.psk.gkproject.sprites.Enemy;
+import pl.psk.gkproject.sprites.Mario;
 
 public class WorldContactListener implements ContactListener {
     private TiledMap map;
@@ -88,6 +90,22 @@ public class WorldContactListener implements ContactListener {
         if (cdef == (PlatformGame.ENEMY_BIT)) {
             ((Enemy) fixA.getUserData()).reverseVelocity(true, false);
             ((Enemy) fixB.getUserData()).reverseVelocity(true, false);
+        }
+
+        if (cdef == (PlatformGame.ITEM_BIT | PlatformGame.OBJECT_BIT)) {
+            if (PlatformGame.ITEM_BIT == fixA.getFilterData().categoryBits) {
+                ((Item) fixA.getUserData()).reverseVelocity(true, false);
+            } else {
+                ((Item) fixB.getUserData()).reverseVelocity(true, false);
+            }
+        }
+
+        if (cdef == (PlatformGame.ITEM_BIT | PlatformGame.MARIO_BIT)) {
+            if (PlatformGame.ITEM_BIT == fixA.getFilterData().categoryBits) {
+                ((Item) fixA.getUserData()).use(((Mario) fixB.getUserData()));
+            } else {
+                ((Item) fixB.getUserData()).use((Mario) fixA.getUserData());
+            }
         }
     }
 

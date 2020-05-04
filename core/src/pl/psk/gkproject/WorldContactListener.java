@@ -1,8 +1,6 @@
 package pl.psk.gkproject;
 
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.items.Item;
@@ -69,6 +67,14 @@ public class WorldContactListener implements ContactListener {
                 ((InteractiveSprite) fixB.getUserData()).onHeadHit(map);
             } else {
                 ((InteractiveSprite) fixA.getUserData()).onHeadHit(map);
+            }
+        }
+
+        if (cdef == (PlatformGame.MARIO_BIT | PlatformGame.ENEMY_BIT)) {
+            if (PlatformGame.MARIO_BIT == fixA.getFilterData().categoryBits) {
+                ((Mario) fixA.getUserData()).hit();
+            } else {
+                ((Mario) fixB.getUserData()).hit();
             }
         }
     }

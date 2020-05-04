@@ -18,21 +18,15 @@ public class Mario extends Sprite {
     private Animation marioJump;
     private float stateTimer;
     private boolean runningRight;
-    private boolean marioIsBig;
     private boolean runGrowAnimation;
     public World world;
     public Body body;
     private TextureRegion marioStand;
-    private TextureRegion bigMarioStand;
-    private TextureRegion bigMarioJump;
-    private Animation<TextureRegion> bigMarioRun;
-    private Animation<TextureRegion> growMario;
 
     public Mario(World world, PlayScreen screen) {
         super(screen.getAtlas().findRegion("little_mario"));
         this.world = world;
         marioStand = new TextureRegion(getTexture(), 0, 0, 16, 16);
-        bigMarioStand = new TextureRegion(screen.getAtlas().findRegion("big_mario"), 0, 0, 16, 32);
         setBounds(0, 0, 16 / PlatformGame.PPM, 16 / PlatformGame.PPM);
         setRegion(marioStand);
         currentState = State.STANDING;
@@ -47,23 +41,10 @@ public class Mario extends Sprite {
         marioRun = new Animation(0.1f, frames);
         frames.clear();
 
-        for (int i = 1; i < 4; i++) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), i * 16, 0, 16, 32));
-        }
-        bigMarioRun = new Animation(0.1f, frames);
-        frames.clear();
-
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), 240, 0, 16, 32));
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), 0, 0, 16, 32));
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), 240, 0, 16, 32));
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("big_mario"), 0, 0, 16, 32));
-        growMario = new Animation<TextureRegion>(0.2f, frames);
-
         for (int i = 4; i < 6; i++) {
             frames.add(new TextureRegion(getTexture(), i * 16, 0, 16, 16));
         }
         marioJump = new Animation(0.1f, frames);
-        bigMarioStand = new TextureRegion(screen.getAtlas().findRegion("big_mario"), 80, 0, 16, 32);
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.position.set(32 / PlatformGame.PPM, 32 / PlatformGame.PPM);
@@ -101,21 +82,15 @@ public class Mario extends Sprite {
 
         switch (currentState) {
             case JUMPING:
-                region = marioIsBig ? bigMarioJump : (TextureRegion) marioJump.getKeyFrame(stateTimer);
+                region = (TextureRegion) marioJump.getKeyFrame(stateTimer);
                 break;
             case RUNNING:
-                region = marioIsBig ? (TextureRegion) bigMarioRun.getKeyFrame(stateTimer, true) : (TextureRegion) marioRun.getKeyFrame(stateTimer, true);
-                break;
-            case GROWING:
-                region = growMario.getKeyFrame(stateTimer);
-                if (growMario.isAnimationFinished(stateTimer)) {
-                    runGrowAnimation = false;
-                }
+                region = (TextureRegion) marioRun.getKeyFrame(stateTimer, true);
                 break;
             case FALLING:
             case STANDING:
             default:
-                region = marioIsBig ? bigMarioStand : marioStand;
+                region = marioStand;
                 break;
         }
 
@@ -154,10 +129,7 @@ public class Mario extends Sprite {
         return State.STANDING;
     }
 
-    public void grow() {
-        runGrowAnimation = true;
-        marioIsBig = true;
-        setBounds(getX(), getY(), getWidth(), getHeight() * 2);
-        PlatformGame.manager.get("audio/sounds/powerup.wav", Sound.class).play();
+    public void hit() {
+        PlatformGame.manager.get("audio/sounds/mariodie.wav", Sound.class).play();
     }
 }

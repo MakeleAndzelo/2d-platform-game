@@ -5,10 +5,13 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import pl.psk.gkproject.PlatformGame;
+import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.screens.PlayScreen;
 import pl.psk.gkproject.sprites.Mario;
 
 public class Mushroom extends Item {
+    private static final int MUSHROOM_SCORE_VALUE = 30;
+
     public Mushroom(PlayScreen playScreen, float x, float y) {
         super(playScreen, x, y);
         setRegion(playScreen.getAtlas().findRegion("mushroom"), 0, 0, 16, 16);
@@ -38,7 +41,7 @@ public class Mushroom extends Item {
 
     @Override
     public void use(Mario mario) {
-        mario.grow();
+        Hud.addScore(MUSHROOM_SCORE_VALUE);
         destroy();
     }
 

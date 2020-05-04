@@ -7,10 +7,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.items.Item;
 import pl.psk.gkproject.screens.PlayScreen;
-import pl.psk.gkproject.sprites.Brick;
-import pl.psk.gkproject.sprites.Coin;
-import pl.psk.gkproject.sprites.Enemy;
-import pl.psk.gkproject.sprites.Mario;
+import pl.psk.gkproject.sprites.*;
 
 public class WorldContactListener implements ContactListener {
     private TiledMap map;
@@ -29,19 +26,6 @@ public class WorldContactListener implements ContactListener {
         Fixture fixB = contact.getFixtureB();
 
         int cdef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
-
-        if (fixA.getUserData() == "head" || fixB.getUserData() == "head") {
-            Fixture head = fixA.getUserData() == "head" ? fixA : fixB;
-            Fixture object = head == fixA ? fixB : fixA;
-
-            if (object.getUserData() instanceof Coin) {
-                ((Coin) object.getUserData()).onHeadHit(map);
-            }
-
-            if (object.getUserData() instanceof Brick) {
-                ((Brick) object.getUserData()).onHeadHit(map);
-            }
-        }
 
         if (cdef == (PlatformGame.ENEMY_BIT_HEAD | PlatformGame.MARIO_BIT)) {
             if (PlatformGame.ENEMY_BIT_HEAD == fixA.getFilterData().categoryBits) {
@@ -82,7 +66,9 @@ public class WorldContactListener implements ContactListener {
 
         if (cdef == (PlatformGame.MARIO_HEAD_BIT | PlatformGame.BRICK_BIT) || cdef == (PlatformGame.MARIO_HEAD_BIT | PlatformGame.COIN_BIT)) {
             if (PlatformGame.MARIO_HEAD_BIT == fixA.getFilterData().categoryBits) {
-
+                ((InteractiveSprite) fixB.getUserData()).onHeadHit(map);
+            } else {
+                ((InteractiveSprite) fixA.getUserData()).onHeadHit(map);
             }
         }
     }

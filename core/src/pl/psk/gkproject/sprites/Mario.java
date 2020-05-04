@@ -81,10 +81,11 @@ public class Mario extends Sprite {
 
         EdgeShape head = new EdgeShape();
         head.set(new Vector2(-2 / PlatformGame.PPM, 5 / PlatformGame.PPM), new Vector2(2 / PlatformGame.PPM, 5 / PlatformGame.PPM));
+        fixtureDef.filter.categoryBits = PlatformGame.MARIO_HEAD_BIT;
         fixtureDef.shape = head;
         fixtureDef.isSensor = true;
 
-        body.createFixture(fixtureDef).setUserData("head");
+        body.createFixture(fixtureDef).setUserData(this);
 
     }
 

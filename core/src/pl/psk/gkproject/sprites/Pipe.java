@@ -3,10 +3,11 @@ package pl.psk.gkproject.sprites;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.PlatformGame;
+import pl.psk.gkproject.screens.PlayScreen;
 
 public class Pipe extends AbstractTiledSprite {
-    public Pipe(World world, Rectangle rectangle) {
-        super(world, rectangle);
+    public Pipe(PlayScreen playScreen, World world, Rectangle rectangle) {
+        super(playScreen, world, rectangle);
     }
 
     @Override

@@ -1,16 +1,11 @@
 package pl.psk.gkproject;
 
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.items.Item;
-import pl.psk.gkproject.items.ItemDef;
-import pl.psk.gkproject.items.Mushroom;
-import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.screens.PlayScreen;
 import pl.psk.gkproject.sprites.Brick;
 import pl.psk.gkproject.sprites.Coin;
@@ -19,7 +14,7 @@ import pl.psk.gkproject.sprites.Mario;
 
 public class WorldContactListener implements ContactListener {
     private TiledMap map;
-    private static TiledMapTileSet tileSet;
+    public static TiledMapTileSet tileSet;
     private PlayScreen playScreen;
 
     public WorldContactListener(TiledMap map, PlayScreen playScreen) {
@@ -40,39 +35,11 @@ public class WorldContactListener implements ContactListener {
             Fixture object = head == fixA ? fixB : fixA;
 
             if (object.getUserData() instanceof Coin) {
-                TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
-                TiledMapTileLayer.Cell cell = layer.getCell(
-                        (int) (object.getBody().getPosition().x * PlatformGame.PPM / 16),
-                        (int) (object.getBody().getPosition().y * PlatformGame.PPM / 16)
-                );
-
-                if (Coin.BLANK_COIN == cell.getTile().getId()) {
-                    PlatformGame.manager.get("audio/sounds/bump.wav", Sound.class).play();
-                } else {
-                    if (Math.random() > 0.5) {
-                        playScreen.spawnItem(new ItemDef(new Vector2(object.getBody().getPosition().x, object.getBody().getPosition().y + 16 / PlatformGame.PPM), Mushroom.class));
-                        PlatformGame.manager.get("audio/sounds/powerup_spawn.wav", Sound.class).play();
-                    } else {
-                        PlatformGame.manager.get("audio/sounds/coin.wav", Sound.class).play();
-                    }
-                    Hud.addScore(20);
-                }
-
-                cell.setTile(tileSet.getTile(Coin.BLANK_COIN));
+                ((Coin) object.getUserData()).onHeadHit(map);
             }
 
             if (object.getUserData() instanceof Brick) {
-                Filter filter = new Filter();
-                filter.categoryBits = PlatformGame.DESTROYED_BIT;
-                ((Brick) object.getUserData()).setFixtureFilter(filter);
-
-                TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
-                TiledMapTileLayer.Cell cell = layer.getCell(
-                        (int) (object.getBody().getPosition().x * PlatformGame.PPM / 16),
-                        (int) (object.getBody().getPosition().y * PlatformGame.PPM / 16)
-                );
-                cell.setTile(null);
-                PlatformGame.manager.get("audio/sounds/breakblock.wav", Sound.class).play();
+                ((Brick) object.getUserData()).onHeadHit(map);
             }
         }
 
@@ -110,6 +77,12 @@ public class WorldContactListener implements ContactListener {
                 ((Item) fixA.getUserData()).use(((Mario) fixB.getUserData()));
             } else {
                 ((Item) fixB.getUserData()).use((Mario) fixA.getUserData());
+            }
+        }
+
+        if (cdef == (PlatformGame.MARIO_HEAD_BIT | PlatformGame.BRICK_BIT) || cdef == (PlatformGame.MARIO_HEAD_BIT | PlatformGame.COIN_BIT)) {
+            if (PlatformGame.MARIO_HEAD_BIT == fixA.getFilterData().categoryBits) {
+
             }
         }
     }

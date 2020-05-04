@@ -3,8 +3,10 @@ package pl.psk.gkproject.sprites;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.PlatformGame;
+import pl.psk.gkproject.screens.PlayScreen;
 
 public abstract class AbstractTiledSprite {
+    protected PlayScreen playScreen;
     protected final World world;
     protected final Rectangle rectangle;
     protected final BodyDef bodyDef = new BodyDef();
@@ -13,7 +15,8 @@ public abstract class AbstractTiledSprite {
     protected final Body body;
     protected Fixture fixture;
 
-    public AbstractTiledSprite(World world, Rectangle rectangle) {
+    public AbstractTiledSprite(PlayScreen playScreen, World world, Rectangle rectangle) {
+        this.playScreen = playScreen;
         this.world = world;
         this.rectangle = rectangle;
 

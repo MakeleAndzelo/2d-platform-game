@@ -26,7 +26,6 @@ import pl.psk.gkproject.items.Mushroom;
 import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.sprites.*;
 
-import java.util.PriorityQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class PlayScreen implements Screen {
@@ -58,19 +57,19 @@ public class PlayScreen implements Screen {
         world.setContactListener(new WorldContactListener(map, this));
 
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
-            new Ground(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
+            new Ground(this, world, ((RectangleMapObject) object).getRectangle()).makeFixture();
         }
 
         for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
-            new Pipe(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
+            new Pipe(this, world, ((RectangleMapObject) object).getRectangle()).makeFixture();
         }
 
         for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
-            new Brick(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
+            new Brick(this, world, ((RectangleMapObject) object).getRectangle()).makeFixture();
         }
 
         for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
-            new Coin(world, ((RectangleMapObject) object).getRectangle()).makeFixture();
+            new Coin(this, world, ((RectangleMapObject) object).getRectangle()).makeFixture();
         }
 
         for (MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {

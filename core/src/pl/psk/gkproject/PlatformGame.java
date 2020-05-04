@@ -23,6 +23,7 @@ public class PlatformGame extends Game {
 	public static final short ENEMY_BIT_HEAD = 128;
 	public static final short ITEM_BIT = 256;
 	public static final short MARIO_HEAD_BIT = 512;
+	public static final short NOTHING_BIT = 1024;
 
 	SpriteBatch batch;
 

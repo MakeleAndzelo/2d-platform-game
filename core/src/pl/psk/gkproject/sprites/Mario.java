@@ -1,5 +1,6 @@
 package pl.psk.gkproject.sprites;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -11,17 +12,18 @@ import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.screens.PlayScreen;
 
 public class Mario extends Sprite {
-    public enum State {FALLING, JUMPING, STANDING, RUNNING, GROWING};
+    public enum State {FALLING, JUMPING, STANDING, RUNNING, DEAD};
     public State currentState;
     public State previousState;
     private Animation marioRun;
-    private Animation marioJump;
+    private TextureRegion marioJump;
     private float stateTimer;
     private boolean runningRight;
-    private boolean runGrowAnimation;
     public World world;
     public Body body;
     private TextureRegion marioStand;
+    private TextureRegion marioDead;
+    private boolean marioIsDead = false;
 
     public Mario(World world, PlayScreen screen) {
         super(screen.getAtlas().findRegion("little_mario"));
@@ -34,17 +36,16 @@ public class Mario extends Sprite {
         stateTimer = 0;
         runningRight = true;
 
+        marioDead = new TextureRegion(screen.getAtlas().findRegion(("little_mario")), 96, 0, 16, 16);
+        marioJump = new TextureRegion(screen.getAtlas().findRegion(("little_mario")), 80, 0, 16, 16);
+
+
         Array<TextureRegion> frames = new Array<>();
         for (int i = 1; i < 4; i++) {
             frames.add(new TextureRegion(getTexture(), i * 16, 0, 16, 16));
         }
         marioRun = new Animation(0.1f, frames);
         frames.clear();
-
-        for (int i = 4; i < 6; i++) {
-            frames.add(new TextureRegion(getTexture(), i * 16, 0, 16, 16));
-        }
-        marioJump = new Animation(0.1f, frames);
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.position.set(32 / PlatformGame.PPM, 32 / PlatformGame.PPM);
@@ -81,8 +82,11 @@ public class Mario extends Sprite {
         TextureRegion region;
 
         switch (currentState) {
+            case DEAD:
+                region = marioDead;
+                break;
             case JUMPING:
-                region = (TextureRegion) marioJump.getKeyFrame(stateTimer);
+                region = marioJump;
                 break;
             case RUNNING:
                 region = (TextureRegion) marioRun.getKeyFrame(stateTimer, true);
@@ -110,8 +114,8 @@ public class Mario extends Sprite {
     }
 
     public State getState() {
-        if (runGrowAnimation) {
-            return State.GROWING;
+        if (marioIsDead) {
+            return State.DEAD;
         }
 
         if (body.getLinearVelocity().y > 0 || (body.getLinearVelocity().y < 0 && previousState == State.JUMPING)) {
@@ -130,6 +134,24 @@ public class Mario extends Sprite {
     }
 
     public void hit() {
+        PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class).stop();
         PlatformGame.manager.get("audio/sounds/mariodie.wav", Sound.class).play();
+        marioIsDead = true;
+        Filter filter = new Filter();
+        filter.maskBits = PlatformGame.NOTHING_BIT;
+
+        for (Fixture fixture : body.getFixtureList()) {
+            fixture.setFilterData(filter);
+        }
+
+        body.applyLinearImpulse(new Vector2(0, 4f), body.getWorldCenter(), true);
+    }
+
+    public boolean isMarioIsDead() {
+        return marioIsDead;
+    }
+
+    public float getStateTimer() {
+        return stateTimer;
     }
 }

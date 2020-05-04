@@ -99,15 +99,17 @@ public class PlayScreen implements Screen {
     }
 
     public void handleInput(float dt) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && Mario.State.JUMPING != player.currentState) {
-            player.body.applyLinearImpulse(new Vector2(0, 4), player.body.getWorldCenter(), true);
-        }
+        if (Mario.State.DEAD != player.currentState) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && Mario.State.JUMPING != player.currentState) {
+                player.body.applyLinearImpulse(new Vector2(0, 4), player.body.getWorldCenter(), true);
+            }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.body.getLinearVelocity().x <= 2) {
-            player.body.applyLinearImpulse(new Vector2(0.1f, 0), player.body.getWorldCenter(), true);
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.body.getLinearVelocity().x >= -2) {
-            player.body.applyLinearImpulse(new Vector2(-0.1f, 0), player.body.getWorldCenter(), true);
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.body.getLinearVelocity().x <= 2) {
+                player.body.applyLinearImpulse(new Vector2(0.1f, 0), player.body.getWorldCenter(), true);
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.body.getLinearVelocity().x >= -2) {
+                player.body.applyLinearImpulse(new Vector2(-0.1f, 0), player.body.getWorldCenter(), true);
+            }
         }
     }
 
@@ -125,6 +127,10 @@ public class PlayScreen implements Screen {
         }
     }
 
+    public boolean gameOver() {
+        return Mario.State.DEAD == player.currentState && 3 < player.getStateTimer();
+    }
+
     public void update(float dt) {
         handleInput(dt);
         handleSpawningItems();
@@ -138,7 +144,11 @@ public class PlayScreen implements Screen {
             item.update(dt);
         }
         world.step(1 / 60f, 6, 2);
-        gameCamera.position.x = player.body.getPosition().x;
+
+        if (Mario.State.DEAD != player.currentState) {
+            gameCamera.position.x = player.body.getPosition().x;
+        }
+
         gameCamera.update();
         renderer.setView(gameCamera);
     }
@@ -166,6 +176,11 @@ public class PlayScreen implements Screen {
             item.draw(game.getBatch());
         }
         game.getBatch().end();
+
+        if (gameOver()) {
+            game.setScreen(new GameOverScreen(game));
+            dispose();
+        }
     }
 
     @Override

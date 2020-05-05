@@ -72,9 +72,9 @@ public class WorldContactListener implements ContactListener {
 
         if (cdef == (PlatformGame.MARIO_BIT | PlatformGame.ENEMY_BIT)) {
             if (PlatformGame.MARIO_BIT == fixA.getFilterData().categoryBits) {
-                ((Mario) fixA.getUserData()).hit();
+                ((Mario) fixA.getUserData()).die();
             } else {
-                ((Mario) fixB.getUserData()).hit();
+                ((Mario) fixB.getUserData()).die();
             }
         }
     }

@@ -107,7 +107,7 @@ public class PlayScreen implements Screen {
             if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.body.getLinearVelocity().x <= 2) {
                 player.body.applyLinearImpulse(new Vector2(0.1f, 0), player.body.getWorldCenter(), true);
             }
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.body.getLinearVelocity().x >= -2) {
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.body.getLinearVelocity().x >= -2 && 0 < player.body.getPosition().x) {
                 player.body.applyLinearImpulse(new Vector2(-0.1f, 0), player.body.getWorldCenter(), true);
             }
         }
@@ -179,6 +179,11 @@ public class PlayScreen implements Screen {
 
         if (gameOver()) {
             game.setScreen(new GameOverScreen(game));
+            dispose();
+        }
+
+        if (player.isMarioWon()) {
+            game.setScreen(new WinScreen(game));
             dispose();
         }
     }

@@ -15,7 +15,7 @@ public class Mushroom extends Item {
     public Mushroom(PlayScreen playScreen, float x, float y) {
         super(playScreen, x, y);
         setRegion(playScreen.getAtlas().findRegion("mushroom"), 0, 0, 16, 16);
-        velocity = new Vector2(.7f, 0);
+        velocity = new Vector2(0.7f, -0.5f);
     }
 
     @Override

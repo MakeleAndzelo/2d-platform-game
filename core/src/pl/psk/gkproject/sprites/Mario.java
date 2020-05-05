@@ -1,5 +1,6 @@
 package pl.psk.gkproject.sprites;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -24,6 +25,7 @@ public class Mario extends Sprite {
     private TextureRegion marioStand;
     private TextureRegion marioDead;
     private boolean marioIsDead = false;
+    private boolean marioWon = false;
 
     public Mario(World world, PlayScreen screen) {
         super(screen.getAtlas().findRegion("little_mario"));
@@ -73,6 +75,15 @@ public class Mario extends Sprite {
 
     public void update(float dt) {
         setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2);
+
+        if (0 > body.getPosition().y && !isMarioIsDead()) {
+            die();
+        }
+
+        if (33 < body.getPosition().x) {
+            marioWon = true;
+        }
+
         setRegion(getFrame(dt));
     }
 
@@ -133,7 +144,7 @@ public class Mario extends Sprite {
         return State.STANDING;
     }
 
-    public void hit() {
+    public void die() {
         PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class).stop();
         PlatformGame.manager.get("audio/sounds/mariodie.wav", Sound.class).play();
         marioIsDead = true;
@@ -153,5 +164,9 @@ public class Mario extends Sprite {
 
     public float getStateTimer() {
         return stateTimer;
+    }
+
+    public boolean isMarioWon() {
+        return marioWon;
     }
 }

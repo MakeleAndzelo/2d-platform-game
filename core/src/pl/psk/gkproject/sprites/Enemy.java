@@ -12,7 +12,7 @@ public abstract class Enemy extends Sprite {
     public Body body;
     protected boolean setToDestroy = false;
     protected boolean destroyed = false;
-    public Vector2 velocity = new Vector2(1, 0);
+    public Vector2 velocity = new Vector2(0.7f, -0.5f);
 
     public Enemy(PlayScreen playScreen, float x, float y) {
         screen = playScreen;

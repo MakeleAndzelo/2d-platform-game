@@ -31,7 +31,7 @@ public class WinScreen implements Screen {
         table.center();
         table.setFillParent(true);
 
-        Label gameOverLabel = new Label("WYGRALEŚ", font);
+        Label gameOverLabel = new Label("WYGRALES", font);
         table.add(gameOverLabel).expandX();
 
         stage.addActor(table);

@@ -36,7 +36,7 @@ public class PlayScreen implements Screen {
     private final OrthogonalTiledMapRenderer renderer;
 
     private World world = new World(new Vector2(0, -10), true);
-    private TiledMap map = new TmxMapLoader().load("level1.tmx");
+    private TiledMap map;
     private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer();
     private Hud hud;
     private Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
@@ -47,9 +47,10 @@ public class PlayScreen implements Screen {
     private Array<Item> items = new Array<>();
     private LinkedBlockingQueue<ItemDef> itemsToSpawn = new LinkedBlockingQueue<>();
 
-    public PlayScreen(PlatformGame game) {
+    public PlayScreen(PlatformGame game, String levelName) {
         this.game = game;
         hud = new Hud(game.getBatch());
+        map = new TmxMapLoader().load(levelName);
         gameViewport = new FitViewport(PlatformGame.V_WIDTH / PlatformGame.PPM, PlatformGame.V_HEIGHT / PlatformGame.PPM, gameCamera);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
@@ -183,7 +184,11 @@ public class PlayScreen implements Screen {
         }
 
         if (player.isMarioWon()) {
-            game.setScreen(new WinScreen(game));
+            if (0 == game.getLevels().size()) {
+                game.setScreen(new WinScreen(game));
+            } else {
+                game.setScreen(new PlayScreen(game, game.getLevels().poll()));
+            }
             dispose();
         }
     }

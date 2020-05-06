@@ -8,6 +8,10 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import pl.psk.gkproject.screens.MenuScreen;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class PlatformGame extends Game {
 	public static final int V_WIDTH = 400;
 	public static final int V_HEIGHT = 208;
@@ -24,6 +28,8 @@ public class PlatformGame extends Game {
 	public static final short ITEM_BIT = 256;
 	public static final short MARIO_HEAD_BIT = 512;
 	public static final short NOTHING_BIT = 1024;
+
+	private Queue<String> levels = new LinkedList<>(Arrays.asList("level1.tmx", "level2.tmx", "level3.tmx"));
 
 	SpriteBatch batch;
 
@@ -58,5 +64,9 @@ public class PlatformGame extends Game {
 		super.dispose();
 		manager.dispose();
 		batch.dispose();
+	}
+
+	public Queue<String> getLevels() {
+		return levels;
 	}
 }

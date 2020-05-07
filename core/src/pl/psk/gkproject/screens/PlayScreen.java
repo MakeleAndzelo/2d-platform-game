@@ -37,8 +37,8 @@ public class PlayScreen implements Screen {
 
     private World world = new World(new Vector2(0, -10), true);
     private TiledMap map;
+    private String currentLevel;
     private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer();
-    private Hud hud;
     private Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
     private Array<Goomba> goombas = new Array<>();
 
@@ -49,8 +49,8 @@ public class PlayScreen implements Screen {
 
     public PlayScreen(PlatformGame game, String levelName) {
         this.game = game;
-        hud = new Hud(game.getBatch());
         map = new TmxMapLoader().load(levelName);
+        currentLevel = levelName;
         gameViewport = new FitViewport(PlatformGame.V_WIDTH / PlatformGame.PPM, PlatformGame.V_HEIGHT / PlatformGame.PPM, gameCamera);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
@@ -164,8 +164,8 @@ public class PlayScreen implements Screen {
         renderer.render();
 
         box2DDebugRenderer.render(world, gameCamera.combined);
-        game.getBatch().setProjectionMatrix(hud.stage.getCamera().combined);
-        hud.stage.draw();
+        game.getBatch().setProjectionMatrix(game.getHud().stage.getCamera().combined);
+        game.getHud().stage.draw();
         game.getBatch().setProjectionMatrix(gameCamera.combined);
         game.getBatch().begin();
         player.draw(game.getBatch());
@@ -187,6 +187,9 @@ public class PlayScreen implements Screen {
             if (0 == game.getLevels().size()) {
                 game.setScreen(new WinScreen(game));
             } else {
+                game.getPreferences().putString("level", currentLevel);
+                game.getPreferences().putInteger("score", Hud.score);
+                game.getPreferences().flush();
                 game.setScreen(new PlayScreen(game, game.getLevels().poll()));
             }
             dispose();

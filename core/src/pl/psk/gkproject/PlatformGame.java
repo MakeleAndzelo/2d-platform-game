@@ -2,10 +2,13 @@ package pl.psk.gkproject;
 
 import com.badlogic.gdx.Game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.screens.MenuScreen;
 
 import java.util.Arrays;
@@ -31,6 +34,10 @@ public class PlatformGame extends Game {
 
 	private Queue<String> levels = new LinkedList<>(Arrays.asList("level1.tmx", "level2.tmx", "level3.tmx"));
 
+	private Hud hud;
+
+	Preferences preferences;
+
 	SpriteBatch batch;
 
 	public static AssetManager manager = new AssetManager();
@@ -46,7 +53,10 @@ public class PlatformGame extends Game {
 		manager.load("audio/sounds/stomp.wav", Sound.class);
 		manager.load("audio/sounds/mariodie.wav", Sound.class);
 		manager.finishLoading();
+		preferences = Gdx.app.getPreferences("game_state");
+		Gdx.app.log(preferences.getString("score"), "");
 		batch = new SpriteBatch();
+		hud = new Hud(batch);
 		setScreen(new MenuScreen(this));
 	}
 
@@ -68,5 +78,13 @@ public class PlatformGame extends Game {
 
 	public Queue<String> getLevels() {
 		return levels;
+	}
+
+	public Hud getHud() {
+		return hud;
+	}
+
+	public Preferences getPreferences() {
+		return preferences;
 	}
 }

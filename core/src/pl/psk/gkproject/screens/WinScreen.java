@@ -27,6 +27,8 @@ public class WinScreen implements Screen {
 
         Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
 
+        ((PlatformGame) game).getPreferences().clear();
+
         Table table = new Table();
         table.center();
         table.setFillParent(true);

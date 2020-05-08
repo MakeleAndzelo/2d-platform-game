@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import pl.psk.gkproject.PlatformGame;
+import pl.psk.gkproject.scenes.Hud;
 
 public class MenuScreen implements Screen {
     private final Texture background = new Texture("background.jpg");
@@ -25,7 +26,17 @@ public class MenuScreen implements Screen {
         if (240 <= Gdx.input.getX() && 400 >= Gdx.input.getX()) {
             if (180 <= Gdx.input.getY() && 230 > Gdx.input.getY()) {
                 if (Gdx.input.isTouched()) {
-                    Gdx.app.log("resume", "");
+                    Hud.setScore(game.getPreferences().getInteger("score"));
+
+                    String savedLevel = game.getPreferences().getString("level");
+
+                    String level;
+                    do {
+                        level = game.getLevels().poll();
+                    } while (!savedLevel.equals(level));
+
+                    game.setScreen(new PlayScreen(game, game.getLevels().poll()));
+                    dispose();
                 }
             }
 

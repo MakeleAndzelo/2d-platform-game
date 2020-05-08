@@ -40,4 +40,9 @@ public class Hud {
         score += value;
         scoreLabel.setText(String.format("%06d", score));
     }
+
+    public static void setScore(int newScore) {
+        score = newScore;
+        scoreLabel.setText(String.format("%06d", score));
+    }
 }

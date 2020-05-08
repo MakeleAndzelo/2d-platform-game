@@ -54,7 +54,6 @@ public class PlatformGame extends Game {
 		manager.load("audio/sounds/mariodie.wav", Sound.class);
 		manager.finishLoading();
 		preferences = Gdx.app.getPreferences("game_state");
-		Gdx.app.log(preferences.getString("score"), "");
 		batch = new SpriteBatch();
 		hud = new Hud(batch);
 		setScreen(new MenuScreen(this));

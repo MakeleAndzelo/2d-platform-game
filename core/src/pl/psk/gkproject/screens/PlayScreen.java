@@ -38,7 +38,7 @@ public class PlayScreen implements Screen {
     private World world = new World(new Vector2(0, -10), true);
     private TiledMap map;
     private String currentLevel;
-    private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer();
+    private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer(false, false, false, false, false, false);
     private Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
     private Array<Goomba> goombas = new Array<>();
 

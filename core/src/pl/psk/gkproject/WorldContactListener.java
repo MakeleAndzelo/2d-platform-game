@@ -33,7 +33,7 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
-        if (cdef == (PlatformGame.ENEMY_BIT | PlatformGame.OBJECT_BIT)) {
+        if (cdef == (PlatformGame.ENEMY_BIT | PlatformGame.OBJECT_BIT) || cdef == (PlatformGame.ENEMY_BIT | PlatformGame.GROUND_BIT)) {
             if (PlatformGame.ENEMY_BIT == fixA.getFilterData().categoryBits) {
                 ((Enemy) fixA.getUserData()).reverseVelocity(true, false);
             } else {

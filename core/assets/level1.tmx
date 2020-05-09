@@ -118,7 +118,7 @@
  </layer>
  <layer id="2" name="Graphic Layer" width="240" height="13">
   <data encoding="base64" compression="zlib">
-   eJztmEtOwzAQhp3seLQIWHXrJdAiAQWpN+MgwJpLADlbN0zUjjqdemK7dpqHJtInEmds/zP2nzRUpTHVlvqoSkVRhgj3Lz3W5Q7p+IB7n8BXggYcI3WclLlT5x16Dqp/w6w4be4poC/RoxW55h7mvsbjB85/gb+Aukq1xTGaxmlrP/j0jyEH1R/OqojX3xXoQ34tedl10L5Na5Nzb6Tuh2PHG2oOqj8c9G/uPdQG3L9Veehf2ubyMh1rZk6juw/UpWhCik2pUWxfSQ/em21x3R8b1mzwxa0G+PuZelHyaoh/u85HUVxYM17/uq75/61omxSn/lX6iDXj9a+ijBlr8vn30uzoOq9U+HdYSb6j2vyeOoPanheH3+ypsaHkyE/qWwrj0lpL5yHjx8yJWOM+92HN8X25tmPrjRo4vn6SfyfQdwpcJe4n3JcpY/SN+rf3d0Bud3DvnnjyJiK2rzTl0CXW4UHrqCXXbx1ekfq2rd2FT7/Lv/U7d05IeQfjvux6fWP2Xegzx5cb9eQ1/H0CboV4n3/74BtfDjnXIAbb4EHaxvVbwSuuNqo/9Z1E+3MNkiap/i7/Trfv3oXZnceuwQXEXQKTE/t3CXO9Et6K5n23JHHYFvrMoXFLNuea3Mf5nxt0YGwO/Tlqx8cLySHnGoTC9zvOydu5/iav8Haun++PWP3Y36VB0kT1v7BnkOTfR+Lfd88acB4gZg4sMvi3fi0p++SqjdY5f02Vff4B+21fyA==
+   eJztmEtOwzAQht3sgLYIWHXrJdAiAYWzcRBgzSWAnK0bHJFRp1OPH7FTJ9FE+tTEz3/G/uumdaVU3dJcdSUIwhih/sXXrtrDXe+m7sPwmaABxkgdJ2Xu1HnHHoPoHx/gS/BojZ6ph6mv4fo29z+G34C8crmFMVzj9LUffPqnEIPo71d/KcCH9Jnzsu3CfV1rkzO3qfuh63hjjUH0l99DfUD9W1fH/sVlNi/jsVbqNLqHQJMKF1zblBzF9uX0QN2qxVY/NbT6p7SOnFA/1hXv1RD/lo5HEGxoNV3/2p7p/1a4jGsn/hWGiFbT9a8gTBmt8vl3rvaUjisV+h5WofeoPt+nzmZKnc+O39lT24aSIz6ub8WMi3PN3YeMHzMnoJX93odW3ftSbV3zDRooXddtYfouDZeJ+wn2ZcoYQ6P57f0VENutqbtDnryOaDtUXDGURFs8qC25pPq1xStc37612+iS/+bMXSNSzmDYl6XXN2bfhX7n+GLDnrwyn4+GG6a9z79D8I0vhpxrEIN2eBCXUf2a8YqtDOtPPZNwf6qB0xST/2V79m7U/j52DS5Mu7lhcWL/bs1cL4jXmTvuLWoHZaHfObjdlsy5Q/Uw/5NDB7TNoT9H7uh4ITHkXINQ6H6HOWk51e/yCi2n+un+iNUP/W0aOE1Y/7Mn/+DZB+TfN88aUO5Nm7Vhk8G/zbEkHJIrN5Ln/DkVDvkDHWNlgg==
   </data>
  </layer>
  <objectgroup id="3" name="Ground">
@@ -151,7 +151,6 @@
   <object id="51" x="2944" y="144" width="16" height="48"/>
   <object id="52" x="2928" y="160" width="16" height="32"/>
   <object id="53" x="2912" y="176" width="16" height="16"/>
-  <object id="54" x="3184" y="176" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="Pipes">
   <object id="61" x="3568" y="128" width="32" height="64"/>

@@ -29,6 +29,7 @@ public class Mario extends Sprite {
     private TextureRegion bigMarioJump;
     private Animation<TextureRegion> bigMarioRun;
     private boolean marioIsBig = false;
+    private boolean timeToDefineBigMario = false;
 
     public Mario(World world, PlayScreen screen) {
         super(screen.getAtlas().findRegion("little_mario"));
@@ -87,7 +88,11 @@ public class Mario extends Sprite {
     }
 
     public void update(float dt) {
-        setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2);
+        if (marioIsBig) {
+            setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2 - 6 / PlatformGame.PPM);
+        } else {
+            setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2);
+        }
 
         if (0 > body.getPosition().y && !isMarioIsDead()) {
             die();
@@ -98,6 +103,40 @@ public class Mario extends Sprite {
         }
 
         setRegion(getFrame(dt));
+        
+        if (timeToDefineBigMario) {
+            defineBigMario();
+        }
+    }
+
+    private void defineBigMario() {
+        Vector2 currentPosition = body.getPosition();
+        world.destroyBody(body);
+
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.position.set(currentPosition.add(0, 10 / PlatformGame.PPM));
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        body = world.createBody(bodyDef);
+
+        FixtureDef fixtureDef = new FixtureDef();
+        CircleShape shape = new CircleShape();
+        shape.setRadius(6 / PlatformGame.PPM);
+        fixtureDef.filter.categoryBits = PlatformGame.MARIO_BIT;
+        fixtureDef.filter.maskBits = PlatformGame.GROUND_BIT | PlatformGame.COIN_BIT | PlatformGame.BRICK_BIT | PlatformGame.ENEMY_BIT | PlatformGame.OBJECT_BIT | PlatformGame.ENEMY_BIT_HEAD | PlatformGame.ITEM_BIT;
+
+        fixtureDef.shape = shape;
+        body.createFixture(fixtureDef).setUserData(this);
+        shape.setPosition(new Vector2(0, -14 / PlatformGame.PPM));
+        body.createFixture(fixtureDef).setUserData(this);
+
+        EdgeShape head = new EdgeShape();
+        head.set(new Vector2(-2 / PlatformGame.PPM, 5 / PlatformGame.PPM), new Vector2(2 / PlatformGame.PPM, 5 / PlatformGame.PPM));
+        fixtureDef.filter.categoryBits = PlatformGame.MARIO_HEAD_BIT;
+        fixtureDef.shape = head;
+        fixtureDef.isSensor = true;
+
+        body.createFixture(fixtureDef).setUserData(this);
+        timeToDefineBigMario = false;
     }
 
     private TextureRegion getFrame(float dt) {
@@ -185,6 +224,7 @@ public class Mario extends Sprite {
 
     public void grow() {
         marioIsBig = true;
+        timeToDefineBigMario = true;
         setBounds(getX(), getY(), getWidth(), getHeight() * 2);
         PlatformGame.manager.get("audio/sounds/powerup.wav", Sound.class).play();
     }

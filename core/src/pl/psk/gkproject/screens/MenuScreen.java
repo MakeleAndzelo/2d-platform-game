@@ -26,10 +26,9 @@ public class MenuScreen implements Screen {
         if (240 <= Gdx.input.getX() && 400 >= Gdx.input.getX()) {
             if (180 <= Gdx.input.getY() && 230 > Gdx.input.getY()) {
                 if (Gdx.input.isTouched()) {
+
                     Hud.setScore(game.getPreferences().getInteger("score"));
-
                     String savedLevel = game.getPreferences().getString("level");
-
                     String level;
                     do {
                         level = game.getLevels().poll();
@@ -37,6 +36,7 @@ public class MenuScreen implements Screen {
 
                     game.setScreen(new PlayScreen(game, game.getLevels().poll()));
                     dispose();
+
                 }
             }
 

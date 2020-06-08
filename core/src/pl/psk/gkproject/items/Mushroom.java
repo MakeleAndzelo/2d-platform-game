@@ -41,6 +41,9 @@ public class Mushroom extends Item {
 
     @Override
     public void use(Mario mario) {
+        if (!mario.isMarioIsBig()) {
+            mario.grow();
+        }
         Hud.addScore(MUSHROOM_SCORE_VALUE);
         destroy();
     }

@@ -52,8 +52,13 @@ public class PlatformGame extends Game {
 		manager.load("audio/sounds/powerup.wav", Sound.class);
 		manager.load("audio/sounds/stomp.wav", Sound.class);
 		manager.load("audio/sounds/mariodie.wav", Sound.class);
+		manager.load("audio/sounds/mariodie.wav", Sound.class);
 		manager.finishLoading();
+
+
 		preferences = Gdx.app.getPreferences("game_state");
+
+
 		batch = new SpriteBatch();
 		hud = new Hud(batch);
 		setScreen(new MenuScreen(this));

@@ -28,6 +28,7 @@ import pl.psk.gkproject.sprites.*;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
+
 public class PlayScreen implements Screen {
     private final PlatformGame game;
     private final TextureAtlas atlas = new TextureAtlas("platform_game.pack");
@@ -35,21 +36,19 @@ public class PlayScreen implements Screen {
     private final Viewport gameViewport;
     private final OrthogonalTiledMapRenderer renderer;
 
-    private World world = new World(new Vector2(0, -10), true);
-    private TiledMap map;
-    private String currentLevel;
-    private Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer(false, false, false, false, false, false);
-    private Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
-    private Array<Goomba> goombas = new Array<>();
+    private final World world = new World(new Vector2(0, -10), true);
+    private final String currentLevel;
+    private final Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer(false, false, false, false, false, false);
+    private final Array<Goomba> goombas = new Array<>();
 
     private final Mario player;
 
-    private Array<Item> items = new Array<>();
-    private LinkedBlockingQueue<ItemDef> itemsToSpawn = new LinkedBlockingQueue<>();
+    private final Array<Item> items = new Array<>();
+    private final LinkedBlockingQueue<ItemDef> itemsToSpawn = new LinkedBlockingQueue<>();
 
     public PlayScreen(PlatformGame game, String levelName) {
         this.game = game;
-        map = new TmxMapLoader().load(levelName);
+        TiledMap map = new TmxMapLoader().load(levelName);
         currentLevel = levelName;
         gameViewport = new FitViewport(PlatformGame.V_WIDTH / PlatformGame.PPM, PlatformGame.V_HEIGHT / PlatformGame.PPM, gameCamera);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PlatformGame.PPM);
@@ -78,6 +77,7 @@ public class PlayScreen implements Screen {
             goombas.add(new Goomba(this, rectangle.getX() / PlatformGame.PPM, rectangle.getY() / PlatformGame.PPM));
         }
 
+        Music music = PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
         music.setVolume(0.02f);
         music.play();
@@ -85,10 +85,6 @@ public class PlayScreen implements Screen {
 
     public World getWorld() {
         return world;
-    }
-
-    public TiledMap getMap() {
-        return map;
     }
 
     public TextureAtlas getAtlas() {
@@ -99,7 +95,7 @@ public class PlayScreen implements Screen {
     public void show() {
     }
 
-    public void handleInput(float dt) {
+    public void handleInput() {
         if (Mario.State.DEAD != player.currentState) {
             if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && Mario.State.JUMPING != player.currentState) {
                 player.body.applyLinearImpulse(new Vector2(0, 4), player.body.getWorldCenter(), true);
@@ -133,7 +129,7 @@ public class PlayScreen implements Screen {
     }
 
     public void update(float dt) {
-        handleInput(dt);
+        handleInput();
         handleSpawningItems();
 
         player.update(dt);

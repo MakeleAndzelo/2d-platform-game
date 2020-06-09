@@ -1,20 +1,34 @@
 package pl.psk.gkproject;
 
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.items.Item;
 import pl.psk.gkproject.sprites.*;
 
+/**
+ * Klasa Odpowiedzialna za kolizję w grze.
+ */
 public class WorldContactListener implements ContactListener {
+    /**
+     * Mapa gry, z aktualnie granym poziomem.
+     */
     private final TiledMap map;
-    public static TiledMapTileSet tileSet;
 
+    /**
+     * Konstruktor klasy
+     *
+     * @param map Mapa gry, z aktualnie granym poziomem.
+     */
     public WorldContactListener(TiledMap map) {
         this.map = map;
-        tileSet = map.getTileSets().getTileSet("tileset_gutter");
     }
 
+    /**
+     * Metoda, która jest wywoływana podczas kolizji z różnymi obiektami.
+     * Sprawdzane są bity poszczególnych obiektów oraz wykonywane odpowiednie interakcje.
+     *
+     * @param contact obiekt przechowujący informację na temat kolizji.
+     */
     @Override
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
@@ -82,7 +96,6 @@ public class WorldContactListener implements ContactListener {
 
     @Override
     public void preSolve(Contact contact, Manifold oldManifold) {
-
     }
 
     @Override

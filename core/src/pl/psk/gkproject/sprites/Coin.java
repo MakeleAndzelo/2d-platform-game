@@ -50,6 +50,6 @@ public class Coin extends AbstractTiledSprite implements InteractiveSprite {
             Hud.addScore(20);
         }
 
-        cell.setTile(WorldContactListener.tileSet.getTile(Coin.BLANK_COIN));
+        cell.setTile(map.getTileSets().getTileSet("tileset_gutter").getTile(Coin.BLANK_COIN));
     }
 }

@@ -1,0 +1,125 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+scenes.\+Hud}
+\label{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud}\index{pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a16f529abcd60e47a5c2534909fdeb979}\label{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a16f529abcd60e47a5c2534909fdeb979}} 
+{\bfseries Hud} (Sprite\+Batch sprite\+Batch)
+\end{DoxyCompactItemize}
+\doxysubsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_aa19a5fb7c7f5133d4a8d5db5f4882070}{add\+Score}} (int value)
+\item 
+static void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a579877932b952b3078b64d3baa3e6b4b}{set\+Score}} (int new\+Score)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+Stage \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a6926803c6a315ab72e5f66563152e8ae}{stage}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Statyczne atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static Integer \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a2ff0d1f8ff874b475c56e8cfb4434d2a}{score}}
+\item 
+static Label \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a3d378eaf0018bfbe76eabebe8771272e}{score\+Label}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa hudu gry. Jest odpowiedzialna za wynik w grze 
+
+Definicja w linii 17 pliku Hud.\+java.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_aa19a5fb7c7f5133d4a8d5db5f4882070}\label{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_aa19a5fb7c7f5133d4a8d5db5f4882070}} 
+\index{pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}!addScore@{addScore}}
+\index{addScore@{addScore}!pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}}
+\doxysubsubsection{\texorpdfstring{addScore()}{addScore()}}
+{\footnotesize\ttfamily static void pl.\+psk.\+gkproject.\+scenes.\+Hud.\+add\+Score (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Dodanie puntków do wyniku gracza
+
+
+\begin{DoxyParams}{Parametry}
+{\em value} & ilość punktów do dodania \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 56 pliku Hud.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56                                            \{}
+\DoxyCodeLine{57         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a2ff0d1f8ff874b475c56e8cfb4434d2a}{score}} += value;}
+\DoxyCodeLine{58         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a3d378eaf0018bfbe76eabebe8771272e}{scoreLabel}}.setText(String.format(\textcolor{stringliteral}{"\%06d"}, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a2ff0d1f8ff874b475c56e8cfb4434d2a}{score}}));}
+\DoxyCodeLine{59     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a579877932b952b3078b64d3baa3e6b4b}\label{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a579877932b952b3078b64d3baa3e6b4b}} 
+\index{pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}!setScore@{setScore}}
+\index{setScore@{setScore}!pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}}
+\doxysubsubsection{\texorpdfstring{setScore()}{setScore()}}
+{\footnotesize\ttfamily static void pl.\+psk.\+gkproject.\+scenes.\+Hud.\+set\+Score (\begin{DoxyParamCaption}\item[{int}]{new\+Score }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Ustawienie wyniku gracza. Przydaje się do wczytania gry.
+
+
+\begin{DoxyParams}{Parametry}
+{\em new\+Score} & ilość punktów do ustawienia \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 66 pliku Hud.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                                               \{}
+\DoxyCodeLine{67         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a2ff0d1f8ff874b475c56e8cfb4434d2a}{score}} = newScore;}
+\DoxyCodeLine{68         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a3d378eaf0018bfbe76eabebe8771272e}{scoreLabel}}.setText(String.format(\textcolor{stringliteral}{"\%06d"}, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a2ff0d1f8ff874b475c56e8cfb4434d2a}{score}}));}
+\DoxyCodeLine{69     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a2ff0d1f8ff874b475c56e8cfb4434d2a}\label{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a2ff0d1f8ff874b475c56e8cfb4434d2a}} 
+\index{pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}!score@{score}}
+\index{score@{score}!pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily Integer pl.\+psk.\+gkproject.\+scenes.\+Hud.\+score\hspace{0.3cm}{\ttfamily [static]}}
+
+Liczba punktów uzyskanych przez gracza. 
+
+Definicja w linii 26 pliku Hud.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a3d378eaf0018bfbe76eabebe8771272e}\label{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a3d378eaf0018bfbe76eabebe8771272e}} 
+\index{pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}!scoreLabel@{scoreLabel}}
+\index{scoreLabel@{scoreLabel}!pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}}
+\doxysubsubsection{\texorpdfstring{scoreLabel}{scoreLabel}}
+{\footnotesize\ttfamily Label pl.\+psk.\+gkproject.\+scenes.\+Hud.\+score\+Label\hspace{0.3cm}{\ttfamily [static]}}
+
+Etykieta dla wyniku gracza 
+
+Definicja w linii 31 pliku Hud.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a6926803c6a315ab72e5f66563152e8ae}\label{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a6926803c6a315ab72e5f66563152e8ae}} 
+\index{pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}!stage@{stage}}
+\index{stage@{stage}!pl.psk.gkproject.scenes.Hud@{pl.psk.gkproject.scenes.Hud}}
+\doxysubsubsection{\texorpdfstring{stage}{stage}}
+{\footnotesize\ttfamily Stage pl.\+psk.\+gkproject.\+scenes.\+Hud.\+stage}
+
+Obiekt sceny, do którego zostanie dodany H\+UD 
+
+Definicja w linii 21 pliku Hud.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/scenes/Hud.\+java\end{DoxyCompactItemize}

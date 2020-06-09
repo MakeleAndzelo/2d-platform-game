@@ -1,0 +1,188 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+sprites.\+Goomba}
+\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba}\index{pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+sprites.\+Goomba\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_ae06d604c60b901afa52a8e5bab9eee04}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_ae06d604c60b901afa52a8e5bab9eee04}} 
+{\bfseries Goomba} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}} play\+Screen, float x, float y)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_a8c36005e69b7a4fc670a6997f73902f0}{update}} (float dt)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_ab705af907301dcd691fb6234ef101402}{draw}} (Batch batch)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_ac013a85d0fa2ff92d2a981df361ce5d3}{hit\+On\+Head}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Metody chronione}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_a09b761f85753c4165b51148af0770155}{define}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Dodatkowe Dziedziczone Składowe}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa konkretnego przeciwnika 
+
+Definicja w linii 19 pliku Goomba.\+java.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_a09b761f85753c4165b51148af0770155}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_a09b761f85753c4165b51148af0770155}} 
+\index{pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}!define@{define}}
+\index{define@{define}!pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}}
+\doxysubsubsection{\texorpdfstring{define()}{define()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Goomba.\+define (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Definiowanie przeciwnika 
+
+Reimplementowana z \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ad92a5f8e0244975768756507f1148389}{pl.\+psk.\+gkproject.\+sprites.\+Enemy}}.
+
+
+
+Definicja w linii 81 pliku Goomba.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                             \{}
+\DoxyCodeLine{82         BodyDef bodyDef = \textcolor{keyword}{new} BodyDef();}
+\DoxyCodeLine{83         bodyDef.position.set(getX(), getY());}
+\DoxyCodeLine{84         bodyDef.type = BodyDef.BodyType.DynamicBody;}
+\DoxyCodeLine{85         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ac3a09756e5c0180a36ed182704cb812a}{body}} = \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ab877d89faa68a4835cb3b04c1b0361de}{world}}.createBody(bodyDef);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         FixtureDef fixtureDef = \textcolor{keyword}{new} FixtureDef();}
+\DoxyCodeLine{88         CircleShape shape = \textcolor{keyword}{new} CircleShape();}
+\DoxyCodeLine{89         shape.setRadius(6 / PlatformGame.PPM);}
+\DoxyCodeLine{90         fixtureDef.filter.categoryBits = PlatformGame.ENEMY\_BIT;}
+\DoxyCodeLine{91         fixtureDef.filter.maskBits = PlatformGame.GROUND\_BIT}
+\DoxyCodeLine{92                 | PlatformGame.COIN\_BIT}
+\DoxyCodeLine{93                 | PlatformGame.BRICK\_BIT}
+\DoxyCodeLine{94                 | PlatformGame.ENEMY\_BIT}
+\DoxyCodeLine{95                 | PlatformGame.OBJECT\_BIT}
+\DoxyCodeLine{96                 | PlatformGame.MARIO\_BIT;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         fixtureDef.shape = shape;}
+\DoxyCodeLine{99         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ac3a09756e5c0180a36ed182704cb812a}{body}}.createFixture(fixtureDef).setUserData(\textcolor{keyword}{this});}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101         PolygonShape head = \textcolor{keyword}{new} PolygonShape();}
+\DoxyCodeLine{102         Vector2[] vertice = \textcolor{keyword}{new} Vector2[4];}
+\DoxyCodeLine{103         vertice[0] = \textcolor{keyword}{new} Vector2(-\/5, 8).scl(1 / PlatformGame.PPM);}
+\DoxyCodeLine{104         vertice[1] = \textcolor{keyword}{new} Vector2(5, 8).scl(1 / PlatformGame.PPM);}
+\DoxyCodeLine{105         vertice[2] = \textcolor{keyword}{new} Vector2(-\/3, 3).scl(1 / PlatformGame.PPM);}
+\DoxyCodeLine{106         vertice[3] = \textcolor{keyword}{new} Vector2(3, 3).scl(1 / PlatformGame.PPM);}
+\DoxyCodeLine{107         head.set(vertice);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109         fixtureDef.shape = head;}
+\DoxyCodeLine{110         fixtureDef.restitution = 0.5f;}
+\DoxyCodeLine{111         fixtureDef.filter.categoryBits = PlatformGame.ENEMY\_BIT\_HEAD;}
+\DoxyCodeLine{112         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ac3a09756e5c0180a36ed182704cb812a}{body}}.createFixture(fixtureDef).setUserData(\textcolor{keyword}{this});}
+\DoxyCodeLine{113     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_ab705af907301dcd691fb6234ef101402}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_ab705af907301dcd691fb6234ef101402}} 
+\index{pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}!draw@{draw}}
+\index{draw@{draw}!pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Goomba.\+draw (\begin{DoxyParamCaption}\item[{Batch}]{batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rysowanie przeciwnika na mapie
+
+
+\begin{DoxyParams}{Parametry}
+{\em batch} & obiekt do rysowania \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 71 pliku Goomba.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71                                   \{}
+\DoxyCodeLine{72         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_a89a8fccdf4ac83c8b83e5691b2cbe3d5}{destroyed}} || stateTime < 1) \{}
+\DoxyCodeLine{73             super.draw(batch);}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_ac013a85d0fa2ff92d2a981df361ce5d3}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_ac013a85d0fa2ff92d2a981df361ce5d3}} 
+\index{pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}!hitOnHead@{hitOnHead}}
+\index{hitOnHead@{hitOnHead}!pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}}
+\doxysubsubsection{\texorpdfstring{hitOnHead()}{hitOnHead()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Goomba.\+hit\+On\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Akcja po uderzeniu przeciwnika w głowę 
+
+Reimplementowana z \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_affca1bfce12ecd43ac49509110c93d79}{pl.\+psk.\+gkproject.\+sprites.\+Enemy}}.
+
+
+
+Definicja w linii 119 pliku Goomba.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119                             \{}
+\DoxyCodeLine{120         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_a4b3795ba42343f960872865eb3c6da84}{setToDestroy}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{121         PlatformGame.manager.get(\textcolor{stringliteral}{"audio/sounds/stomp.wav"}, Sound.class).play();}
+\DoxyCodeLine{122     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_a8c36005e69b7a4fc670a6997f73902f0}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Goomba_a8c36005e69b7a4fc670a6997f73902f0}} 
+\index{pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}!update@{update}}
+\index{update@{update}!pl.psk.gkproject.sprites.Goomba@{pl.psk.gkproject.sprites.Goomba}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Goomba.\+update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Aktualizacja przeciwnika na ekranie
+
+
+\begin{DoxyParams}{Parametry}
+{\em delta\+Time} & czas aktualizacji\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parametry}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplementowana z \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_a6bfc4a9297924a56a1fd94da6163319e}{pl.\+psk.\+gkproject.\+sprites.\+Enemy}}.
+
+
+
+Definicja w linii 48 pliku Goomba.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                                  \{}
+\DoxyCodeLine{49         stateTime += dt;}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_a4b3795ba42343f960872865eb3c6da84}{setToDestroy}} \&\& !\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_a89a8fccdf4ac83c8b83e5691b2cbe3d5}{destroyed}}) \{}
+\DoxyCodeLine{52             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ab877d89faa68a4835cb3b04c1b0361de}{world}}.destroyBody(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ac3a09756e5c0180a36ed182704cb812a}{body}});}
+\DoxyCodeLine{53             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_a89a8fccdf4ac83c8b83e5691b2cbe3d5}{destroyed}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{54             setRegion(\textcolor{keyword}{new} TextureRegion(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ae59d6ea15b33e737cc390dad75796007}{screen}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a80a4f6984ff2f44a5af90dd8c0d9632a}{getAtlas}}().findRegion(\textcolor{stringliteral}{"goomba"}), 32, 0, 16, 16));}
+\DoxyCodeLine{55             stateTime = 0;}
+\DoxyCodeLine{56         \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_a89a8fccdf4ac83c8b83e5691b2cbe3d5}{destroyed}}) \{}
+\DoxyCodeLine{59             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ac3a09756e5c0180a36ed182704cb812a}{body}}.setLinearVelocity(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_a74bf62a9484ab66d2b72329046038463}{velocity}});}
+\DoxyCodeLine{60             setPosition(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ac3a09756e5c0180a36ed182704cb812a}{body}}.getPosition().x -\/ getWidth() / 2, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_ac3a09756e5c0180a36ed182704cb812a}{body}}.getPosition().y / 2);}
+\DoxyCodeLine{61             setRegion(walkAnimation.getKeyFrame(stateTime, \textcolor{keyword}{true}));}
+\DoxyCodeLine{62         \}}
+\DoxyCodeLine{63     \}}
+
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/sprites/Goomba.\+java\end{DoxyCompactItemize}

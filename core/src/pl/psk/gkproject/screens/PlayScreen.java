@@ -28,22 +28,75 @@ import pl.psk.gkproject.sprites.*;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-
+/**
+ * Główny ekran gry
+ */
 public class PlayScreen implements Screen {
+    /**
+     * Główny obiekt gry
+     */
     private final PlatformGame game;
+
+    /**
+     * Obiekt przechowujący tekstury
+     */
     private final TextureAtlas atlas = new TextureAtlas("platform_game.pack");
+
+    /**
+     * Kamera ekranu gry
+     */
     private final OrthographicCamera gameCamera = new OrthographicCamera();
+
+    /**
+     * Viewport gry
+     */
     private final Viewport gameViewport;
+
+    /**
+     * Obiekt do wyrendorowania ekranu z ustawioną kamerą gracza
+     */
     private final OrthogonalTiledMapRenderer renderer;
 
+    /**
+     * Świat gry
+     */
     private final World world = new World(new Vector2(0, -10), true);
+
+    /**
+     * Zmienna przechowująca obecnie rozgrywany poziom
+     */
     private final String currentLevel;
-    private final Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer(false, false, false, false, false, false);
+
+    /**
+     * Obiekt do renderowania świata gry
+     */
+    private final Box2DDebugRenderer box2DDebugRenderer = new Box2DDebugRenderer(
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+    );
+
+    /**
+     * Tablica, przechowująca wyrenderowanych przeciwników
+     */
     private final Array<Goomba> goombas = new Array<>();
 
+    /**
+     * Obiekt maria
+     */
     private final Mario player;
 
+    /**
+     * Tablica przechowująca wyrenderowane przedmioty
+     */
     private final Array<Item> items = new Array<>();
+
+    /**
+     * Kolejka, w której przechowywane są przedmioty do wyrenderowania
+     */
     private final LinkedBlockingQueue<ItemDef> itemsToSpawn = new LinkedBlockingQueue<>();
 
     public PlayScreen(PlatformGame game, String levelName) {
@@ -83,10 +136,20 @@ public class PlayScreen implements Screen {
         music.play();
     }
 
+    /**
+     * Getter dla świata gry
+     *
+     * @return świat gry
+     */
     public World getWorld() {
         return world;
     }
 
+    /**
+     * Getter dla textur
+     *
+     * @return textury aplikacji
+     */
     public TextureAtlas getAtlas() {
         return atlas;
     }
@@ -95,6 +158,9 @@ public class PlayScreen implements Screen {
     public void show() {
     }
 
+    /**
+     * Obsługa interakcji użytkownika
+     */
     public void handleInput() {
         if (Mario.State.DEAD != player.currentState) {
             if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && Mario.State.JUMPING != player.currentState) {
@@ -110,10 +176,18 @@ public class PlayScreen implements Screen {
         }
     }
 
+    /**
+     * Dodanie obiektu do kolejki, z której będą tworzone przedmioty.
+     *
+     * @param itemDef obiekt do stworzenia
+     */
     public void spawnItem(ItemDef itemDef) {
         itemsToSpawn.add(itemDef);
     }
 
+    /**
+     * Tworzenie obiektów z kolejki
+     */
     public void handleSpawningItems() {
         if (!itemsToSpawn.isEmpty()) {
             ItemDef itemDef = itemsToSpawn.poll();
@@ -124,10 +198,20 @@ public class PlayScreen implements Screen {
         }
     }
 
+    /**
+     * Sprawdzenie, czy gra powinna się zakończyć.
+     *
+     * @return flaga, czy gra zakończona
+     */
     public boolean gameOver() {
         return Mario.State.DEAD == player.currentState && 3 < player.getStateTimer();
     }
 
+    /**
+     * Aktualizacja ekranu gry.
+     *
+     * @param dt czas aktualizacji
+     */
     public void update(float dt) {
         handleInput();
         handleSpawningItems();
@@ -150,6 +234,11 @@ public class PlayScreen implements Screen {
         renderer.setView(gameCamera);
     }
 
+    /**
+     * Wyrenderowanie ekranu gry
+     *
+     * @param delta czas renderowania
+     */
     @Override
     public void render(float delta) {
         update(delta);
@@ -192,6 +281,12 @@ public class PlayScreen implements Screen {
         }
     }
 
+    /**
+     * Zmiana rozmiaru okna gry
+     *
+     * @param width szerokość po zmianie
+     * @param height wysokość po zmianie
+     */
     @Override
     public void resize(int width, int height) {
         gameViewport.update(width, height);

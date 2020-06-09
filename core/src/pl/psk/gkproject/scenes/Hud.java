@@ -11,10 +11,23 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
 
+/**
+ * Klasa hudu gry. Jest odpowiedzialna za wynik w grze
+ */
 public class Hud {
+    /**
+     * Obiekt sceny, do którego zostanie dodany HUD
+     */
     public Stage stage;
+
+    /**
+     * Liczba punktów uzyskanych przez gracza.
+     */
     public static Integer score;
 
+    /**
+     * Etykieta dla wyniku gracza
+     */
     public static Label scoreLabel;
 
     public Hud(SpriteBatch spriteBatch) {
@@ -35,11 +48,21 @@ public class Hud {
         stage.addActor(table);
     }
 
+    /**
+     * Dodanie puntków do wyniku gracza
+     *
+     * @param value ilość punktów do dodania
+     */
     public static void addScore(int value) {
         score += value;
         scoreLabel.setText(String.format("%06d", score));
     }
 
+    /**
+     * Ustawienie wyniku gracza. Przydaje się do wczytania gry.
+     *
+     * @param newScore ilość punktów do ustawienia
+     */
     public static void setScore(int newScore) {
         score = newScore;
         scoreLabel.setText(String.format("%06d", score));

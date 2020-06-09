@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Platformowa - Mario: Plik źródłowy core/src/pl/psk/gkproject/PlatformGame.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gra Platformowa - Mario
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li><li class="navelem"><a class="el" href="dir_90fd98a0ba30abf7a6068a44995d2d6b.html">src</a></li><li class="navelem"><a class="el" href="dir_3347eea5723641d2076d7bd0b0f997e5.html">pl</a></li><li class="navelem"><a class="el" href="dir_9870e27e906c2341ce6c69e333e0d855.html">psk</a></li><li class="navelem"><a class="el" href="dir_4fabf03698d0cd570e1fe172625e5399.html">gkproject</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">PlatformGame.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>pl.psk.gkproject;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.Game;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.Gdx;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.Preferences;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.assets.AssetManager;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.audio.Music;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.audio.Sound;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.graphics.g2d.SpriteBatch;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.scenes.Hud;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.screens.MenuScreen;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> java.util.Arrays;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> java.util.LinkedList;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> java.util.Queue;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">   22</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a> <span class="keyword">extends</span> Game {</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6b2033a2cfbc115950d127577c0061d2">   26</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">int</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6b2033a2cfbc115950d127577c0061d2">V_WIDTH</a> = 400;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2eb8c23c1d65074628f7239960fb6474">   31</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">int</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2eb8c23c1d65074628f7239960fb6474">V_HEIGHT</a> = 208;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">   36</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">float</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">PPM</a> = 100;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aa09ef642c4beb3065ea74e0c5ac60512">   41</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aa09ef642c4beb3065ea74e0c5ac60512">GROUND_BIT</a> = 1;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a84ce4d5de958a3582551390d512765ec">   46</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a84ce4d5de958a3582551390d512765ec">MARIO_BIT</a> = 2;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3977b41b787c2b0675e5b163fa3637a6">   51</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3977b41b787c2b0675e5b163fa3637a6">BRICK_BIT</a> = 4;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ae6262157eda9261547771fb89be4d05b">   56</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ae6262157eda9261547771fb89be4d05b">COIN_BIT</a> = 8;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a4a6cf6bb5616876c99dee502ee85e04d">   61</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a4a6cf6bb5616876c99dee502ee85e04d">DESTROYED_BIT</a> = 16;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ace63033412d27265cf5846dd0b47aaca">   66</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ace63033412d27265cf5846dd0b47aaca">OBJECT_BIT</a> = 32;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">   71</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">ENEMY_BIT</a> = 64;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6db134cabf73aff84f2e3e8b3e059dac">   76</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6db134cabf73aff84f2e3e8b3e059dac">ENEMY_BIT_HEAD</a> = 128;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5f88db156660124f45a8bcf87a302b94">   81</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5f88db156660124f45a8bcf87a302b94">ITEM_BIT</a> = 256;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2c0acda499735f27426269d9fd53a5f7">   86</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2c0acda499735f27426269d9fd53a5f7">MARIO_HEAD_BIT</a> = 512;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a446f49b73408ed3159a70b26385f187e">   91</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">short</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a446f49b73408ed3159a70b26385f187e">NOTHING_BIT</a> = 1024;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">private</span> <span class="keyword">final</span> Queue&lt;String&gt; levels = <span class="keyword">new</span> LinkedList&lt;&gt;(Arrays.asList(<span class="stringliteral">&quot;level1.tmx&quot;</span>, <span class="stringliteral">&quot;level2.tmx&quot;</span>, <span class="stringliteral">&quot;level3.tmx&quot;</span>));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">private</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud.html">Hud</a> hud;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    Preferences preferences;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    SpriteBatch batch;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">  116</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> AssetManager <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a> = <span class="keyword">new</span> AssetManager();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    @Override</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a196180ea9723d78a87eaac506c7b5272">  122</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a196180ea9723d78a87eaac506c7b5272">create</a>() {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/music/mario_music.ogg&quot;</span>, Music.class);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/sounds/coin.wav&quot;</span>, Sound.class);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/sounds/bump.wav&quot;</span>, Sound.class);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/sounds/breakblock.wav&quot;</span>, Sound.class);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/sounds/powerup_spawn.wav&quot;</span>, Sound.class);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/sounds/powerup.wav&quot;</span>, Sound.class);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/sounds/stomp.wav&quot;</span>, Sound.class);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/sounds/mariodie.wav&quot;</span>, Sound.class);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.load(<span class="stringliteral">&quot;audio/sounds/mariodie.wav&quot;</span>, Sound.class);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.finishLoading();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        preferences = Gdx.app.getPreferences(<span class="stringliteral">&quot;game_state&quot;</span>);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        batch = <span class="keyword">new</span> SpriteBatch();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        hud = <span class="keyword">new</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud.html">Hud</a>(batch);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        setScreen(<span class="keyword">new</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen.html">MenuScreen</a>(<span class="keyword">this</span>));</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    @Override</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aa3ceb58efe8eba8ca2c4632fd63fc8df">  147</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aa3ceb58efe8eba8ca2c4632fd63fc8df">render</a>() {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        super.render();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a733740bc122f1eca523a38ace332f15d">  157</a></span>&#160;    <span class="keyword">public</span> SpriteBatch <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a733740bc122f1eca523a38ace332f15d">getBatch</a>() {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> batch;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    @Override</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a7c375308e7a4bda30c80a06eb90f59f0">  165</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a7c375308e7a4bda30c80a06eb90f59f0">dispose</a>() {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        super.dispose();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">manager</a>.dispose();</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        batch.dispose();</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#afddb20b5fe51005ec07fe1fafad33fdc">  176</a></span>&#160;    <span class="keyword">public</span> Queue&lt;String&gt; <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#afddb20b5fe51005ec07fe1fafad33fdc">getLevels</a>() {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">return</span> levels;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    }</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5cea73261b7d471602cfb8c870d35974">  185</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud.html">Hud</a> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5cea73261b7d471602cfb8c870d35974">getHud</a>() {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">return</span> hud;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aebd6339ff493856cf259657b7a598a96">  194</a></span>&#160;    <span class="keyword">public</span> Preferences <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aebd6339ff493856cf259657b7a598a96">getPreferences</a>() {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">return</span> preferences;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_af9be52f93767de32cb8d59446c673626"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">pl.psk.gkproject.PlatformGame.ENEMY_BIT</a></div><div class="ttdeci">static final short ENEMY_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00071">PlatformGame.java:71</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a84ce4d5de958a3582551390d512765ec"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a84ce4d5de958a3582551390d512765ec">pl.psk.gkproject.PlatformGame.MARIO_BIT</a></div><div class="ttdeci">static final short MARIO_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00046">PlatformGame.java:46</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a3c0a40d7e0c2398cb693d894ed142573"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3c0a40d7e0c2398cb693d894ed142573">pl.psk.gkproject.PlatformGame.manager</a></div><div class="ttdeci">static AssetManager manager</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00116">PlatformGame.java:116</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_aa3ceb58efe8eba8ca2c4632fd63fc8df"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aa3ceb58efe8eba8ca2c4632fd63fc8df">pl.psk.gkproject.PlatformGame.render</a></div><div class="ttdeci">void render()</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00147">PlatformGame.java:147</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_afddb20b5fe51005ec07fe1fafad33fdc"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#afddb20b5fe51005ec07fe1fafad33fdc">pl.psk.gkproject.PlatformGame.getLevels</a></div><div class="ttdeci">Queue&lt; String &gt; getLevels()</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00176">PlatformGame.java:176</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a446f49b73408ed3159a70b26385f187e"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a446f49b73408ed3159a70b26385f187e">pl.psk.gkproject.PlatformGame.NOTHING_BIT</a></div><div class="ttdeci">static final short NOTHING_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00091">PlatformGame.java:91</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a7c375308e7a4bda30c80a06eb90f59f0"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a7c375308e7a4bda30c80a06eb90f59f0">pl.psk.gkproject.PlatformGame.dispose</a></div><div class="ttdeci">void dispose()</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00165">PlatformGame.java:165</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_ace63033412d27265cf5846dd0b47aaca"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ace63033412d27265cf5846dd0b47aaca">pl.psk.gkproject.PlatformGame.OBJECT_BIT</a></div><div class="ttdeci">static final short OBJECT_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00066">PlatformGame.java:66</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a5f88db156660124f45a8bcf87a302b94"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5f88db156660124f45a8bcf87a302b94">pl.psk.gkproject.PlatformGame.ITEM_BIT</a></div><div class="ttdeci">static final short ITEM_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00081">PlatformGame.java:81</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud.html">pl.psk.gkproject.scenes.Hud</a></div><div class="ttdef"><b>Definition:</b> <a href="Hud_8java_source.html#l00017">Hud.java:17</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a2eb8c23c1d65074628f7239960fb6474"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2eb8c23c1d65074628f7239960fb6474">pl.psk.gkproject.PlatformGame.V_HEIGHT</a></div><div class="ttdeci">static final int V_HEIGHT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00031">PlatformGame.java:31</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_aebd6339ff493856cf259657b7a598a96"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aebd6339ff493856cf259657b7a598a96">pl.psk.gkproject.PlatformGame.getPreferences</a></div><div class="ttdeci">Preferences getPreferences()</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00194">PlatformGame.java:194</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_ae6262157eda9261547771fb89be4d05b"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ae6262157eda9261547771fb89be4d05b">pl.psk.gkproject.PlatformGame.COIN_BIT</a></div><div class="ttdeci">static final short COIN_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00056">PlatformGame.java:56</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">pl.psk.gkproject.PlatformGame</a></div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00022">PlatformGame.java:22</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a4a6cf6bb5616876c99dee502ee85e04d"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a4a6cf6bb5616876c99dee502ee85e04d">pl.psk.gkproject.PlatformGame.DESTROYED_BIT</a></div><div class="ttdeci">static final short DESTROYED_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00061">PlatformGame.java:61</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a5cea73261b7d471602cfb8c870d35974"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5cea73261b7d471602cfb8c870d35974">pl.psk.gkproject.PlatformGame.getHud</a></div><div class="ttdeci">Hud getHud()</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00185">PlatformGame.java:185</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen.html">pl.psk.gkproject.screens.MenuScreen</a></div><div class="ttdef"><b>Definition:</b> <a href="MenuScreen_8java_source.html#l00012">MenuScreen.java:12</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a6b2033a2cfbc115950d127577c0061d2"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6b2033a2cfbc115950d127577c0061d2">pl.psk.gkproject.PlatformGame.V_WIDTH</a></div><div class="ttdeci">static final int V_WIDTH</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00026">PlatformGame.java:26</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a6db134cabf73aff84f2e3e8b3e059dac"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6db134cabf73aff84f2e3e8b3e059dac">pl.psk.gkproject.PlatformGame.ENEMY_BIT_HEAD</a></div><div class="ttdeci">static final short ENEMY_BIT_HEAD</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00076">PlatformGame.java:76</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a3977b41b787c2b0675e5b163fa3637a6"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3977b41b787c2b0675e5b163fa3637a6">pl.psk.gkproject.PlatformGame.BRICK_BIT</a></div><div class="ttdeci">static final short BRICK_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00051">PlatformGame.java:51</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_aa09ef642c4beb3065ea74e0c5ac60512"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aa09ef642c4beb3065ea74e0c5ac60512">pl.psk.gkproject.PlatformGame.GROUND_BIT</a></div><div class="ttdeci">static final short GROUND_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00041">PlatformGame.java:41</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a2c0acda499735f27426269d9fd53a5f7"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2c0acda499735f27426269d9fd53a5f7">pl.psk.gkproject.PlatformGame.MARIO_HEAD_BIT</a></div><div class="ttdeci">static final short MARIO_HEAD_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00086">PlatformGame.java:86</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a733740bc122f1eca523a38ace332f15d"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a733740bc122f1eca523a38ace332f15d">pl.psk.gkproject.PlatformGame.getBatch</a></div><div class="ttdeci">SpriteBatch getBatch()</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00157">PlatformGame.java:157</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a196180ea9723d78a87eaac506c7b5272"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a196180ea9723d78a87eaac506c7b5272">pl.psk.gkproject.PlatformGame.create</a></div><div class="ttdeci">void create()</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00122">PlatformGame.java:122</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a69bb5d682ee9ab8be2867c0cf15063b7"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">pl.psk.gkproject.PlatformGame.PPM</a></div><div class="ttdeci">static final float PPM</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00036">PlatformGame.java:36</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

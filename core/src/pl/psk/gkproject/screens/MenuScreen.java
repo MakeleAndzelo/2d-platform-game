@@ -6,11 +6,33 @@ import com.badlogic.gdx.graphics.Texture;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.scenes.Hud;
 
+/**
+ * Ekran menu gry
+ */
 public class MenuScreen implements Screen {
+    /**
+     * Tekstura, która jest wyświetlona jako tło gry
+     */
     private final Texture background = new Texture("background.jpg");
+
+    /**
+     * Tekstura przycisku do uruchomienia gry
+     */
     private final Texture playBtn = new Texture("new_game.png");
+
+    /**
+     * Tekstura przycisku do wznowienia zapisanej gry
+     */
     private final Texture resumeBtn = new Texture("resume_game.png");
+
+    /**
+     * Tekstura do zamkniecia gry
+     */
     private final Texture closeBtn = new Texture("close_game.png");
+
+    /**
+     * Główny obiekt gry
+     */
     private final PlatformGame game;
 
     public MenuScreen(PlatformGame game) {
@@ -19,9 +41,11 @@ public class MenuScreen implements Screen {
 
     @Override
     public void show() {
-
     }
 
+    /**
+     * Obsłużenie akcji użytkownika. Sprawdza który przycisk został naciśnięty.
+     */
     public void handleInput() {
         if (240 <= Gdx.input.getX() && 400 >= Gdx.input.getX()) {
             if (180 <= Gdx.input.getY() && 230 > Gdx.input.getY()) {
@@ -57,6 +81,11 @@ public class MenuScreen implements Screen {
         }
     }
 
+    /**
+     * Wyrenderowanie ekranu menu
+     *
+     * @param delta Czas renderowania
+     */
     @Override
     public void render(float delta) {
         handleInput();
@@ -90,6 +119,9 @@ public class MenuScreen implements Screen {
 
     }
 
+    /**
+     * Metoda, która sprząta po zamknięciu ekranu.
+     */
     @Override
     public void dispose() {
         background.dispose();

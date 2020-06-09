@@ -1,0 +1,124 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+sprites.\+Coin}
+\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin}\index{pl.psk.gkproject.sprites.Coin@{pl.psk.gkproject.sprites.Coin}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+sprites.\+Coin\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_af65e35e15d1ff69dd8ed92d423effda8}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_af65e35e15d1ff69dd8ed92d423effda8}} 
+{\bfseries Coin} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_acfa7757a0aab86cd797d9a2b14cb3f68}{play\+Screen}}, World \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a85465e1d71bd411722f3d53d1c64ba5a}{world}}, Rectangle \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a85e06434f4236a2ac6a26041375c9e4e}{rectangle}})
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a0565181dfdc93edcb915b5e29ae18c02}{make\+Fixture}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a80df3be2d795cd8325f603ac9072403d}{on\+Head\+Hit}} (Tiled\+Map map)
+\end{DoxyCompactItemize}
+\doxysubsection*{Statyczne atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static final int \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a7b98318aee646581b646533e836c2c63}{B\+L\+A\+N\+K\+\_\+\+C\+O\+IN}} = 28
+\end{DoxyCompactItemize}
+\doxysubsection*{Dodatkowe Dziedziczone Składowe}
+
+
+\doxysubsection{Opis szczegółowy}
+
+
+Definicja w linii 15 pliku Coin.\+java.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a0565181dfdc93edcb915b5e29ae18c02}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a0565181dfdc93edcb915b5e29ae18c02}} 
+\index{pl.psk.gkproject.sprites.Coin@{pl.psk.gkproject.sprites.Coin}!makeFixture@{makeFixture}}
+\index{makeFixture@{makeFixture}!pl.psk.gkproject.sprites.Coin@{pl.psk.gkproject.sprites.Coin}}
+\doxysubsubsection{\texorpdfstring{makeFixture()}{makeFixture()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Coin.\+make\+Fixture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Stworzenie fixture obiektu 
+
+Reimplementowana z \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a65a0572930114740b3f063916ff79a9a}{pl.\+psk.\+gkproject.\+sprites.\+Abstract\+Tiled\+Sprite}}.
+
+
+
+Definicja w linii 29 pliku Coin.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                               \{}
+\DoxyCodeLine{30         super.makeFixture();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         Filter filter = \textcolor{keyword}{new} Filter();}
+\DoxyCodeLine{33         filter.categoryBits = PlatformGame.COIN\_BIT;}
+\DoxyCodeLine{34         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a6c06fd7bcc481cb92d219981da13e81d}{fixture}}.setUserData(\textcolor{keyword}{this});}
+\DoxyCodeLine{35         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a6c06fd7bcc481cb92d219981da13e81d}{fixture}}.setFilterData(filter);}
+\DoxyCodeLine{36     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a80df3be2d795cd8325f603ac9072403d}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a80df3be2d795cd8325f603ac9072403d}} 
+\index{pl.psk.gkproject.sprites.Coin@{pl.psk.gkproject.sprites.Coin}!onHeadHit@{onHeadHit}}
+\index{onHeadHit@{onHeadHit}!pl.psk.gkproject.sprites.Coin@{pl.psk.gkproject.sprites.Coin}}
+\doxysubsubsection{\texorpdfstring{onHeadHit()}{onHeadHit()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Coin.\+on\+Head\+Hit (\begin{DoxyParamCaption}\item[{Tiled\+Map}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Akcja, ktora jest wykonywana podczas kolizji z głową maria
+
+
+\begin{DoxyParams}{Parametry}
+{\em tiled\+Map} & aktualna mapa gry\\
+\hline
+\end{DoxyParams}
+ 
+
+Implementuje \mbox{\hyperlink{interfacepl_1_1psk_1_1gkproject_1_1sprites_1_1InteractiveSprite_a3bbd3f4a3edc3da52dd0d80239c9a476}{pl.\+psk.\+gkproject.\+sprites.\+Interactive\+Sprite}}.
+
+
+
+Definicja w linii 42 pliku Coin.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42                                         \{}
+\DoxyCodeLine{43         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);}
+\DoxyCodeLine{44         TiledMapTileLayer.Cell cell = layer.getCell(}
+\DoxyCodeLine{45                 (\textcolor{keywordtype}{int}) (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a918000a4c579efba66722be8ff5db8d2}{body}}.getPosition().x * PlatformGame.PPM / 16),}
+\DoxyCodeLine{46                 (\textcolor{keywordtype}{int}) (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a918000a4c579efba66722be8ff5db8d2}{body}}.getPosition().y * PlatformGame.PPM / 16)}
+\DoxyCodeLine{47         );}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{keywordflow}{if} (Coin.BLANK\_COIN == cell.getTile().getId()) \{}
+\DoxyCodeLine{50             PlatformGame.manager.get(\textcolor{stringliteral}{"audio/sounds/bump.wav"}, Sound.class).play();}
+\DoxyCodeLine{51         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{52             \textcolor{keywordflow}{if} (Math.random() > 0.5) \{}
+\DoxyCodeLine{53                 \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_acfa7757a0aab86cd797d9a2b14cb3f68}{playScreen}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a3c8ae8f4f153cf7fe375bfc11031e6ee}{spawnItem}}(\textcolor{keyword}{new} ItemDef(\textcolor{keyword}{new} Vector2(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a918000a4c579efba66722be8ff5db8d2}{body}}.getPosition().x, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a918000a4c579efba66722be8ff5db8d2}{body}}.getPosition().y + 16 / PlatformGame.PPM), Mushroom.class));}
+\DoxyCodeLine{54                 PlatformGame.manager.get(\textcolor{stringliteral}{"audio/sounds/powerup\_spawn.wav"}, Sound.class).play();}
+\DoxyCodeLine{55             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{56                 PlatformGame.manager.get(\textcolor{stringliteral}{"audio/sounds/coin.wav"}, Sound.class).play();}
+\DoxyCodeLine{57             \}}
+\DoxyCodeLine{58             Hud.addScore(20);}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61         cell.setTile(map.getTileSets().getTileSet(\textcolor{stringliteral}{"tileset\_gutter"}).getTile(Coin.BLANK\_COIN));}
+\DoxyCodeLine{62     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a7b98318aee646581b646533e836c2c63}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Coin_a7b98318aee646581b646533e836c2c63}} 
+\index{pl.psk.gkproject.sprites.Coin@{pl.psk.gkproject.sprites.Coin}!BLANK\_COIN@{BLANK\_COIN}}
+\index{BLANK\_COIN@{BLANK\_COIN}!pl.psk.gkproject.sprites.Coin@{pl.psk.gkproject.sprites.Coin}}
+\doxysubsubsection{\texorpdfstring{BLANK\_COIN}{BLANK\_COIN}}
+{\footnotesize\ttfamily final int pl.\+psk.\+gkproject.\+sprites.\+Coin.\+B\+L\+A\+N\+K\+\_\+\+C\+O\+IN = 28\hspace{0.3cm}{\ttfamily [static]}}
+
+ID pustego obiektu z monetą 
+
+Definicja w linii 19 pliku Coin.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/sprites/Coin.\+java\end{DoxyCompactItemize}

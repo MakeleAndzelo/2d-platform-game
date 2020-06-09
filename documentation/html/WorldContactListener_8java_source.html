@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Platformowa - Mario: Plik źródłowy core/src/pl/psk/gkproject/WorldContactListener.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gra Platformowa - Mario
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li><li class="navelem"><a class="el" href="dir_90fd98a0ba30abf7a6068a44995d2d6b.html">src</a></li><li class="navelem"><a class="el" href="dir_3347eea5723641d2076d7bd0b0f997e5.html">pl</a></li><li class="navelem"><a class="el" href="dir_9870e27e906c2341ce6c69e333e0d855.html">psk</a></li><li class="navelem"><a class="el" href="dir_4fabf03698d0cd570e1fe172625e5399.html">gkproject</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">WorldContactListener.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>pl.psk.gkproject;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.maps.tiled.TiledMap;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.physics.box2d.*;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.items.Item;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.sprites.*;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html">   11</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html">WorldContactListener</a> <span class="keyword">implements</span> ContactListener {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span> <span class="keyword">final</span> TiledMap map;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#ad1711f9b18713d6bb9051c50933dd07d">   22</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#ad1711f9b18713d6bb9051c50933dd07d">WorldContactListener</a>(TiledMap map) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        this.map = map;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    @Override</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a413bcada9d44c340f21730213728fefe">   33</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a413bcada9d44c340f21730213728fefe">beginContact</a>(Contact contact) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        Fixture fixA = contact.getFixtureA();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        Fixture fixB = contact.getFixtureB();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">int</span> cdef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6db134cabf73aff84f2e3e8b3e059dac">ENEMY_BIT_HEAD</a> | <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a84ce4d5de958a3582551390d512765ec">MARIO_BIT</a>)) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6db134cabf73aff84f2e3e8b3e059dac">ENEMY_BIT_HEAD</a> == fixA.getFilterData().categoryBits) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy.html">Enemy</a>) fixA.getUserData()).hitOnHead();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy.html">Enemy</a>) fixB.getUserData()).hitOnHead();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">if</span> (cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">ENEMY_BIT</a> | <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ace63033412d27265cf5846dd0b47aaca">OBJECT_BIT</a>) || cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">ENEMY_BIT</a> | <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aa09ef642c4beb3065ea74e0c5ac60512">GROUND_BIT</a>)) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">ENEMY_BIT</a> == fixA.getFilterData().categoryBits) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy.html">Enemy</a>) fixA.getUserData()).reverseVelocity(<span class="keyword">true</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy.html">Enemy</a>) fixB.getUserData()).reverseVelocity(<span class="keyword">true</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span> (cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">ENEMY_BIT</a>)) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy.html">Enemy</a>) fixA.getUserData()).reverseVelocity(<span class="keyword">true</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy.html">Enemy</a>) fixB.getUserData()).reverseVelocity(<span class="keyword">true</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> (cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5f88db156660124f45a8bcf87a302b94">ITEM_BIT</a> | <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ace63033412d27265cf5846dd0b47aaca">OBJECT_BIT</a>)) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5f88db156660124f45a8bcf87a302b94">ITEM_BIT</a> == fixA.getFilterData().categoryBits) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html">Item</a>) fixA.getUserData()).reverseVelocity(<span class="keyword">true</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html">Item</a>) fixB.getUserData()).reverseVelocity(<span class="keyword">true</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> (cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5f88db156660124f45a8bcf87a302b94">ITEM_BIT</a> | <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a84ce4d5de958a3582551390d512765ec">MARIO_BIT</a>)) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5f88db156660124f45a8bcf87a302b94">ITEM_BIT</a> == fixA.getFilterData().categoryBits) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html">Item</a>) fixA.getUserData()).use(((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario.html">Mario</a>) fixB.getUserData()));</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html">Item</a>) fixB.getUserData()).use((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario.html">Mario</a>) fixA.getUserData());</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2c0acda499735f27426269d9fd53a5f7">MARIO_HEAD_BIT</a> | <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3977b41b787c2b0675e5b163fa3637a6">BRICK_BIT</a>) || cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2c0acda499735f27426269d9fd53a5f7">MARIO_HEAD_BIT</a> | <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ae6262157eda9261547771fb89be4d05b">COIN_BIT</a>)) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2c0acda499735f27426269d9fd53a5f7">MARIO_HEAD_BIT</a> == fixA.getFilterData().categoryBits) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                ((<a class="code" href="interfacepl_1_1psk_1_1gkproject_1_1sprites_1_1InteractiveSprite.html">InteractiveSprite</a>) fixB.getUserData()).onHeadHit(map);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                ((<a class="code" href="interfacepl_1_1psk_1_1gkproject_1_1sprites_1_1InteractiveSprite.html">InteractiveSprite</a>) fixA.getUserData()).onHeadHit(map);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span> (cdef == (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a84ce4d5de958a3582551390d512765ec">MARIO_BIT</a> | <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">ENEMY_BIT</a>)) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a84ce4d5de958a3582551390d512765ec">MARIO_BIT</a> == fixA.getFilterData().categoryBits) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario.html">Mario</a>) fixA.getUserData()).die();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                ((<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario.html">Mario</a>) fixB.getUserData()).die();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    @Override</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a2b5468d8294157dc5098f61cb3eb7bd6">   99</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a2b5468d8294157dc5098f61cb3eb7bd6">endContact</a>(Contact contact) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    @Override</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a1797457db74d6c6b55f0e0b2aaf7b3bc">  109</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a1797457db74d6c6b55f0e0b2aaf7b3bc">preSolve</a>(Contact contact, Manifold oldManifold) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    @Override</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#abeea21073efc5e2ba16941764856d1c1">  119</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#abeea21073efc5e2ba16941764856d1c1">postSolve</a>(Contact contact, ContactImpulse impulse) {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_af9be52f93767de32cb8d59446c673626"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#af9be52f93767de32cb8d59446c673626">pl.psk.gkproject.PlatformGame.ENEMY_BIT</a></div><div class="ttdeci">static final short ENEMY_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00071">PlatformGame.java:71</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a84ce4d5de958a3582551390d512765ec"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a84ce4d5de958a3582551390d512765ec">pl.psk.gkproject.PlatformGame.MARIO_BIT</a></div><div class="ttdeci">static final short MARIO_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00046">PlatformGame.java:46</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1WorldContactListener_html_abeea21073efc5e2ba16941764856d1c1"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#abeea21073efc5e2ba16941764856d1c1">pl.psk.gkproject.WorldContactListener.postSolve</a></div><div class="ttdeci">void postSolve(Contact contact, ContactImpulse impulse)</div><div class="ttdef"><b>Definition:</b> <a href="WorldContactListener_8java_source.html#l00119">WorldContactListener.java:119</a></div></div>
+<div class="ttc" id="ainterfacepl_1_1psk_1_1gkproject_1_1sprites_1_1InteractiveSprite_html"><div class="ttname"><a href="interfacepl_1_1psk_1_1gkproject_1_1sprites_1_1InteractiveSprite.html">pl.psk.gkproject.sprites.InteractiveSprite</a></div><div class="ttdef"><b>Definition:</b> <a href="InteractiveSprite_8java_source.html#l00008">InteractiveSprite.java:8</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario.html">pl.psk.gkproject.sprites.Mario</a></div><div class="ttdef"><b>Definition:</b> <a href="Mario_8java_source.html#l00017">Mario.java:17</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_ace63033412d27265cf5846dd0b47aaca"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ace63033412d27265cf5846dd0b47aaca">pl.psk.gkproject.PlatformGame.OBJECT_BIT</a></div><div class="ttdeci">static final short OBJECT_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00066">PlatformGame.java:66</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a5f88db156660124f45a8bcf87a302b94"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a5f88db156660124f45a8bcf87a302b94">pl.psk.gkproject.PlatformGame.ITEM_BIT</a></div><div class="ttdeci">static final short ITEM_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00081">PlatformGame.java:81</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_ae6262157eda9261547771fb89be4d05b"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#ae6262157eda9261547771fb89be4d05b">pl.psk.gkproject.PlatformGame.COIN_BIT</a></div><div class="ttdeci">static final short COIN_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00056">PlatformGame.java:56</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">pl.psk.gkproject.PlatformGame</a></div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00022">PlatformGame.java:22</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html">pl.psk.gkproject.items.Item</a></div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00016">Item.java:16</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1WorldContactListener_html_ad1711f9b18713d6bb9051c50933dd07d"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#ad1711f9b18713d6bb9051c50933dd07d">pl.psk.gkproject.WorldContactListener.WorldContactListener</a></div><div class="ttdeci">WorldContactListener(TiledMap map)</div><div class="ttdef"><b>Definition:</b> <a href="WorldContactListener_8java_source.html#l00022">WorldContactListener.java:22</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1WorldContactListener_html_a1797457db74d6c6b55f0e0b2aaf7b3bc"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a1797457db74d6c6b55f0e0b2aaf7b3bc">pl.psk.gkproject.WorldContactListener.preSolve</a></div><div class="ttdeci">void preSolve(Contact contact, Manifold oldManifold)</div><div class="ttdef"><b>Definition:</b> <a href="WorldContactListener_8java_source.html#l00109">WorldContactListener.java:109</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1WorldContactListener_html_a2b5468d8294157dc5098f61cb3eb7bd6"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a2b5468d8294157dc5098f61cb3eb7bd6">pl.psk.gkproject.WorldContactListener.endContact</a></div><div class="ttdeci">void endContact(Contact contact)</div><div class="ttdef"><b>Definition:</b> <a href="WorldContactListener_8java_source.html#l00099">WorldContactListener.java:99</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy.html">pl.psk.gkproject.sprites.Enemy</a></div><div class="ttdef"><b>Definition:</b> <a href="Enemy_8java_source.html#l00012">Enemy.java:12</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1WorldContactListener_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html">pl.psk.gkproject.WorldContactListener</a></div><div class="ttdef"><b>Definition:</b> <a href="WorldContactListener_8java_source.html#l00011">WorldContactListener.java:11</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a6db134cabf73aff84f2e3e8b3e059dac"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a6db134cabf73aff84f2e3e8b3e059dac">pl.psk.gkproject.PlatformGame.ENEMY_BIT_HEAD</a></div><div class="ttdeci">static final short ENEMY_BIT_HEAD</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00076">PlatformGame.java:76</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a3977b41b787c2b0675e5b163fa3637a6"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a3977b41b787c2b0675e5b163fa3637a6">pl.psk.gkproject.PlatformGame.BRICK_BIT</a></div><div class="ttdeci">static final short BRICK_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00051">PlatformGame.java:51</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_aa09ef642c4beb3065ea74e0c5ac60512"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#aa09ef642c4beb3065ea74e0c5ac60512">pl.psk.gkproject.PlatformGame.GROUND_BIT</a></div><div class="ttdeci">static final short GROUND_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00041">PlatformGame.java:41</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a2c0acda499735f27426269d9fd53a5f7"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a2c0acda499735f27426269d9fd53a5f7">pl.psk.gkproject.PlatformGame.MARIO_HEAD_BIT</a></div><div class="ttdeci">static final short MARIO_HEAD_BIT</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00086">PlatformGame.java:86</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1WorldContactListener_html_a413bcada9d44c340f21730213728fefe"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1WorldContactListener.html#a413bcada9d44c340f21730213728fefe">pl.psk.gkproject.WorldContactListener.beginContact</a></div><div class="ttdeci">void beginContact(Contact contact)</div><div class="ttdef"><b>Definition:</b> <a href="WorldContactListener_8java_source.html#l00033">WorldContactListener.java:33</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

@@ -7,19 +7,24 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.PlatformGame;
-import pl.psk.gkproject.WorldContactListener;
 import pl.psk.gkproject.items.ItemDef;
 import pl.psk.gkproject.items.Mushroom;
 import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.screens.PlayScreen;
 
 public class Coin extends AbstractTiledSprite implements InteractiveSprite {
+    /**
+     * ID pustego obiektu z monetą
+     */
     public final static int BLANK_COIN = 28;
 
     public Coin(PlayScreen playScreen, World world, Rectangle rectangle) {
         super(playScreen, world, rectangle);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void makeFixture() {
         super.makeFixture();
@@ -30,6 +35,9 @@ public class Coin extends AbstractTiledSprite implements InteractiveSprite {
         fixture.setFilterData(filter);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onHeadHit(TiledMap map) {
         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);

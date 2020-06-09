@@ -90,14 +90,31 @@ public class WorldContactListener implements ContactListener {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param contact
+     */
     @Override
     public void endContact(Contact contact) {
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param contact
+     * @param oldManifold
+     */
     @Override
     public void preSolve(Contact contact, Manifold oldManifold) {
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param contact
+     * @param impulse
+     */
     @Override
     public void postSolve(Contact contact, ContactImpulse impulse) {
     }

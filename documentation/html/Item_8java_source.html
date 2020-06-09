@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Platformowa - Mario: Plik źródłowy core/src/pl/psk/gkproject/items/Item.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gra Platformowa - Mario
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li><li class="navelem"><a class="el" href="dir_90fd98a0ba30abf7a6068a44995d2d6b.html">src</a></li><li class="navelem"><a class="el" href="dir_3347eea5723641d2076d7bd0b0f997e5.html">pl</a></li><li class="navelem"><a class="el" href="dir_9870e27e906c2341ce6c69e333e0d855.html">psk</a></li><li class="navelem"><a class="el" href="dir_4fabf03698d0cd570e1fe172625e5399.html">gkproject</a></li><li class="navelem"><a class="el" href="dir_4a71fa8786b936d051975a77f8a73492.html">items</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Item.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>pl.psk.gkproject.items;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.graphics.g2d.Batch;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.graphics.g2d.Sprite;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.math.Vector2;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.physics.box2d.Body;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.physics.box2d.World;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.PlatformGame;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.screens.PlayScreen;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.sprites.Mario;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html">   16</a></span>&#160;<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class </span><a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html">Item</a> <span class="keyword">extends</span> Sprite {</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af55b6941a5abcdb8f52a7275f8c12f7e">   20</a></span>&#160;    <span class="keyword">protected</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen.html">PlayScreen</a> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af55b6941a5abcdb8f52a7275f8c12f7e">playScreen</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a59cbba8272f448742a0a3d3a27a9cf67">   25</a></span>&#160;    <span class="keyword">protected</span> World <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a59cbba8272f448742a0a3d3a27a9cf67">world</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#abf116be03c88d7df43b82cb93732ff68">   30</a></span>&#160;    <span class="keyword">protected</span> Vector2 <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#abf116be03c88d7df43b82cb93732ff68">velocity</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a0c3f94bdb0fd0d6ea85d9218edee130d">   35</a></span>&#160;    <span class="keyword">protected</span> <span class="keywordtype">boolean</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a0c3f94bdb0fd0d6ea85d9218edee130d">toDestroy</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a15629c51ab926b640cc301247e90d8da">   40</a></span>&#160;    <span class="keyword">protected</span> <span class="keywordtype">boolean</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a15629c51ab926b640cc301247e90d8da">destroyed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a7cc6e640a41aecbd9bb05639232937a1">   45</a></span>&#160;    <span class="keyword">protected</span> Body <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a7cc6e640a41aecbd9bb05639232937a1">body</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a6ee6e13b97f591aef1285727175d9c73">   54</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a6ee6e13b97f591aef1285727175d9c73">Item</a>(<a class="code" href="classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen.html">PlayScreen</a> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af55b6941a5abcdb8f52a7275f8c12f7e">playScreen</a>, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        this.playScreen = <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af55b6941a5abcdb8f52a7275f8c12f7e">playScreen</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        this.world = <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af55b6941a5abcdb8f52a7275f8c12f7e">playScreen</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen.html#a4881c6e561896248ef5e1fc50c7f8595">getWorld</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        setPosition(x ,y);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        setBounds(getX(), getY(), 16 / <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">PPM</a>, 16 / <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">PPM</a>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a42610f79ad8f8e1d136a79418aa877ce">defineItem</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a42610f79ad8f8e1d136a79418aa877ce">   66</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a42610f79ad8f8e1d136a79418aa877ce">defineItem</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#ac12d770292d2ac566aa93cb8297a26ed">   73</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#ac12d770292d2ac566aa93cb8297a26ed">use</a>(<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario.html">Mario</a> mario);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af6af52e1fe390321afbae6e81417a8eb">   80</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af6af52e1fe390321afbae6e81417a8eb">update</a>(<span class="keywordtype">float</span> deltaTime) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a0c3f94bdb0fd0d6ea85d9218edee130d">toDestroy</a> &amp;&amp; !<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a15629c51ab926b640cc301247e90d8da">destroyed</a>) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a59cbba8272f448742a0a3d3a27a9cf67">world</a>.destroyBody(<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a7cc6e640a41aecbd9bb05639232937a1">body</a>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a15629c51ab926b640cc301247e90d8da">destroyed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    @Override</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#aa712f7fb25489338307ab88d3b24da63">   93</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#aa712f7fb25489338307ab88d3b24da63">draw</a>(Batch batch) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a15629c51ab926b640cc301247e90d8da">destroyed</a>) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            super.draw(batch);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a4ffadcb8a484c8de743ff9aeaf946fe7">  102</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a4ffadcb8a484c8de743ff9aeaf946fe7">destroy</a>() {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a0c3f94bdb0fd0d6ea85d9218edee130d">toDestroy</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a48b7cab01b9e1c8f4d1e31a727636866">  112</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a48b7cab01b9e1c8f4d1e31a727636866">reverseVelocity</a>(<span class="keywordtype">boolean</span> x, <span class="keywordtype">boolean</span> y) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">if</span> (x) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#abf116be03c88d7df43b82cb93732ff68">velocity</a>.x = -<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#abf116be03c88d7df43b82cb93732ff68">velocity</a>.x;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> (y) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#abf116be03c88d7df43b82cb93732ff68">velocity</a>.y = -<a class="code" href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#abf116be03c88d7df43b82cb93732ff68">velocity</a>.y;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_ac12d770292d2ac566aa93cb8297a26ed"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#ac12d770292d2ac566aa93cb8297a26ed">pl.psk.gkproject.items.Item.use</a></div><div class="ttdeci">abstract void use(Mario mario)</div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_a0c3f94bdb0fd0d6ea85d9218edee130d"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a0c3f94bdb0fd0d6ea85d9218edee130d">pl.psk.gkproject.items.Item.toDestroy</a></div><div class="ttdeci">boolean toDestroy</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00035">Item.java:35</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_a15629c51ab926b640cc301247e90d8da"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a15629c51ab926b640cc301247e90d8da">pl.psk.gkproject.items.Item.destroyed</a></div><div class="ttdeci">boolean destroyed</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00040">Item.java:40</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_a59cbba8272f448742a0a3d3a27a9cf67"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a59cbba8272f448742a0a3d3a27a9cf67">pl.psk.gkproject.items.Item.world</a></div><div class="ttdeci">World world</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00025">Item.java:25</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_a6ee6e13b97f591aef1285727175d9c73"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a6ee6e13b97f591aef1285727175d9c73">pl.psk.gkproject.items.Item.Item</a></div><div class="ttdeci">Item(PlayScreen playScreen, float x, float y)</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00054">Item.java:54</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_aa712f7fb25489338307ab88d3b24da63"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#aa712f7fb25489338307ab88d3b24da63">pl.psk.gkproject.items.Item.draw</a></div><div class="ttdeci">void draw(Batch batch)</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00093">Item.java:93</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario.html">pl.psk.gkproject.sprites.Mario</a></div><div class="ttdef"><b>Definition:</b> <a href="Mario_8java_source.html#l00017">Mario.java:17</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_html_a4881c6e561896248ef5e1fc50c7f8595"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen.html#a4881c6e561896248ef5e1fc50c7f8595">pl.psk.gkproject.screens.PlayScreen.getWorld</a></div><div class="ttdeci">World getWorld()</div><div class="ttdef"><b>Definition:</b> <a href="PlayScreen_8java_source.html#l00144">PlayScreen.java:144</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_af55b6941a5abcdb8f52a7275f8c12f7e"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af55b6941a5abcdb8f52a7275f8c12f7e">pl.psk.gkproject.items.Item.playScreen</a></div><div class="ttdeci">PlayScreen playScreen</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00020">Item.java:20</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">pl.psk.gkproject.PlatformGame</a></div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00022">PlatformGame.java:22</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_a42610f79ad8f8e1d136a79418aa877ce"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a42610f79ad8f8e1d136a79418aa877ce">pl.psk.gkproject.items.Item.defineItem</a></div><div class="ttdeci">abstract void defineItem()</div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_a4ffadcb8a484c8de743ff9aeaf946fe7"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a4ffadcb8a484c8de743ff9aeaf946fe7">pl.psk.gkproject.items.Item.destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00102">Item.java:102</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html">pl.psk.gkproject.items.Item</a></div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00016">Item.java:16</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_af6af52e1fe390321afbae6e81417a8eb"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#af6af52e1fe390321afbae6e81417a8eb">pl.psk.gkproject.items.Item.update</a></div><div class="ttdeci">void update(float deltaTime)</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00080">Item.java:80</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_a48b7cab01b9e1c8f4d1e31a727636866"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a48b7cab01b9e1c8f4d1e31a727636866">pl.psk.gkproject.items.Item.reverseVelocity</a></div><div class="ttdeci">void reverseVelocity(boolean x, boolean y)</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00112">Item.java:112</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_a7cc6e640a41aecbd9bb05639232937a1"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#a7cc6e640a41aecbd9bb05639232937a1">pl.psk.gkproject.items.Item.body</a></div><div class="ttdeci">Body body</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00045">Item.java:45</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1items_1_1Item_html_abf116be03c88d7df43b82cb93732ff68"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1items_1_1Item.html#abf116be03c88d7df43b82cb93732ff68">pl.psk.gkproject.items.Item.velocity</a></div><div class="ttdeci">Vector2 velocity</div><div class="ttdef"><b>Definition:</b> <a href="Item_8java_source.html#l00030">Item.java:30</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen.html">pl.psk.gkproject.screens.PlayScreen</a></div><div class="ttdef"><b>Definition:</b> <a href="PlayScreen_8java_source.html#l00034">PlayScreen.java:34</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a69bb5d682ee9ab8be2867c0cf15063b7"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">pl.psk.gkproject.PlatformGame.PPM</a></div><div class="ttdeci">static final float PPM</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00036">PlatformGame.java:36</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

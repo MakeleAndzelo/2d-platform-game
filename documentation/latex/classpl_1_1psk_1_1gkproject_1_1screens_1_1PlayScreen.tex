@@ -1,0 +1,332 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+screens.\+Play\+Screen}
+\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+screens.\+Play\+Screen\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_ad0fc68d7b7e2a7a130611aebf8d80cfb}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_ad0fc68d7b7e2a7a130611aebf8d80cfb}} 
+{\bfseries Play\+Screen} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{Platform\+Game}} game, String level\+Name)
+\item 
+World \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a4881c6e561896248ef5e1fc50c7f8595}{get\+World}} ()
+\item 
+Texture\+Atlas \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a80a4f6984ff2f44a5af90dd8c0d9632a}{get\+Atlas}} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_ad09af6c14e303e61a7b885385b39220b}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_ad09af6c14e303e61a7b885385b39220b}} 
+void {\bfseries show} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_afe8bf82a318056c9a8f43143b48ad075}{handle\+Input}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a3c8ae8f4f153cf7fe375bfc11031e6ee}{spawn\+Item}} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1ItemDef}{Item\+Def}} item\+Def)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a75bfc1de2ba039f9d25c935fa5e34fb2}{handle\+Spawning\+Items}} ()
+\item 
+boolean \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a60d212acdb8bb0c63881dc5e824f77ba}{game\+Over}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a8351138acf6ec802ffb8ac5c3dc50189}{update}} (float dt)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a8cc7f8ccf89168020875db5b7b1fc34d}{render}} (float delta)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a1a2ddaf8128da48873121f0d844a2d63}{resize}} (int width, int height)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a97ffc5c3216f95dbcd134e0d90e0f118}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a97ffc5c3216f95dbcd134e0d90e0f118}} 
+void {\bfseries pause} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a2b079208afaba256189d152889e1a4b2}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a2b079208afaba256189d152889e1a4b2}} 
+void {\bfseries resume} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a6f4aced36f3549d9aff4682bca47f4cb}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a6f4aced36f3549d9aff4682bca47f4cb}} 
+void {\bfseries hide} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_acdafe615056aad0f4bcac4d01e576e01}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_acdafe615056aad0f4bcac4d01e576e01}} 
+void {\bfseries dispose} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Główny ekran gry 
+
+Definicja w linii 34 pliku Play\+Screen.\+java.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a60d212acdb8bb0c63881dc5e824f77ba}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a60d212acdb8bb0c63881dc5e824f77ba}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily boolean pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sprawdzenie, czy gra powinna się zakończyć.
+
+\begin{DoxyReturn}{Zwraca}
+flaga, czy gra zakończona 
+\end{DoxyReturn}
+
+
+Definicja w linii 206 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{206                               \{}
+\DoxyCodeLine{207         \textcolor{keywordflow}{return} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}.\mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}}.DEAD == player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ace617567e0aba7dd6a9de2d4da6914f2}{currentState}} \&\& 3 < player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a6015eb1584d9c3f1c96843d4523ff8c7}{getStateTimer}}();}
+\DoxyCodeLine{208     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a80a4f6984ff2f44a5af90dd8c0d9632a}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a80a4f6984ff2f44a5af90dd8c0d9632a}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!getAtlas@{getAtlas}}
+\index{getAtlas@{getAtlas}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{getAtlas()}{getAtlas()}}
+{\footnotesize\ttfamily Texture\+Atlas pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+get\+Atlas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter dla textur
+
+\begin{DoxyReturn}{Zwraca}
+textury aplikacji 
+\end{DoxyReturn}
+
+
+Definicja w linii 153 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{153                                    \{}
+\DoxyCodeLine{154         \textcolor{keywordflow}{return} atlas;}
+\DoxyCodeLine{155     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a4881c6e561896248ef5e1fc50c7f8595}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a4881c6e561896248ef5e1fc50c7f8595}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!getWorld@{getWorld}}
+\index{getWorld@{getWorld}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{getWorld()}{getWorld()}}
+{\footnotesize\ttfamily World pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+get\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter dla świata gry
+
+\begin{DoxyReturn}{Zwraca}
+świat gry 
+\end{DoxyReturn}
+
+
+Definicja w linii 144 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144                             \{}
+\DoxyCodeLine{145         \textcolor{keywordflow}{return} world;}
+\DoxyCodeLine{146     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_afe8bf82a318056c9a8f43143b48ad075}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_afe8bf82a318056c9a8f43143b48ad075}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!handleInput@{handleInput}}
+\index{handleInput@{handleInput}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{handleInput()}{handleInput()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Obsługa interakcji użytkownika 
+
+Definicja w linii 164 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164                               \{}
+\DoxyCodeLine{165         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}.\mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}}.DEAD != player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ace617567e0aba7dd6a9de2d4da6914f2}{currentState}}) \{}
+\DoxyCodeLine{166             \textcolor{keywordflow}{if} (Gdx.input.isKeyJustPressed(Input.Keys.UP) \&\& \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}.\mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}}.JUMPING != player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ace617567e0aba7dd6a9de2d4da6914f2}{currentState}}) \{}
+\DoxyCodeLine{167                 player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.applyLinearImpulse(\textcolor{keyword}{new} Vector2(0, 4), player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getWorldCenter(), \textcolor{keyword}{true});}
+\DoxyCodeLine{168             \}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170             \textcolor{keywordflow}{if} (Gdx.input.isKeyPressed(Input.Keys.RIGHT) \&\& player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getLinearVelocity().x <= 2) \{}
+\DoxyCodeLine{171                 player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.applyLinearImpulse(\textcolor{keyword}{new} Vector2(0.1f, 0), player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getWorldCenter(), \textcolor{keyword}{true});}
+\DoxyCodeLine{172             \}}
+\DoxyCodeLine{173             \textcolor{keywordflow}{if} (Gdx.input.isKeyPressed(Input.Keys.LEFT) \&\& player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getLinearVelocity().x >= -\/2 \&\& 0 < player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getPosition().x) \{}
+\DoxyCodeLine{174                 player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.applyLinearImpulse(\textcolor{keyword}{new} Vector2(-\/0.1f, 0), player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getWorldCenter(), \textcolor{keyword}{true});}
+\DoxyCodeLine{175             \}}
+\DoxyCodeLine{176         \}}
+\DoxyCodeLine{177     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a75bfc1de2ba039f9d25c935fa5e34fb2}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a75bfc1de2ba039f9d25c935fa5e34fb2}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!handleSpawningItems@{handleSpawningItems}}
+\index{handleSpawningItems@{handleSpawningItems}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{handleSpawningItems()}{handleSpawningItems()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+handle\+Spawning\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tworzenie obiektów z kolejki 
+
+Definicja w linii 191 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{191                                       \{}
+\DoxyCodeLine{192         \textcolor{keywordflow}{if} (!itemsToSpawn.isEmpty()) \{}
+\DoxyCodeLine{193             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1ItemDef}{ItemDef}} itemDef = itemsToSpawn.poll();}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195             \textcolor{keywordflow}{if} (itemDef.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1ItemDef_a827d6bbd2f930ba89be7d081c0d39402}{type}} == \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom}{Mushroom}}.class) \{}
+\DoxyCodeLine{196                 items.add(\textcolor{keyword}{new} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom}{Mushroom}}(\textcolor{keyword}{this}, itemDef.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1ItemDef_af6544c7102e34678b65ab8843c930e17}{position}}.x, itemDef.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1ItemDef_af6544c7102e34678b65ab8843c930e17}{position}}.y));}
+\DoxyCodeLine{197             \}}
+\DoxyCodeLine{198         \}}
+\DoxyCodeLine{199     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a8cc7f8ccf89168020875db5b7b1fc34d}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a8cc7f8ccf89168020875db5b7b1fc34d}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!render@{render}}
+\index{render@{render}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+render (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Wyrenderowanie ekranu gry
+
+
+\begin{DoxyParams}{Parametry}
+{\em delta} & czas renderowania \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 243 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{243                                     \{}
+\DoxyCodeLine{244         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a8351138acf6ec802ffb8ac5c3dc50189}{update}}(delta);}
+\DoxyCodeLine{245         Gdx.gl.glClearColor(0, 0, 0, 1);}
+\DoxyCodeLine{246         Gdx.gl.glClear(GL20.GL\_COLOR\_BUFFER\_BIT);}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249         renderer.render();}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251         box2DDebugRenderer.render(world, gameCamera.combined);}
+\DoxyCodeLine{252         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().setProjectionMatrix(game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a5cea73261b7d471602cfb8c870d35974}{getHud}}().\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a6926803c6a315ab72e5f66563152e8ae}{stage}}.getCamera().combined);}
+\DoxyCodeLine{253         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a5cea73261b7d471602cfb8c870d35974}{getHud}}().\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a6926803c6a315ab72e5f66563152e8ae}{stage}}.draw();}
+\DoxyCodeLine{254         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().setProjectionMatrix(gameCamera.combined);}
+\DoxyCodeLine{255         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().begin();}
+\DoxyCodeLine{256         player.draw(game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}());}
+\DoxyCodeLine{257         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy}{Enemy}} enemy : goombas) \{}
+\DoxyCodeLine{258             enemy.draw(game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}());}
+\DoxyCodeLine{259         \}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261         \textcolor{keywordflow}{for} (Item item : items) \{}
+\DoxyCodeLine{262             item.draw(game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}());}
+\DoxyCodeLine{263         \}}
+\DoxyCodeLine{264         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().end();}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a60d212acdb8bb0c63881dc5e824f77ba}{gameOver}}()) \{}
+\DoxyCodeLine{267             game.setScreen(\textcolor{keyword}{new} GameOverScreen(game));}
+\DoxyCodeLine{268             dispose();}
+\DoxyCodeLine{269         \}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271         \textcolor{keywordflow}{if} (player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a9f5f7e3bf91579ab8fe39adbeaf6fe84}{isMarioWon}}()) \{}
+\DoxyCodeLine{272             \textcolor{keywordflow}{if} (0 == game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_afddb20b5fe51005ec07fe1fafad33fdc}{getLevels}}().size()) \{}
+\DoxyCodeLine{273                 game.setScreen(\textcolor{keyword}{new} WinScreen(game));}
+\DoxyCodeLine{274             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{275                 game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_aebd6339ff493856cf259657b7a598a96}{getPreferences}}().putString(\textcolor{stringliteral}{"level"}, currentLevel);}
+\DoxyCodeLine{276                 game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_aebd6339ff493856cf259657b7a598a96}{getPreferences}}().putInteger(\textcolor{stringliteral}{"score"}, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud}{Hud}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1scenes_1_1Hud_a2ff0d1f8ff874b475c56e8cfb4434d2a}{score}});}
+\DoxyCodeLine{277                 game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_aebd6339ff493856cf259657b7a598a96}{getPreferences}}().flush();}
+\DoxyCodeLine{278                 game.setScreen(\textcolor{keyword}{new} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{PlayScreen}}(game, game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_afddb20b5fe51005ec07fe1fafad33fdc}{getLevels}}().poll()));}
+\DoxyCodeLine{279             \}}
+\DoxyCodeLine{280             dispose();}
+\DoxyCodeLine{281         \}}
+\DoxyCodeLine{282     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a1a2ddaf8128da48873121f0d844a2d63}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a1a2ddaf8128da48873121f0d844a2d63}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!resize@{resize}}
+\index{resize@{resize}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+resize (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Zmiana rozmiaru okna gry
+
+
+\begin{DoxyParams}{Parametry}
+{\em width} & szerokość po zmianie \\
+\hline
+{\em height} & wysokość po zmianie \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 291 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{291                                               \{}
+\DoxyCodeLine{292         gameViewport.update(width, height);}
+\DoxyCodeLine{293     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a3c8ae8f4f153cf7fe375bfc11031e6ee}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a3c8ae8f4f153cf7fe375bfc11031e6ee}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!spawnItem@{spawnItem}}
+\index{spawnItem@{spawnItem}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{spawnItem()}{spawnItem()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+spawn\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1ItemDef}{Item\+Def}}}]{item\+Def }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Dodanie obiektu do kolejki, z której będą tworzone przedmioty.
+
+
+\begin{DoxyParams}{Parametry}
+{\em item\+Def} & obiekt do stworzenia \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 184 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{184                                            \{}
+\DoxyCodeLine{185         itemsToSpawn.add(itemDef);}
+\DoxyCodeLine{186     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a8351138acf6ec802ffb8ac5c3dc50189}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a8351138acf6ec802ffb8ac5c3dc50189}} 
+\index{pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}!update@{update}}
+\index{update@{update}!pl.psk.gkproject.screens.PlayScreen@{pl.psk.gkproject.screens.PlayScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Play\+Screen.\+update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Aktualizacja ekranu gry.
+
+
+\begin{DoxyParams}{Parametry}
+{\em dt} & czas aktualizacji \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 215 pliku Play\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{215                                  \{}
+\DoxyCodeLine{216         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_afe8bf82a318056c9a8f43143b48ad075}{handleInput}}();}
+\DoxyCodeLine{217         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a75bfc1de2ba039f9d25c935fa5e34fb2}{handleSpawningItems}}();}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219         player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a204ed2333ff1030920dabcb137982e45}{update}}(dt);}
+\DoxyCodeLine{220         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy}{Enemy}} enemy : goombas) \{}
+\DoxyCodeLine{221             enemy.update(dt);}
+\DoxyCodeLine{222         \}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224         \textcolor{keywordflow}{for} (Item item : items) \{}
+\DoxyCodeLine{225             item.update(dt);}
+\DoxyCodeLine{226         \}}
+\DoxyCodeLine{227         world.step(1 / 60f, 6, 2);}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}.\mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}}.DEAD != player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ace617567e0aba7dd6a9de2d4da6914f2}{currentState}}) \{}
+\DoxyCodeLine{230             gameCamera.position.x = player.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getPosition().x;}
+\DoxyCodeLine{231         \}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233         gameCamera.update();}
+\DoxyCodeLine{234         renderer.setView(gameCamera);}
+\DoxyCodeLine{235     \}}
+
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/screens/Play\+Screen.\+java\end{DoxyCompactItemize}

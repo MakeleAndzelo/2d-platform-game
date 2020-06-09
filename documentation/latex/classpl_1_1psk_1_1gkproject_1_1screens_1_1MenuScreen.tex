@@ -1,0 +1,148 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+screens.\+Menu\+Screen}
+\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen}\index{pl.psk.gkproject.screens.MenuScreen@{pl.psk.gkproject.screens.MenuScreen}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+screens.\+Menu\+Screen\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a04d35099a4203111eec250b352b64e19}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a04d35099a4203111eec250b352b64e19}} 
+{\bfseries Menu\+Screen} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{Platform\+Game}} game)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a4fbd7da918565d3d4d7d084bd2d37e54}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a4fbd7da918565d3d4d7d084bd2d37e54}} 
+void {\bfseries show} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_afd8d71def613aedb6fa031d5b1293f09}{handle\+Input}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a2b25f398db1f183de626c917d8be6786}{render}} (float delta)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a519a4a69b79a45126c0dc5736045910e}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a519a4a69b79a45126c0dc5736045910e}} 
+void {\bfseries resize} (int width, int height)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_ab0e2dea75837c9e959cabf86065c7ab4}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_ab0e2dea75837c9e959cabf86065c7ab4}} 
+void {\bfseries pause} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a6db27357647fe7071fa81456cba1fe5c}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a6db27357647fe7071fa81456cba1fe5c}} 
+void {\bfseries resume} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_aa1a6ba9b955f65b5d498cf1108c3ed4f}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_aa1a6ba9b955f65b5d498cf1108c3ed4f}} 
+void {\bfseries hide} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a371dac0f3fe9780b4b452ec12093e6fb}{dispose}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Ekran menu gry 
+
+Definicja w linii 12 pliku Menu\+Screen.\+java.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a371dac0f3fe9780b4b452ec12093e6fb}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a371dac0f3fe9780b4b452ec12093e6fb}} 
+\index{pl.psk.gkproject.screens.MenuScreen@{pl.psk.gkproject.screens.MenuScreen}!dispose@{dispose}}
+\index{dispose@{dispose}!pl.psk.gkproject.screens.MenuScreen@{pl.psk.gkproject.screens.MenuScreen}}
+\doxysubsubsection{\texorpdfstring{dispose()}{dispose()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Menu\+Screen.\+dispose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda, która sprząta po zamknięciu ekranu. 
+
+Definicja w linii 126 pliku Menu\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{126                           \{}
+\DoxyCodeLine{127         background.dispose();}
+\DoxyCodeLine{128         playBtn.dispose();}
+\DoxyCodeLine{129     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_afd8d71def613aedb6fa031d5b1293f09}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_afd8d71def613aedb6fa031d5b1293f09}} 
+\index{pl.psk.gkproject.screens.MenuScreen@{pl.psk.gkproject.screens.MenuScreen}!handleInput@{handleInput}}
+\index{handleInput@{handleInput}!pl.psk.gkproject.screens.MenuScreen@{pl.psk.gkproject.screens.MenuScreen}}
+\doxysubsubsection{\texorpdfstring{handleInput()}{handleInput()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Menu\+Screen.\+handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Obsłużenie akcji użytkownika. Sprawdza który przycisk został naciśnięty. 
+
+Definicja w linii 49 pliku Menu\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49                               \{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} (240 <= Gdx.input.getX() \&\& 400 >= Gdx.input.getX()) \{}
+\DoxyCodeLine{51             \textcolor{keywordflow}{if} (180 <= Gdx.input.getY() \&\& 230 > Gdx.input.getY()) \{}
+\DoxyCodeLine{52                 \textcolor{keywordflow}{if} (Gdx.input.isTouched()) \{}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54                     Hud.setScore(game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_aebd6339ff493856cf259657b7a598a96}{getPreferences}}().getInteger(\textcolor{stringliteral}{"score"}));}
+\DoxyCodeLine{55                     String savedLevel = game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_aebd6339ff493856cf259657b7a598a96}{getPreferences}}().getString(\textcolor{stringliteral}{"level"});}
+\DoxyCodeLine{56                     String level;}
+\DoxyCodeLine{57                     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{58                         level = game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_afddb20b5fe51005ec07fe1fafad33fdc}{getLevels}}().poll();}
+\DoxyCodeLine{59                     \} \textcolor{keywordflow}{while} (!savedLevel.equals(level));}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61                     game.setScreen(\textcolor{keyword}{new} PlayScreen(game, game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_afddb20b5fe51005ec07fe1fafad33fdc}{getLevels}}().poll()));}
+\DoxyCodeLine{62                     \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a371dac0f3fe9780b4b452ec12093e6fb}{dispose}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64                 \}}
+\DoxyCodeLine{65             \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67             \textcolor{keywordflow}{if} (230 <= Gdx.input.getY() \&\& 280 > Gdx.input.getY()) \{}
+\DoxyCodeLine{68                 \textcolor{keywordflow}{if} (Gdx.input.isTouched()) \{}
+\DoxyCodeLine{69                     game.setScreen(\textcolor{keyword}{new} PlayScreen(game, game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_afddb20b5fe51005ec07fe1fafad33fdc}{getLevels}}().poll()));}
+\DoxyCodeLine{70                     \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a371dac0f3fe9780b4b452ec12093e6fb}{dispose}}();}
+\DoxyCodeLine{71                 \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73             \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75             \textcolor{keywordflow}{if} (280 <= Gdx.input.getY() \&\& 320 >= Gdx.input.getY()) \{}
+\DoxyCodeLine{76                 \textcolor{keywordflow}{if} (Gdx.input.isTouched()) \{}
+\DoxyCodeLine{77                     Gdx.app.exit();}
+\DoxyCodeLine{78                 \}}
+\DoxyCodeLine{79             \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         \}}
+\DoxyCodeLine{82     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a2b25f398db1f183de626c917d8be6786}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_a2b25f398db1f183de626c917d8be6786}} 
+\index{pl.psk.gkproject.screens.MenuScreen@{pl.psk.gkproject.screens.MenuScreen}!render@{render}}
+\index{render@{render}!pl.psk.gkproject.screens.MenuScreen@{pl.psk.gkproject.screens.MenuScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Menu\+Screen.\+render (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Wyrenderowanie ekranu menu
+
+
+\begin{DoxyParams}{Parametry}
+{\em delta} & Czas renderowania \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 90 pliku Menu\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90                                     \{}
+\DoxyCodeLine{91         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1MenuScreen_afd8d71def613aedb6fa031d5b1293f09}{handleInput}}();}
+\DoxyCodeLine{92         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().begin();}
+\DoxyCodeLine{93         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().draw(background, 0, 0, 700, 480);}
+\DoxyCodeLine{94         \textcolor{keywordflow}{if} (!game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_aebd6339ff493856cf259657b7a598a96}{getPreferences}}().getString(\textcolor{stringliteral}{"level"}).isEmpty()) \{}
+\DoxyCodeLine{95             game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().draw(resumeBtn, ((\textcolor{keywordtype}{float}) PlatformGame.V\_WIDTH / 2) + 20, 230, 200, 80);}
+\DoxyCodeLine{96         \}}
+\DoxyCodeLine{97         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().draw(playBtn, ((\textcolor{keywordtype}{float}) PlatformGame.V\_WIDTH / 2) + 20, 180, 200, 80);}
+\DoxyCodeLine{98         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().draw(closeBtn, ((\textcolor{keywordtype}{float}) PlatformGame.V\_WIDTH / 2) + 20, 140, 200, 80);}
+\DoxyCodeLine{99         game.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a733740bc122f1eca523a38ace332f15d}{getBatch}}().end();}
+\DoxyCodeLine{100     \}}
+
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/screens/Menu\+Screen.\+java\end{DoxyCompactItemize}

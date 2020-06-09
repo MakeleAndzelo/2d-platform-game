@@ -13,8 +13,18 @@ import com.badlogic.gdx.utils.Array;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.screens.PlayScreen;
 
+/**
+ * Klasa konkretnego przeciwnika
+ */
 public class Goomba extends Enemy {
+    /**
+     * Czas od początku istnienia przeciwnika
+     */
     private float stateTime = 0.0f;
+
+    /**
+     * Animacja poruszania się przeciwnika
+     */
     private final Animation<TextureRegion> walkAnimation;
 
     public Goomba(PlayScreen playScreen, float x, float y) {
@@ -30,6 +40,11 @@ public class Goomba extends Enemy {
         setBounds(getX(), getY(), 16 / PlatformGame.PPM, 16 / PlatformGame.PPM);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param dt
+     */
     public void update(float dt) {
         stateTime += dt;
 
@@ -47,6 +62,11 @@ public class Goomba extends Enemy {
         }
     }
 
+    /**
+     * Rysowanie przeciwnika na mapie
+     *
+     * @param batch obiekt do rysowania
+     */
     @Override
     public void draw(Batch batch) {
         if (!destroyed || stateTime < 1) {
@@ -54,6 +74,9 @@ public class Goomba extends Enemy {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void define() {
         BodyDef bodyDef = new BodyDef();
@@ -89,6 +112,9 @@ public class Goomba extends Enemy {
         body.createFixture(fixtureDef).setUserData(this);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void hitOnHead() {
         setToDestroy = true;

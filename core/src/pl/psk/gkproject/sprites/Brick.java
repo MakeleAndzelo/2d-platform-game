@@ -8,11 +8,17 @@ import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.screens.PlayScreen;
 
+/**
+ * Klasa reprezentująca klocek "cegieł" na mapie
+ */
 public class Brick extends AbstractTiledSprite implements InteractiveSprite {
     public Brick(PlayScreen playScreen, World world, Rectangle rectangle) {
         super(playScreen, world, rectangle);
     }
 
+    /**
+     * Stworzenie fixture obiektu
+     */
     @Override
     public void makeFixture() {
         super.makeFixture();
@@ -24,10 +30,20 @@ public class Brick extends AbstractTiledSprite implements InteractiveSprite {
         fixture.setFilterData(filter);
     }
 
+    /**
+     * Ustawienie filtru dla fixture
+     *
+     * @param filter filter dla fixture
+     */
     public void setFixtureFilter(Filter filter) {
         fixture.setFilterData(filter);
     }
 
+    /**
+     * Metoda, która jest używana podczas interakcji głowy Maria z klockiem
+     *
+     * @param map aktualna mapa gry
+     */
     @Override
     public void onHeadHit(TiledMap map) {
         Filter filter = new Filter();

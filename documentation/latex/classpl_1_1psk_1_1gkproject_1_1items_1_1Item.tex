@@ -1,0 +1,287 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+items.\+Item}
+\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item}\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+items.\+Item\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classpl_1_1psk_1_1gkproject_1_1items_1_1Item}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a6ee6e13b97f591aef1285727175d9c73}{Item}} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}{play\+Screen}}, float x, float y)
+\item 
+abstract void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a42610f79ad8f8e1d136a79418aa877ce}{define\+Item}} ()
+\item 
+abstract void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_ac12d770292d2ac566aa93cb8297a26ed}{use}} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}} mario)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af6af52e1fe390321afbae6e81417a8eb}{update}} (float delta\+Time)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_aa712f7fb25489338307ab88d3b24da63}{draw}} (Batch batch)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a4ffadcb8a484c8de743ff9aeaf946fe7}{destroy}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a48b7cab01b9e1c8f4d1e31a727636866}{reverse\+Velocity}} (boolean x, boolean y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}{play\+Screen}}
+\item 
+World \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a59cbba8272f448742a0a3d3a27a9cf67}{world}}
+\item 
+Vector2 \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}}
+\item 
+boolean \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a0c3f94bdb0fd0d6ea85d9218edee130d}{to\+Destroy}} = false
+\item 
+boolean \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a15629c51ab926b640cc301247e90d8da}{destroyed}} = false
+\item 
+Body \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Abstrakcyjna klasa dla obiektów, z którymi Mario może wejść w interakcję (na przykład grzyby). 
+
+Definicja w linii 16 pliku Item.\+java.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a6ee6e13b97f591aef1285727175d9c73}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a6ee6e13b97f591aef1285727175d9c73}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!Item@{Item}}
+\index{Item@{Item}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{Item()}{Item()}}
+{\footnotesize\ttfamily pl.\+psk.\+gkproject.\+items.\+Item.\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}}}]{play\+Screen,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Konstruktor klasy
+
+
+\begin{DoxyParams}{Parametry}
+{\em play\+Screen} & główny ekran gry \\
+\hline
+{\em x} & Pozycja X obiektu \\
+\hline
+{\em y} & Pozycja Y obiektu \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 54 pliku Item.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                                          \{}
+\DoxyCodeLine{55         this.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}{playScreen}} = \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}{playScreen}};}
+\DoxyCodeLine{56         this.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a59cbba8272f448742a0a3d3a27a9cf67}{world}} = \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}{playScreen}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a4881c6e561896248ef5e1fc50c7f8595}{getWorld}}();}
+\DoxyCodeLine{57         setPosition(x ,y);}
+\DoxyCodeLine{58         setBounds(getX(), getY(), 16 / PlatformGame.PPM, 16 / PlatformGame.PPM);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a42610f79ad8f8e1d136a79418aa877ce}{defineItem}}();}
+\DoxyCodeLine{61     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a42610f79ad8f8e1d136a79418aa877ce}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a42610f79ad8f8e1d136a79418aa877ce}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!defineItem@{defineItem}}
+\index{defineItem@{defineItem}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{defineItem()}{defineItem()}}
+{\footnotesize\ttfamily abstract void pl.\+psk.\+gkproject.\+items.\+Item.\+define\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Metoda do zdefiniowania obiektu 
+
+Reimplementowana w \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a400b4d8ff8e3fe41a9db06eddbec3f20}{pl.\+psk.\+gkproject.\+items.\+Mushroom}}.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a4ffadcb8a484c8de743ff9aeaf946fe7}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a4ffadcb8a484c8de743ff9aeaf946fe7}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!destroy@{destroy}}
+\index{destroy@{destroy}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+items.\+Item.\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Ustawianie obiektu do usunięcia 
+
+Definicja w linii 102 pliku Item.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102                           \{}
+\DoxyCodeLine{103         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a0c3f94bdb0fd0d6ea85d9218edee130d}{toDestroy}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{104     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_aa712f7fb25489338307ab88d3b24da63}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_aa712f7fb25489338307ab88d3b24da63}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!draw@{draw}}
+\index{draw@{draw}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+items.\+Item.\+draw (\begin{DoxyParamCaption}\item[{Batch}]{batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rysuje obiekt na ekranie. Jest tutaj sprawdzane, czy obiekt został usunięty.
+
+
+\begin{DoxyParams}{Parametry}
+{\em batch} & obiekt do rysowania \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 93 pliku Item.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{93                                   \{}
+\DoxyCodeLine{94         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a15629c51ab926b640cc301247e90d8da}{destroyed}}) \{}
+\DoxyCodeLine{95             super.draw(batch);}
+\DoxyCodeLine{96         \}}
+\DoxyCodeLine{97     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a48b7cab01b9e1c8f4d1e31a727636866}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a48b7cab01b9e1c8f4d1e31a727636866}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!reverseVelocity@{reverseVelocity}}
+\index{reverseVelocity@{reverseVelocity}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{reverseVelocity()}{reverseVelocity()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+items.\+Item.\+reverse\+Velocity (\begin{DoxyParamCaption}\item[{boolean}]{x,  }\item[{boolean}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda śłużąca do zmiany kierunku obiektu
+
+
+\begin{DoxyParams}{Parametry}
+{\em x} & parametr określający, czy powinniśmy zmienić kierunek w osi X \\
+\hline
+{\em y} & parametr określający, czy powinniśmy zmienić kierunek w osi Y \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 112 pliku Item.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112                                                       \{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} (x) \{}
+\DoxyCodeLine{114             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}}.x = -\/\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}}.x;}
+\DoxyCodeLine{115         \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         \textcolor{keywordflow}{if} (y) \{}
+\DoxyCodeLine{118             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}}.y = -\/\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}}.y;}
+\DoxyCodeLine{119         \}}
+\DoxyCodeLine{120     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af6af52e1fe390321afbae6e81417a8eb}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af6af52e1fe390321afbae6e81417a8eb}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!update@{update}}
+\index{update@{update}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+items.\+Item.\+update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda do aktualizacji obiektu w kolejnej iteracji
+
+
+\begin{DoxyParams}{Parametry}
+{\em delta\+Time} & czas iteracji \\
+\hline
+\end{DoxyParams}
+
+
+Reimplementowana w \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_afdf4acf1f6e60a361a21ec0abdd072d0}{pl.\+psk.\+gkproject.\+items.\+Mushroom}}.
+
+
+
+Definicja w linii 80 pliku Item.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                                         \{}
+\DoxyCodeLine{81         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a0c3f94bdb0fd0d6ea85d9218edee130d}{toDestroy}} \&\& !\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a15629c51ab926b640cc301247e90d8da}{destroyed}}) \{}
+\DoxyCodeLine{82             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a59cbba8272f448742a0a3d3a27a9cf67}{world}}.destroyBody(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}});}
+\DoxyCodeLine{83             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a15629c51ab926b640cc301247e90d8da}{destroyed}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{84         \}}
+\DoxyCodeLine{85     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_ac12d770292d2ac566aa93cb8297a26ed}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_ac12d770292d2ac566aa93cb8297a26ed}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!use@{use}}
+\index{use@{use}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily abstract void pl.\+psk.\+gkproject.\+items.\+Item.\+use (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}}]{mario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Metoda, w której jest określone co sie dzieje z przedmiotem po interakcji z mariem
+
+
+\begin{DoxyParams}{Parametry}
+{\em mario} & obiekt Maria \\
+\hline
+\end{DoxyParams}
+
+
+Reimplementowana w \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a9200505059df20aff97cd25b2fe1fa8a}{pl.\+psk.\+gkproject.\+items.\+Mushroom}}.
+
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!body@{body}}
+\index{body@{body}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily Body pl.\+psk.\+gkproject.\+items.\+Item.\+body\hspace{0.3cm}{\ttfamily [protected]}}
+
+Definicja ciała dla obiektu, na który jest nakładany sprite, bit etc. 
+
+Definicja w linii 45 pliku Item.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a15629c51ab926b640cc301247e90d8da}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a15629c51ab926b640cc301247e90d8da}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!destroyed@{destroyed}}
+\index{destroyed@{destroyed}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{destroyed}{destroyed}}
+{\footnotesize\ttfamily boolean pl.\+psk.\+gkproject.\+items.\+Item.\+destroyed = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+Flaga okreslająca, czy obiekt został już zniszczony 
+
+Definicja w linii 40 pliku Item.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!playScreen@{playScreen}}
+\index{playScreen@{playScreen}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{playScreen}{playScreen}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}} pl.\+psk.\+gkproject.\+items.\+Item.\+play\+Screen\hspace{0.3cm}{\ttfamily [protected]}}
+
+Instancja głównego ekranu gry 
+
+Definicja w linii 20 pliku Item.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a0c3f94bdb0fd0d6ea85d9218edee130d}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a0c3f94bdb0fd0d6ea85d9218edee130d}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!toDestroy@{toDestroy}}
+\index{toDestroy@{toDestroy}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{toDestroy}{toDestroy}}
+{\footnotesize\ttfamily boolean pl.\+psk.\+gkproject.\+items.\+Item.\+to\+Destroy = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+Flaga oznaczająca, że obiekt powinien zostać zniszczony. 
+
+Definicja w linii 35 pliku Item.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!velocity@{velocity}}
+\index{velocity@{velocity}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{velocity}{velocity}}
+{\footnotesize\ttfamily Vector2 pl.\+psk.\+gkproject.\+items.\+Item.\+velocity\hspace{0.3cm}{\ttfamily [protected]}}
+
+Wektor przemieszczania się obiektu 
+
+Definicja w linii 30 pliku Item.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a59cbba8272f448742a0a3d3a27a9cf67}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a59cbba8272f448742a0a3d3a27a9cf67}} 
+\index{pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}!world@{world}}
+\index{world@{world}!pl.psk.gkproject.items.Item@{pl.psk.gkproject.items.Item}}
+\doxysubsubsection{\texorpdfstring{world}{world}}
+{\footnotesize\ttfamily World pl.\+psk.\+gkproject.\+items.\+Item.\+world\hspace{0.3cm}{\ttfamily [protected]}}
+
+Świat gry 
+
+Definicja w linii 25 pliku Item.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/items/Item.\+java\end{DoxyCompactItemize}

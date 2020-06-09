@@ -11,24 +11,104 @@ import com.badlogic.gdx.utils.Array;
 import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.screens.PlayScreen;
 
+/**
+ * Klasa określająca Maria, którym steruje gracza
+ */
 public class Mario extends Sprite {
+    /**
+     * Stany określające maria
+     *
+     * FALLING - spadanie
+     * JUMPING - skok
+     * STANDING - bezczynność
+     * RUNNING - bieg
+     * DEAD - mario nie zyje
+     */
     public enum State {FALLING, JUMPING, STANDING, RUNNING, DEAD}
+
+    /**
+     * Aktualny stan maria
+     */
     public State currentState;
+
+    /**
+     * Poprzedni stan maria
+     */
     public State previousState;
+
+    /**
+     * Animacja wyświetlana podczas poruszania maria
+     */
     private final Animation<TextureRegion> marioRun;
+
+    /**
+     * Tekstura dla skaczącego maria
+     */
     private final TextureRegion marioJump;
+
+    /**
+     * Czas od początku istnienia maria
+     */
     private float stateTimer;
+
+    /**
+     * Flaga okreslajaca, czy mario biegnie w prawo.
+     */
     private boolean runningRight;
+
+    /**
+     * Świat gry
+     */
     public World world;
+
+    /**
+     * Ciało maria
+     */
     public Body body;
+
+    /**
+     * Tekstura gdy mario stoi
+     */
     private final TextureRegion marioStand;
+
+    /**
+     * Tekstura niezywego maria
+     */
     private final TextureRegion marioDead;
+
+    /**
+     * Flaga określająca, że mario nie zyje
+     */
     private boolean marioIsDead = false;
+
+    /**
+     * Flaga określająca, ze gracz przeszedł grę
+     */
     private boolean marioWon = false;
+
+    /**
+     * Tekstura dla dużego maria w bezruchu
+     */
     private final TextureRegion bigMarioStand;
+
+    /**
+     * Tekstura dla skaczącego dużego maria
+     */
     private final TextureRegion bigMarioJump;
+
+    /**
+     * Animacja dla poruszania się dużego maria
+     */
     private final Animation<TextureRegion> bigMarioRun;
+
+    /**
+     * Flaga określająca, czy mario jest duży (czy zjadl grzyba)
+     */
     private boolean marioIsBig = false;
+
+    /**
+     * Flaga określająca, czy mario powinien urosnąć
+     */
     private boolean timeToDefineBigMario = false;
 
     public Mario(World world, PlayScreen screen) {
@@ -87,6 +167,11 @@ public class Mario extends Sprite {
         body.createFixture(fixtureDef).setUserData(this);
     }
 
+    /**
+     * Aktualizacja maria na ekranie
+     *
+     * @param dt czas aktualizacji
+     */
     public void update(float dt) {
         if (marioIsBig) {
             setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2 - 6 / PlatformGame.PPM);
@@ -109,6 +194,9 @@ public class Mario extends Sprite {
         }
     }
 
+    /**
+     * Definiowanie dużego maria. Jest tutaj po prostu podmieniana fixture maria
+     */
     private void defineBigMario() {
         Vector2 currentPosition = body.getPosition();
         world.destroyBody(body);
@@ -139,6 +227,12 @@ public class Mario extends Sprite {
         timeToDefineBigMario = false;
     }
 
+    /**
+     * Pobranie regionu tekstury dla maria
+     *
+     * @param dt czas iteracji
+     * @return region tekstury
+     */
     private TextureRegion getFrame(float dt) {
         currentState = getState();
 
@@ -176,6 +270,11 @@ public class Mario extends Sprite {
         return region;
     }
 
+    /**
+     * Pobranie stanu maria
+     *
+     * @return stan maria
+     */
     public State getState() {
         if (marioIsDead) {
             return State.DEAD;
@@ -196,6 +295,9 @@ public class Mario extends Sprite {
         return State.STANDING;
     }
 
+    /**
+     * Metoda uśmiercająca maria. Ustawia odpowiednie flagi oraz dodaje animację.
+     */
     public void die() {
         PlatformGame.manager.get("audio/music/mario_music.ogg", Music.class).stop();
         PlatformGame.manager.get("audio/sounds/mariodie.wav", Sound.class).play();
@@ -210,18 +312,30 @@ public class Mario extends Sprite {
         body.applyLinearImpulse(new Vector2(0, 4f), body.getWorldCenter(), true);
     }
 
+    /**
+     * @return Flaga określająca, czy mario nie zyje
+     */
     public boolean isMarioIsDead() {
         return marioIsDead;
     }
 
+    /**
+     * @return czas istnienia obiektu maria
+     */
     public float getStateTimer() {
         return stateTimer;
     }
 
+    /**
+     * @return Flaga określająca czy gracz przeszedł grę
+     */
     public boolean isMarioWon() {
         return marioWon;
     }
 
+    /**
+     * Metoda do wywołania rośniecia przez Maria
+     */
     public void grow() {
         marioIsBig = true;
         timeToDefineBigMario = true;
@@ -229,6 +343,9 @@ public class Mario extends Sprite {
         PlatformGame.manager.get("audio/sounds/powerup.wav", Sound.class).play();
     }
 
+    /**
+     * @return Flaga określająca, czy Mario jest duży
+     */
     public boolean isMarioIsBig() {
         return marioIsBig;
     }

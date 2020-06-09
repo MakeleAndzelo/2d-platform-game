@@ -1,0 +1,113 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+screens.\+Game\+Over\+Screen}
+\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen}\index{pl.psk.gkproject.screens.GameOverScreen@{pl.psk.gkproject.screens.GameOverScreen}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+screens.\+Game\+Over\+Screen\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a544563f2ec540c45591a794c29923b89}{Game\+Over\+Screen}} (Game game)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a1d69f2da97c6f9d0081711905feba25e}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a1d69f2da97c6f9d0081711905feba25e}} 
+void {\bfseries show} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a57e220568059eecef6e032c24c727198}{render}} (float delta)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a3dbfd74aa77657679751e2e18930f39c}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a3dbfd74aa77657679751e2e18930f39c}} 
+void {\bfseries resize} (int width, int height)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a65e1677ac02acb13c8f16f95f3598cdd}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a65e1677ac02acb13c8f16f95f3598cdd}} 
+void {\bfseries pause} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a334d4cf95687d7449c3fec0a3f098f78}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a334d4cf95687d7449c3fec0a3f098f78}} 
+void {\bfseries resume} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a6ec9f9a5eb7ec4f2a01c5609114b656d}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a6ec9f9a5eb7ec4f2a01c5609114b656d}} 
+void {\bfseries hide} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_aa11f2e54e381687aa180795c186d28b8}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_aa11f2e54e381687aa180795c186d28b8}} 
+void {\bfseries dispose} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Ekran końca gry 
+
+Definicja w linii 20 pliku Game\+Over\+Screen.\+java.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a544563f2ec540c45591a794c29923b89}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a544563f2ec540c45591a794c29923b89}} 
+\index{pl.psk.gkproject.screens.GameOverScreen@{pl.psk.gkproject.screens.GameOverScreen}!GameOverScreen@{GameOverScreen}}
+\index{GameOverScreen@{GameOverScreen}!pl.psk.gkproject.screens.GameOverScreen@{pl.psk.gkproject.screens.GameOverScreen}}
+\doxysubsubsection{\texorpdfstring{GameOverScreen()}{GameOverScreen()}}
+{\footnotesize\ttfamily pl.\+psk.\+gkproject.\+screens.\+Game\+Over\+Screen.\+Game\+Over\+Screen (\begin{DoxyParamCaption}\item[{Game}]{game }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Konstruktor klasy
+
+
+\begin{DoxyParams}{Parametry}
+{\em game} & obiekt gry \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 31 pliku Game\+Over\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                                      \{}
+\DoxyCodeLine{32         Viewport viewport = \textcolor{keyword}{new} FitViewport(PlatformGame.V\_WIDTH, PlatformGame.V\_HEIGHT, \textcolor{keyword}{new} OrthographicCamera());}
+\DoxyCodeLine{33         stage = \textcolor{keyword}{new} Stage(viewport, ((PlatformGame) game).getBatch());}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         Label.LabelStyle font = \textcolor{keyword}{new} Label.LabelStyle(\textcolor{keyword}{new} BitmapFont(), Color.WHITE);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         Table table = \textcolor{keyword}{new} Table();}
+\DoxyCodeLine{38         table.center();}
+\DoxyCodeLine{39         table.setFillParent(\textcolor{keyword}{true});}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         Label gameOverLabel = \textcolor{keyword}{new} Label(\textcolor{stringliteral}{"KONIEC GRY"}, font);}
+\DoxyCodeLine{42         table.add(gameOverLabel).expandX();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         stage.addActor(table);}
+\DoxyCodeLine{45     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a57e220568059eecef6e032c24c727198}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1GameOverScreen_a57e220568059eecef6e032c24c727198}} 
+\index{pl.psk.gkproject.screens.GameOverScreen@{pl.psk.gkproject.screens.GameOverScreen}!render@{render}}
+\index{render@{render}!pl.psk.gkproject.screens.GameOverScreen@{pl.psk.gkproject.screens.GameOverScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Game\+Over\+Screen.\+render (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Renderuje ekran końca gry
+
+
+\begin{DoxyParams}{Parametry}
+{\em delta} & czas renderowania \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 57 pliku Game\+Over\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57                                     \{}
+\DoxyCodeLine{58         Gdx.gl.glClearColor(0, 0, 0, 1);}
+\DoxyCodeLine{59         Gdx.gl.glClear(GL20.GL\_COLOR\_BUFFER\_BIT);}
+\DoxyCodeLine{60         stage.draw();}
+\DoxyCodeLine{61     \}}
+
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/screens/Game\+Over\+Screen.\+java\end{DoxyCompactItemize}

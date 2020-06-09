@@ -1,0 +1,210 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1WorldContactListener}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+World\+Contact\+Listener}
+\label{classpl_1_1psk_1_1gkproject_1_1WorldContactListener}\index{pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+World\+Contact\+Listener\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpl_1_1psk_1_1gkproject_1_1WorldContactListener}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_ad1711f9b18713d6bb9051c50933dd07d}{World\+Contact\+Listener}} (Tiled\+Map map)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a413bcada9d44c340f21730213728fefe}{begin\+Contact}} (Contact contact)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a2b5468d8294157dc5098f61cb3eb7bd6}{end\+Contact}} (Contact contact)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a1797457db74d6c6b55f0e0b2aaf7b3bc}{pre\+Solve}} (Contact contact, Manifold old\+Manifold)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_abeea21073efc5e2ba16941764856d1c1}{post\+Solve}} (Contact contact, Contact\+Impulse impulse)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa Odpowiedzialna za kolizję w grze. 
+
+Definicja w linii 11 pliku World\+Contact\+Listener.\+java.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_ad1711f9b18713d6bb9051c50933dd07d}\label{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_ad1711f9b18713d6bb9051c50933dd07d}} 
+\index{pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}!WorldContactListener@{WorldContactListener}}
+\index{WorldContactListener@{WorldContactListener}!pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}}
+\doxysubsubsection{\texorpdfstring{WorldContactListener()}{WorldContactListener()}}
+{\footnotesize\ttfamily pl.\+psk.\+gkproject.\+World\+Contact\+Listener.\+World\+Contact\+Listener (\begin{DoxyParamCaption}\item[{Tiled\+Map}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Konstruktor klasy
+
+
+\begin{DoxyParams}{Parametry}
+{\em map} & Mapa gry, z aktualnie granym poziomem. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 22 pliku World\+Contact\+Listener.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                               \{}
+\DoxyCodeLine{23         this.map = map;}
+\DoxyCodeLine{24     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a413bcada9d44c340f21730213728fefe}\label{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a413bcada9d44c340f21730213728fefe}} 
+\index{pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}!beginContact@{beginContact}}
+\index{beginContact@{beginContact}!pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}}
+\doxysubsubsection{\texorpdfstring{beginContact()}{beginContact()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+World\+Contact\+Listener.\+begin\+Contact (\begin{DoxyParamCaption}\item[{Contact}]{contact }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda, która jest wywoływana podczas kolizji z różnymi obiektami. Sprawdzane są bity poszczególnych obiektów oraz wykonywane odpowiednie interakcje.
+
+
+\begin{DoxyParams}{Parametry}
+{\em contact} & obiekt przechowujący informację na temat kolizji. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 33 pliku World\+Contact\+Listener.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                               \{}
+\DoxyCodeLine{34         Fixture fixA = contact.getFixtureA();}
+\DoxyCodeLine{35         Fixture fixB = contact.getFixtureB();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{keywordtype}{int} cdef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{keywordflow}{if} (cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a6db134cabf73aff84f2e3e8b3e059dac}{ENEMY\_BIT\_HEAD}} | \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a84ce4d5de958a3582551390d512765ec}{MARIO\_BIT}})) \{}
+\DoxyCodeLine{40             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a6db134cabf73aff84f2e3e8b3e059dac}{ENEMY\_BIT\_HEAD}} == fixA.getFilterData().categoryBits) \{}
+\DoxyCodeLine{41                 ((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy}{Enemy}}) fixA.getUserData()).hitOnHead();}
+\DoxyCodeLine{42             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{43                 ((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy}{Enemy}}) fixB.getUserData()).hitOnHead();}
+\DoxyCodeLine{44             \}}
+\DoxyCodeLine{45         \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_af9be52f93767de32cb8d59446c673626}{ENEMY\_BIT}} | \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_ace63033412d27265cf5846dd0b47aaca}{OBJECT\_BIT}}) || cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_af9be52f93767de32cb8d59446c673626}{ENEMY\_BIT}} | \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_aa09ef642c4beb3065ea74e0c5ac60512}{GROUND\_BIT}})) \{}
+\DoxyCodeLine{48             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_af9be52f93767de32cb8d59446c673626}{ENEMY\_BIT}} == fixA.getFilterData().categoryBits) \{}
+\DoxyCodeLine{49                 ((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy}{Enemy}}) fixA.getUserData()).reverseVelocity(\textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{50             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{51                 ((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy}{Enemy}}) fixB.getUserData()).reverseVelocity(\textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{52             \}}
+\DoxyCodeLine{53         \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55         \textcolor{keywordflow}{if} (cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_af9be52f93767de32cb8d59446c673626}{ENEMY\_BIT}})) \{}
+\DoxyCodeLine{56             ((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy}{Enemy}}) fixA.getUserData()).reverseVelocity(\textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{57             ((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Enemy}{Enemy}}) fixB.getUserData()).reverseVelocity(\textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{58         \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} (cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a5f88db156660124f45a8bcf87a302b94}{ITEM\_BIT}} | \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_ace63033412d27265cf5846dd0b47aaca}{OBJECT\_BIT}})) \{}
+\DoxyCodeLine{61             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a5f88db156660124f45a8bcf87a302b94}{ITEM\_BIT}} == fixA.getFilterData().categoryBits) \{}
+\DoxyCodeLine{62                 ((Item) fixA.getUserData()).reverseVelocity(\textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{63             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{64                 ((Item) fixB.getUserData()).reverseVelocity(\textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{65             \}}
+\DoxyCodeLine{66         \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} (cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a5f88db156660124f45a8bcf87a302b94}{ITEM\_BIT}} | \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a84ce4d5de958a3582551390d512765ec}{MARIO\_BIT}})) \{}
+\DoxyCodeLine{69             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a5f88db156660124f45a8bcf87a302b94}{ITEM\_BIT}} == fixA.getFilterData().categoryBits) \{}
+\DoxyCodeLine{70                 ((Item) fixA.getUserData()).use(((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}) fixB.getUserData()));}
+\DoxyCodeLine{71             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{72                 ((Item) fixB.getUserData()).use((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}) fixA.getUserData());}
+\DoxyCodeLine{73             \}}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} (cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a2c0acda499735f27426269d9fd53a5f7}{MARIO\_HEAD\_BIT}} | \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a3977b41b787c2b0675e5b163fa3637a6}{BRICK\_BIT}}) || cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a2c0acda499735f27426269d9fd53a5f7}{MARIO\_HEAD\_BIT}} | \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_ae6262157eda9261547771fb89be4d05b}{COIN\_BIT}})) \{}
+\DoxyCodeLine{77             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a2c0acda499735f27426269d9fd53a5f7}{MARIO\_HEAD\_BIT}} == fixA.getFilterData().categoryBits) \{}
+\DoxyCodeLine{78                 ((\mbox{\hyperlink{interfacepl_1_1psk_1_1gkproject_1_1sprites_1_1InteractiveSprite}{InteractiveSprite}}) fixB.getUserData()).onHeadHit(map);}
+\DoxyCodeLine{79             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{80                 ((\mbox{\hyperlink{interfacepl_1_1psk_1_1gkproject_1_1sprites_1_1InteractiveSprite}{InteractiveSprite}}) fixA.getUserData()).onHeadHit(map);}
+\DoxyCodeLine{81             \}}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         \textcolor{keywordflow}{if} (cdef == (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a84ce4d5de958a3582551390d512765ec}{MARIO\_BIT}} | \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_af9be52f93767de32cb8d59446c673626}{ENEMY\_BIT}})) \{}
+\DoxyCodeLine{85             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame}{PlatformGame}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1PlatformGame_a84ce4d5de958a3582551390d512765ec}{MARIO\_BIT}} == fixA.getFilterData().categoryBits) \{}
+\DoxyCodeLine{86                 ((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}) fixA.getUserData()).die();}
+\DoxyCodeLine{87             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{88                 ((\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}) fixB.getUserData()).die();}
+\DoxyCodeLine{89             \}}
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a2b5468d8294157dc5098f61cb3eb7bd6}\label{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a2b5468d8294157dc5098f61cb3eb7bd6}} 
+\index{pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}!endContact@{endContact}}
+\index{endContact@{endContact}!pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}}
+\doxysubsubsection{\texorpdfstring{endContact()}{endContact()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+World\+Contact\+Listener.\+end\+Contact (\begin{DoxyParamCaption}\item[{Contact}]{contact }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parametry}
+{\em contact} & \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 99 pliku World\+Contact\+Listener.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                             \{}
+\DoxyCodeLine{100     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_abeea21073efc5e2ba16941764856d1c1}\label{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_abeea21073efc5e2ba16941764856d1c1}} 
+\index{pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}!postSolve@{postSolve}}
+\index{postSolve@{postSolve}!pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}}
+\doxysubsubsection{\texorpdfstring{postSolve()}{postSolve()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+World\+Contact\+Listener.\+post\+Solve (\begin{DoxyParamCaption}\item[{Contact}]{contact,  }\item[{Contact\+Impulse}]{impulse }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parametry}
+{\em contact} & \\
+\hline
+{\em impulse} & \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 119 pliku World\+Contact\+Listener.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119                                                                    \{}
+\DoxyCodeLine{120     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a1797457db74d6c6b55f0e0b2aaf7b3bc}\label{classpl_1_1psk_1_1gkproject_1_1WorldContactListener_a1797457db74d6c6b55f0e0b2aaf7b3bc}} 
+\index{pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}!preSolve@{preSolve}}
+\index{preSolve@{preSolve}!pl.psk.gkproject.WorldContactListener@{pl.psk.gkproject.WorldContactListener}}
+\doxysubsubsection{\texorpdfstring{preSolve()}{preSolve()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+World\+Contact\+Listener.\+pre\+Solve (\begin{DoxyParamCaption}\item[{Contact}]{contact,  }\item[{Manifold}]{old\+Manifold }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parametry}
+{\em contact} & \\
+\hline
+{\em old\+Manifold} & \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 109 pliku World\+Contact\+Listener.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{109                                                                 \{}
+\DoxyCodeLine{110     \}}
+
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/World\+Contact\+Listener.\+java\end{DoxyCompactItemize}

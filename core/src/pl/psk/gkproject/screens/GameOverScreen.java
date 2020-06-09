@@ -14,9 +14,20 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
 
+/**
+ * Ekran końca gry
+ */
 public class GameOverScreen implements Screen {
+    /**
+     * Obiekt sceny, na który zostanie nałożony napis o końcu gry
+     */
     private final Stage stage;
 
+    /**
+     * Konstruktor klasy
+     *
+     * @param game obiekt gry
+     */
     public GameOverScreen(Game game) {
         Viewport viewport = new FitViewport(PlatformGame.V_WIDTH, PlatformGame.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, ((PlatformGame) game).getBatch());
@@ -35,9 +46,13 @@ public class GameOverScreen implements Screen {
 
     @Override
     public void show() {
-
     }
 
+    /**
+     * Renderuje ekran końca gry
+     *
+     * @param delta czas renderowania
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);

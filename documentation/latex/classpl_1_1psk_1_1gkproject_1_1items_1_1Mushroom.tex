@@ -1,0 +1,169 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+items.\+Mushroom}
+\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom}\index{pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+items.\+Mushroom\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a5adc59cc0d1f6f9b69531259d6ed4c78}{Mushroom}} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}{play\+Screen}}, float x, float y)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a400b4d8ff8e3fe41a9db06eddbec3f20}{define\+Item}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a9200505059df20aff97cd25b2fe1fa8a}{use}} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}} mario)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_afdf4acf1f6e60a361a21ec0abdd072d0}{update}} (float delta\+Time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Dodatkowe Dziedziczone Składowe}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa obiektu grzyba 
+
+Definicja w linii 15 pliku Mushroom.\+java.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a5adc59cc0d1f6f9b69531259d6ed4c78}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a5adc59cc0d1f6f9b69531259d6ed4c78}} 
+\index{pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}!Mushroom@{Mushroom}}
+\index{Mushroom@{Mushroom}!pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}}
+\doxysubsubsection{\texorpdfstring{Mushroom()}{Mushroom()}}
+{\footnotesize\ttfamily pl.\+psk.\+gkproject.\+items.\+Mushroom.\+Mushroom (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}}}]{play\+Screen,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Konstruktor klasy grzyba
+
+
+\begin{DoxyParams}{Parametry}
+{\em play\+Screen} & główny ekran gry \\
+\hline
+{\em x} & pozycja X grzyba \\
+\hline
+{\em y} & pozycja Y grzyba \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 28 pliku Mushroom.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                                              \{}
+\DoxyCodeLine{29         super(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}{playScreen}}, x, y);}
+\DoxyCodeLine{30         setRegion(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af55b6941a5abcdb8f52a7275f8c12f7e}{playScreen}}.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_a80a4f6984ff2f44a5af90dd8c0d9632a}{getAtlas}}().findRegion(\textcolor{stringliteral}{"mushroom"}), 0, 0, 16, 16);}
+\DoxyCodeLine{31         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}} = \textcolor{keyword}{new} Vector2(0.7f, -\/0.5f);}
+\DoxyCodeLine{32     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a400b4d8ff8e3fe41a9db06eddbec3f20}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a400b4d8ff8e3fe41a9db06eddbec3f20}} 
+\index{pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}!defineItem@{defineItem}}
+\index{defineItem@{defineItem}!pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}}
+\doxysubsubsection{\texorpdfstring{defineItem()}{defineItem()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+items.\+Mushroom.\+define\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda do zdefiniowania obiektu 
+
+Reimplementowana z \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a42610f79ad8f8e1d136a79418aa877ce}{pl.\+psk.\+gkproject.\+items.\+Item}}.
+
+
+
+Definicja w linii 38 pliku Mushroom.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                              \{}
+\DoxyCodeLine{39         BodyDef bodyDef = \textcolor{keyword}{new} BodyDef();}
+\DoxyCodeLine{40         bodyDef.position.set(getX(), getY());}
+\DoxyCodeLine{41         bodyDef.type = BodyDef.BodyType.DynamicBody;}
+\DoxyCodeLine{42         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}} = \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a59cbba8272f448742a0a3d3a27a9cf67}{world}}.createBody(bodyDef);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         FixtureDef fixtureDef = \textcolor{keyword}{new} FixtureDef();}
+\DoxyCodeLine{45         CircleShape shape = \textcolor{keyword}{new} CircleShape();}
+\DoxyCodeLine{46         shape.setRadius(6 / PlatformGame.PPM);}
+\DoxyCodeLine{47         fixtureDef.filter.categoryBits = PlatformGame.ITEM\_BIT;}
+\DoxyCodeLine{48         fixtureDef.filter.maskBits = PlatformGame.MARIO\_BIT}
+\DoxyCodeLine{49                 | PlatformGame.OBJECT\_BIT}
+\DoxyCodeLine{50                 | PlatformGame.GROUND\_BIT}
+\DoxyCodeLine{51                 | PlatformGame.COIN\_BIT}
+\DoxyCodeLine{52                 | PlatformGame.BRICK\_BIT;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         fixtureDef.shape = shape;}
+\DoxyCodeLine{55         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}}.createFixture(fixtureDef).setUserData(\textcolor{keyword}{this});}
+\DoxyCodeLine{56     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_afdf4acf1f6e60a361a21ec0abdd072d0}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_afdf4acf1f6e60a361a21ec0abdd072d0}} 
+\index{pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}!update@{update}}
+\index{update@{update}!pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+items.\+Mushroom.\+update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda do aktualizacji obiektu w kolejnej iteracji
+
+
+\begin{DoxyParams}{Parametry}
+{\em delta\+Time} & czas iteracji\\
+\hline
+\end{DoxyParams}
+ 
+
+Reimplementowana z \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_af6af52e1fe390321afbae6e81417a8eb}{pl.\+psk.\+gkproject.\+items.\+Item}}.
+
+
+
+Definicja w linii 74 pliku Mushroom.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74                                         \{}
+\DoxyCodeLine{75         super.update(deltaTime);}
+\DoxyCodeLine{76         setPosition(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}}.getPosition().x -\/ getWidth() / 2, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}}.getPosition().y -\/ getHeight() / 2);}
+\DoxyCodeLine{77         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}}.setLinearVelocity(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}});}
+\DoxyCodeLine{78         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}}.y = \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}}.getLinearVelocity().y;}
+\DoxyCodeLine{79         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a7cc6e640a41aecbd9bb05639232937a1}{body}}.setLinearVelocity(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_abf116be03c88d7df43b82cb93732ff68}{velocity}});}
+\DoxyCodeLine{80     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a9200505059df20aff97cd25b2fe1fa8a}\label{classpl_1_1psk_1_1gkproject_1_1items_1_1Mushroom_a9200505059df20aff97cd25b2fe1fa8a}} 
+\index{pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}!use@{use}}
+\index{use@{use}!pl.psk.gkproject.items.Mushroom@{pl.psk.gkproject.items.Mushroom}}
+\doxysubsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+items.\+Mushroom.\+use (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}}}]{mario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda, w której jest określone co sie dzieje z przedmiotem po interakcji z mariem
+
+
+\begin{DoxyParams}{Parametry}
+{\em mario} & obiekt Maria\\
+\hline
+\end{DoxyParams}
+ 
+
+Reimplementowana z \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_ac12d770292d2ac566aa93cb8297a26ed}{pl.\+psk.\+gkproject.\+items.\+Item}}.
+
+
+
+Definicja w linii 62 pliku Mushroom.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                                  \{}
+\DoxyCodeLine{63         \textcolor{keywordflow}{if} (!mario.isMarioIsBig()) \{}
+\DoxyCodeLine{64             mario.grow();}
+\DoxyCodeLine{65         \}}
+\DoxyCodeLine{66         Hud.addScore(MUSHROOM\_SCORE\_VALUE);}
+\DoxyCodeLine{67         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1items_1_1Item_a4ffadcb8a484c8de743ff9aeaf946fe7}{destroy}}();}
+\DoxyCodeLine{68     \}}
+
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/items/Mushroom.\+java\end{DoxyCompactItemize}

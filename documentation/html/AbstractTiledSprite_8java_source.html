@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Platformowa - Mario: Plik źródłowy core/src/pl/psk/gkproject/sprites/AbstractTiledSprite.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gra Platformowa - Mario
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li><li class="navelem"><a class="el" href="dir_90fd98a0ba30abf7a6068a44995d2d6b.html">src</a></li><li class="navelem"><a class="el" href="dir_3347eea5723641d2076d7bd0b0f997e5.html">pl</a></li><li class="navelem"><a class="el" href="dir_9870e27e906c2341ce6c69e333e0d855.html">psk</a></li><li class="navelem"><a class="el" href="dir_4fabf03698d0cd570e1fe172625e5399.html">gkproject</a></li><li class="navelem"><a class="el" href="dir_1d9e0d10c515f3548e25fcdd028b94ad.html">sprites</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">AbstractTiledSprite.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>pl.psk.gkproject.sprites;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.math.Rectangle;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> com.badlogic.gdx.physics.box2d.*;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.PlatformGame;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> pl.psk.gkproject.screens.PlayScreen;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html">   11</a></span>&#160;<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class </span><a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html">AbstractTiledSprite</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#acfa7757a0aab86cd797d9a2b14cb3f68">   15</a></span>&#160;    <span class="keyword">protected</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen.html">PlayScreen</a> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#acfa7757a0aab86cd797d9a2b14cb3f68">playScreen</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85465e1d71bd411722f3d53d1c64ba5a">   20</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">final</span> World <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85465e1d71bd411722f3d53d1c64ba5a">world</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">   25</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">final</span> Rectangle <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a5ef37bab42d018debf86f72767f67e9b">   30</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">final</span> BodyDef <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a5ef37bab42d018debf86f72767f67e9b">bodyDef</a> = <span class="keyword">new</span> BodyDef();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#afaff4a95b6c53b97f2df1e119ed1b431">   35</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">final</span> PolygonShape <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#afaff4a95b6c53b97f2df1e119ed1b431">polygonShape</a> = <span class="keyword">new</span> PolygonShape();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#af06f61d9a2adfae4d5ebb0ba3df833e8">   40</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">final</span> FixtureDef <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#af06f61d9a2adfae4d5ebb0ba3df833e8">fixtureDef</a> = <span class="keyword">new</span> FixtureDef();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a918000a4c579efba66722be8ff5db8d2">   45</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">final</span> Body <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a918000a4c579efba66722be8ff5db8d2">body</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a6c06fd7bcc481cb92d219981da13e81d">   50</a></span>&#160;    <span class="keyword">protected</span> Fixture <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a6c06fd7bcc481cb92d219981da13e81d">fixture</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">public</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html">AbstractTiledSprite</a>(<a class="code" href="classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen.html">PlayScreen</a> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#acfa7757a0aab86cd797d9a2b14cb3f68">playScreen</a>, World <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85465e1d71bd411722f3d53d1c64ba5a">world</a>, Rectangle <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        this.playScreen = <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#acfa7757a0aab86cd797d9a2b14cb3f68">playScreen</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        this.world = <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85465e1d71bd411722f3d53d1c64ba5a">world</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        this.rectangle = <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a5ef37bab42d018debf86f72767f67e9b">bodyDef</a>.type = BodyDef.BodyType.StaticBody;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a5ef37bab42d018debf86f72767f67e9b">bodyDef</a>.position.set(</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>.getX() + <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>.getWidth() / 2) / <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">PPM</a>,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                (<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>.getY() + <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>.getHeight() / 2) / <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">PPM</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a918000a4c579efba66722be8ff5db8d2">body</a> = <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85465e1d71bd411722f3d53d1c64ba5a">world</a>.createBody(<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a5ef37bab42d018debf86f72767f67e9b">bodyDef</a>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a65a0572930114740b3f063916ff79a9a">   69</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a65a0572930114740b3f063916ff79a9a">makeFixture</a>() {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#afaff4a95b6c53b97f2df1e119ed1b431">polygonShape</a>.setAsBox(</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>.getWidth() / 2 / <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">PPM</a>,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">rectangle</a>.getHeight() / 2 / <a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">PlatformGame</a>.<a class="code" href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">PPM</a></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        );</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#af06f61d9a2adfae4d5ebb0ba3df833e8">fixtureDef</a>.shape = <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#afaff4a95b6c53b97f2df1e119ed1b431">polygonShape</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a6c06fd7bcc481cb92d219981da13e81d">fixture</a> = <a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a918000a4c579efba66722be8ff5db8d2">body</a>.createFixture(<a class="code" href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#af06f61d9a2adfae4d5ebb0ba3df833e8">fixtureDef</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_af06f61d9a2adfae4d5ebb0ba3df833e8"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#af06f61d9a2adfae4d5ebb0ba3df833e8">pl.psk.gkproject.sprites.AbstractTiledSprite.fixtureDef</a></div><div class="ttdeci">final FixtureDef fixtureDef</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00040">AbstractTiledSprite.java:40</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_a65a0572930114740b3f063916ff79a9a"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a65a0572930114740b3f063916ff79a9a">pl.psk.gkproject.sprites.AbstractTiledSprite.makeFixture</a></div><div class="ttdeci">void makeFixture()</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00069">AbstractTiledSprite.java:69</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_a5ef37bab42d018debf86f72767f67e9b"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a5ef37bab42d018debf86f72767f67e9b">pl.psk.gkproject.sprites.AbstractTiledSprite.bodyDef</a></div><div class="ttdeci">final BodyDef bodyDef</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00030">AbstractTiledSprite.java:30</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html">pl.psk.gkproject.sprites.AbstractTiledSprite</a></div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00011">AbstractTiledSprite.java:11</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_acfa7757a0aab86cd797d9a2b14cb3f68"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#acfa7757a0aab86cd797d9a2b14cb3f68">pl.psk.gkproject.sprites.AbstractTiledSprite.playScreen</a></div><div class="ttdeci">PlayScreen playScreen</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00015">AbstractTiledSprite.java:15</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html">pl.psk.gkproject.PlatformGame</a></div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00022">PlatformGame.java:22</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_a918000a4c579efba66722be8ff5db8d2"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a918000a4c579efba66722be8ff5db8d2">pl.psk.gkproject.sprites.AbstractTiledSprite.body</a></div><div class="ttdeci">final Body body</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00045">AbstractTiledSprite.java:45</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_a85e06434f4236a2ac6a26041375c9e4e"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85e06434f4236a2ac6a26041375c9e4e">pl.psk.gkproject.sprites.AbstractTiledSprite.rectangle</a></div><div class="ttdeci">final Rectangle rectangle</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00025">AbstractTiledSprite.java:25</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_a85465e1d71bd411722f3d53d1c64ba5a"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a85465e1d71bd411722f3d53d1c64ba5a">pl.psk.gkproject.sprites.AbstractTiledSprite.world</a></div><div class="ttdeci">final World world</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00020">AbstractTiledSprite.java:20</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_afaff4a95b6c53b97f2df1e119ed1b431"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#afaff4a95b6c53b97f2df1e119ed1b431">pl.psk.gkproject.sprites.AbstractTiledSprite.polygonShape</a></div><div class="ttdeci">final PolygonShape polygonShape</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00035">AbstractTiledSprite.java:35</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen_html"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen.html">pl.psk.gkproject.screens.PlayScreen</a></div><div class="ttdef"><b>Definition:</b> <a href="PlayScreen_8java_source.html#l00034">PlayScreen.java:34</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1PlatformGame_html_a69bb5d682ee9ab8be2867c0cf15063b7"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1PlatformGame.html#a69bb5d682ee9ab8be2867c0cf15063b7">pl.psk.gkproject.PlatformGame.PPM</a></div><div class="ttdeci">static final float PPM</div><div class="ttdef"><b>Definition:</b> <a href="PlatformGame_8java_source.html#l00036">PlatformGame.java:36</a></div></div>
+<div class="ttc" id="aclasspl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_html_a6c06fd7bcc481cb92d219981da13e81d"><div class="ttname"><a href="classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite.html#a6c06fd7bcc481cb92d219981da13e81d">pl.psk.gkproject.sprites.AbstractTiledSprite.fixture</a></div><div class="ttdeci">Fixture fixture</div><div class="ttdef"><b>Definition:</b> <a href="AbstractTiledSprite_8java_source.html#l00050">AbstractTiledSprite.java:50</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

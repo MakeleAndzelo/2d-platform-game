@@ -1,0 +1,311 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+sprites.\+Mario}
+\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+sprites.\+Mario\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}
+\end{center}
+\end{figure}
+\doxysubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_aeafa1fb6b7c68384cda67a000376c5c1}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_aeafa1fb6b7c68384cda67a000376c5c1}} 
+{\bfseries Mario} (World \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ae8d65bfe8f6ec49e255ba37fe3ce0dfe}{world}}, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}} screen)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a204ed2333ff1030920dabcb137982e45}{update}} (float dt)
+\item 
+\mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ad25cbc8045988534bf0e0be9f749f63e}{get\+State}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a7ef8db5deb3b7cb3a121b4e9456512e3}{die}} ()
+\item 
+boolean \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_afd5beabcde8e52d4597cbf8ef0bdb968}{is\+Mario\+Is\+Dead}} ()
+\item 
+float \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a6015eb1584d9c3f1c96843d4523ff8c7}{get\+State\+Timer}} ()
+\item 
+boolean \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a9f5f7e3bf91579ab8fe39adbeaf6fe84}{is\+Mario\+Won}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a02bfcc184108c510095114790aecddcb}{grow}} ()
+\item 
+boolean \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ad781e4d7ccbb0988d0be3964fe31186b}{is\+Mario\+Is\+Big}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ace617567e0aba7dd6a9de2d4da6914f2}{current\+State}}
+\item 
+\mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ac815b37f61bafd74f4ae525c72b43d2d}{previous\+State}}
+\item 
+World \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ae8d65bfe8f6ec49e255ba37fe3ce0dfe}{world}}
+\item 
+Body \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa określająca Maria, którym steruje gracza 
+
+Definicja w linii 17 pliku Mario.\+java.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a7ef8db5deb3b7cb3a121b4e9456512e3}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a7ef8db5deb3b7cb3a121b4e9456512e3}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!die@{die}}
+\index{die@{die}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Mario.\+die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda uśmiercająca maria. Ustawia odpowiednie flagi oraz dodaje animację. 
+
+Definicja w linii 301 pliku Mario.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{301                       \{}
+\DoxyCodeLine{302         PlatformGame.manager.get(\textcolor{stringliteral}{"audio/music/mario\_music.ogg"}, Music.class).stop();}
+\DoxyCodeLine{303         PlatformGame.manager.get(\textcolor{stringliteral}{"audio/sounds/mariodie.wav"}, Sound.class).play();}
+\DoxyCodeLine{304         marioIsDead = \textcolor{keyword}{true};}
+\DoxyCodeLine{305         Filter filter = \textcolor{keyword}{new} Filter();}
+\DoxyCodeLine{306         filter.maskBits = PlatformGame.NOTHING\_BIT;}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308         \textcolor{keywordflow}{for} (Fixture fixture : \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getFixtureList()) \{}
+\DoxyCodeLine{309             fixture.setFilterData(filter);}
+\DoxyCodeLine{310         \}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.applyLinearImpulse(\textcolor{keyword}{new} Vector2(0, 4f), \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getWorldCenter(), \textcolor{keyword}{true});}
+\DoxyCodeLine{313     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ad25cbc8045988534bf0e0be9f749f63e}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ad25cbc8045988534bf0e0be9f749f63e}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!getState@{getState}}
+\index{getState@{getState}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}} pl.\+psk.\+gkproject.\+sprites.\+Mario.\+get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Pobranie stanu maria
+
+\begin{DoxyReturn}{Zwraca}
+stan maria 
+\end{DoxyReturn}
+
+
+Definicja w linii 278 pliku Mario.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{278                             \{}
+\DoxyCodeLine{279         \textcolor{keywordflow}{if} (marioIsDead) \{}
+\DoxyCodeLine{280             \textcolor{keywordflow}{return} State.DEAD;}
+\DoxyCodeLine{281         \}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getLinearVelocity().y > 0 || (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getLinearVelocity().y < 0 \&\& \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ac815b37f61bafd74f4ae525c72b43d2d}{previousState}} == State.JUMPING)) \{}
+\DoxyCodeLine{284             \textcolor{keywordflow}{return} State.JUMPING;}
+\DoxyCodeLine{285         \}}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getLinearVelocity().y < 0) \{}
+\DoxyCodeLine{288             \textcolor{keywordflow}{return} State.FALLING;}
+\DoxyCodeLine{289         \}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getLinearVelocity().x != 0) \{}
+\DoxyCodeLine{292             \textcolor{keywordflow}{return} State.RUNNING;}
+\DoxyCodeLine{293         \}}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} State.STANDING;}
+\DoxyCodeLine{296     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a6015eb1584d9c3f1c96843d4523ff8c7}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a6015eb1584d9c3f1c96843d4523ff8c7}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!getStateTimer@{getStateTimer}}
+\index{getStateTimer@{getStateTimer}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{getStateTimer()}{getStateTimer()}}
+{\footnotesize\ttfamily float pl.\+psk.\+gkproject.\+sprites.\+Mario.\+get\+State\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Zwraca}
+czas istnienia obiektu maria 
+\end{DoxyReturn}
+
+
+Definicja w linii 325 pliku Mario.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{325                                  \{}
+\DoxyCodeLine{326         \textcolor{keywordflow}{return} stateTimer;}
+\DoxyCodeLine{327     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a02bfcc184108c510095114790aecddcb}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a02bfcc184108c510095114790aecddcb}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!grow@{grow}}
+\index{grow@{grow}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{grow()}{grow()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Mario.\+grow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda do wywołania rośniecia przez Maria 
+
+Definicja w linii 339 pliku Mario.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{339                        \{}
+\DoxyCodeLine{340         marioIsBig = \textcolor{keyword}{true};}
+\DoxyCodeLine{341         timeToDefineBigMario = \textcolor{keyword}{true};}
+\DoxyCodeLine{342         setBounds(getX(), getY(), getWidth(), getHeight() * 2);}
+\DoxyCodeLine{343         PlatformGame.manager.get(\textcolor{stringliteral}{"audio/sounds/powerup.wav"}, Sound.class).play();}
+\DoxyCodeLine{344     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ad781e4d7ccbb0988d0be3964fe31186b}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ad781e4d7ccbb0988d0be3964fe31186b}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!isMarioIsBig@{isMarioIsBig}}
+\index{isMarioIsBig@{isMarioIsBig}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{isMarioIsBig()}{isMarioIsBig()}}
+{\footnotesize\ttfamily boolean pl.\+psk.\+gkproject.\+sprites.\+Mario.\+is\+Mario\+Is\+Big (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Zwraca}
+Flaga określająca, czy \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario}{Mario}} jest duży 
+\end{DoxyReturn}
+
+
+Definicja w linii 349 pliku Mario.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{349                                   \{}
+\DoxyCodeLine{350         \textcolor{keywordflow}{return} marioIsBig;}
+\DoxyCodeLine{351     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_afd5beabcde8e52d4597cbf8ef0bdb968}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_afd5beabcde8e52d4597cbf8ef0bdb968}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!isMarioIsDead@{isMarioIsDead}}
+\index{isMarioIsDead@{isMarioIsDead}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{isMarioIsDead()}{isMarioIsDead()}}
+{\footnotesize\ttfamily boolean pl.\+psk.\+gkproject.\+sprites.\+Mario.\+is\+Mario\+Is\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Zwraca}
+Flaga określająca, czy mario nie zyje 
+\end{DoxyReturn}
+
+
+Definicja w linii 318 pliku Mario.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{318                                    \{}
+\DoxyCodeLine{319         \textcolor{keywordflow}{return} marioIsDead;}
+\DoxyCodeLine{320     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a9f5f7e3bf91579ab8fe39adbeaf6fe84}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a9f5f7e3bf91579ab8fe39adbeaf6fe84}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!isMarioWon@{isMarioWon}}
+\index{isMarioWon@{isMarioWon}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{isMarioWon()}{isMarioWon()}}
+{\footnotesize\ttfamily boolean pl.\+psk.\+gkproject.\+sprites.\+Mario.\+is\+Mario\+Won (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Zwraca}
+Flaga określająca czy gracz przeszedł grę 
+\end{DoxyReturn}
+
+
+Definicja w linii 332 pliku Mario.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{332                                 \{}
+\DoxyCodeLine{333         \textcolor{keywordflow}{return} marioWon;}
+\DoxyCodeLine{334     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a204ed2333ff1030920dabcb137982e45}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a204ed2333ff1030920dabcb137982e45}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!update@{update}}
+\index{update@{update}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Mario.\+update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Aktualizacja maria na ekranie
+
+
+\begin{DoxyParams}{Parametry}
+{\em dt} & czas aktualizacji \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 175 pliku Mario.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{175                                  \{}
+\DoxyCodeLine{176         \textcolor{keywordflow}{if} (marioIsBig) \{}
+\DoxyCodeLine{177             setPosition(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getPosition().x -\/ getWidth() / 2, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getPosition().y -\/ getHeight() / 2 -\/ 6 / PlatformGame.PPM);}
+\DoxyCodeLine{178         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{179             setPosition(\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getPosition().x -\/ getWidth() / 2, \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getPosition().y -\/ getHeight() / 2);}
+\DoxyCodeLine{180         \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} (0 > \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getPosition().y \&\& !\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_afd5beabcde8e52d4597cbf8ef0bdb968}{isMarioIsDead}}()) \{}
+\DoxyCodeLine{183             \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a7ef8db5deb3b7cb3a121b4e9456512e3}{die}}();}
+\DoxyCodeLine{184         \}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186         \textcolor{keywordflow}{if} (33 < \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}{body}}.getPosition().x) \{}
+\DoxyCodeLine{187             marioWon = \textcolor{keyword}{true};}
+\DoxyCodeLine{188         \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190         setRegion(getFrame(dt));}
+\DoxyCodeLine{191         }
+\DoxyCodeLine{192         \textcolor{keywordflow}{if} (timeToDefineBigMario) \{}
+\DoxyCodeLine{193             defineBigMario();}
+\DoxyCodeLine{194         \}}
+\DoxyCodeLine{195     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_a5b53f4f42ecad4905af34292e4e73c76}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!body@{body}}
+\index{body@{body}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily Body pl.\+psk.\+gkproject.\+sprites.\+Mario.\+body}
+
+Ciało maria 
+
+Definicja w linii 67 pliku Mario.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ace617567e0aba7dd6a9de2d4da6914f2}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ace617567e0aba7dd6a9de2d4da6914f2}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!currentState@{currentState}}
+\index{currentState@{currentState}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{currentState}{currentState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}} pl.\+psk.\+gkproject.\+sprites.\+Mario.\+current\+State}
+
+Aktualny stan maria 
+
+Definicja w linii 32 pliku Mario.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ac815b37f61bafd74f4ae525c72b43d2d}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ac815b37f61bafd74f4ae525c72b43d2d}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!previousState@{previousState}}
+\index{previousState@{previousState}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{previousState}{previousState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_1_1State}{State}} pl.\+psk.\+gkproject.\+sprites.\+Mario.\+previous\+State}
+
+Poprzedni stan maria 
+
+Definicja w linii 37 pliku Mario.\+java.
+
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ae8d65bfe8f6ec49e255ba37fe3ce0dfe}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Mario_ae8d65bfe8f6ec49e255ba37fe3ce0dfe}} 
+\index{pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}!world@{world}}
+\index{world@{world}!pl.psk.gkproject.sprites.Mario@{pl.psk.gkproject.sprites.Mario}}
+\doxysubsubsection{\texorpdfstring{world}{world}}
+{\footnotesize\ttfamily World pl.\+psk.\+gkproject.\+sprites.\+Mario.\+world}
+
+Świat gry 
+
+Definicja w linii 62 pliku Mario.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/sprites/Mario.\+java\end{DoxyCompactItemize}

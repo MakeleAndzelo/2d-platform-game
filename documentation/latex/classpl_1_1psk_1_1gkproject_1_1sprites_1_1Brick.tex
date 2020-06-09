@@ -1,0 +1,125 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+sprites.\+Brick}
+\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick}\index{pl.psk.gkproject.sprites.Brick@{pl.psk.gkproject.sprites.Brick}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+sprites.\+Brick\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_a6ffc117c19c79eae422db6d8455340c2}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_a6ffc117c19c79eae422db6d8455340c2}} 
+{\bfseries Brick} (\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1PlayScreen}{Play\+Screen}} \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_acfa7757a0aab86cd797d9a2b14cb3f68}{play\+Screen}}, World \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a85465e1d71bd411722f3d53d1c64ba5a}{world}}, Rectangle \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a85e06434f4236a2ac6a26041375c9e4e}{rectangle}})
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_a09eea52b1ea5b497cda06aa47d524bbe}{make\+Fixture}} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_ae036ec7e9d5c58100fc9e6f2d7f1ac08}{set\+Fixture\+Filter}} (Filter filter)
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_a4e24407d61e82e82da36be2f9c2c0c41}{on\+Head\+Hit}} (Tiled\+Map map)
+\end{DoxyCompactItemize}
+\doxysubsection*{Dodatkowe Dziedziczone Składowe}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa reprezentująca klocek \char`\"{}cegieł\char`\"{} na mapie 
+
+Definicja w linii 14 pliku Brick.\+java.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_a09eea52b1ea5b497cda06aa47d524bbe}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_a09eea52b1ea5b497cda06aa47d524bbe}} 
+\index{pl.psk.gkproject.sprites.Brick@{pl.psk.gkproject.sprites.Brick}!makeFixture@{makeFixture}}
+\index{makeFixture@{makeFixture}!pl.psk.gkproject.sprites.Brick@{pl.psk.gkproject.sprites.Brick}}
+\doxysubsubsection{\texorpdfstring{makeFixture()}{makeFixture()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Brick.\+make\+Fixture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Stworzenie fixture obiektu 
+
+Reimplementowana z \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a65a0572930114740b3f063916ff79a9a}{pl.\+psk.\+gkproject.\+sprites.\+Abstract\+Tiled\+Sprite}}.
+
+
+
+Definicja w linii 23 pliku Brick.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                               \{}
+\DoxyCodeLine{24         super.makeFixture();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         Filter filter = \textcolor{keyword}{new} Filter();}
+\DoxyCodeLine{27         filter.categoryBits = PlatformGame.BRICK\_BIT;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a6c06fd7bcc481cb92d219981da13e81d}{fixture}}.setUserData(\textcolor{keyword}{this});}
+\DoxyCodeLine{30         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a6c06fd7bcc481cb92d219981da13e81d}{fixture}}.setFilterData(filter);}
+\DoxyCodeLine{31     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_a4e24407d61e82e82da36be2f9c2c0c41}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_a4e24407d61e82e82da36be2f9c2c0c41}} 
+\index{pl.psk.gkproject.sprites.Brick@{pl.psk.gkproject.sprites.Brick}!onHeadHit@{onHeadHit}}
+\index{onHeadHit@{onHeadHit}!pl.psk.gkproject.sprites.Brick@{pl.psk.gkproject.sprites.Brick}}
+\doxysubsubsection{\texorpdfstring{onHeadHit()}{onHeadHit()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Brick.\+on\+Head\+Hit (\begin{DoxyParamCaption}\item[{Tiled\+Map}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metoda, która jest używana podczas interakcji głowy Maria z klockiem
+
+
+\begin{DoxyParams}{Parametry}
+{\em map} & aktualna mapa gry \\
+\hline
+\end{DoxyParams}
+
+
+Implementuje \mbox{\hyperlink{interfacepl_1_1psk_1_1gkproject_1_1sprites_1_1InteractiveSprite_a3bbd3f4a3edc3da52dd0d80239c9a476}{pl.\+psk.\+gkproject.\+sprites.\+Interactive\+Sprite}}.
+
+
+
+Definicja w linii 48 pliku Brick.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                                         \{}
+\DoxyCodeLine{49         Filter filter = \textcolor{keyword}{new} Filter();}
+\DoxyCodeLine{50         filter.categoryBits = PlatformGame.DESTROYED\_BIT;}
+\DoxyCodeLine{51         this.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_ae036ec7e9d5c58100fc9e6f2d7f1ac08}{setFixtureFilter}}(filter);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);}
+\DoxyCodeLine{54         TiledMapTileLayer.Cell cell = layer.getCell(}
+\DoxyCodeLine{55                 (\textcolor{keywordtype}{int}) (this.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a918000a4c579efba66722be8ff5db8d2}{body}}.getPosition().x * PlatformGame.PPM / 16),}
+\DoxyCodeLine{56                 (\textcolor{keywordtype}{int}) (this.\mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a918000a4c579efba66722be8ff5db8d2}{body}}.getPosition().y * PlatformGame.PPM / 16)}
+\DoxyCodeLine{57         );}
+\DoxyCodeLine{58         cell.setTile(\textcolor{keyword}{null});}
+\DoxyCodeLine{59         PlatformGame.manager.get(\textcolor{stringliteral}{"audio/sounds/breakblock.wav"}, Sound.class).play();}
+\DoxyCodeLine{60     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_ae036ec7e9d5c58100fc9e6f2d7f1ac08}\label{classpl_1_1psk_1_1gkproject_1_1sprites_1_1Brick_ae036ec7e9d5c58100fc9e6f2d7f1ac08}} 
+\index{pl.psk.gkproject.sprites.Brick@{pl.psk.gkproject.sprites.Brick}!setFixtureFilter@{setFixtureFilter}}
+\index{setFixtureFilter@{setFixtureFilter}!pl.psk.gkproject.sprites.Brick@{pl.psk.gkproject.sprites.Brick}}
+\doxysubsubsection{\texorpdfstring{setFixtureFilter()}{setFixtureFilter()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+sprites.\+Brick.\+set\+Fixture\+Filter (\begin{DoxyParamCaption}\item[{Filter}]{filter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Ustawienie filtru dla fixture
+
+
+\begin{DoxyParams}{Parametry}
+{\em filter} & filter dla fixture \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 38 pliku Brick.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                                 \{}
+\DoxyCodeLine{39         \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1sprites_1_1AbstractTiledSprite_a6c06fd7bcc481cb92d219981da13e81d}{fixture}}.setFilterData(filter);}
+\DoxyCodeLine{40     \}}
+
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/sprites/Brick.\+java\end{DoxyCompactItemize}

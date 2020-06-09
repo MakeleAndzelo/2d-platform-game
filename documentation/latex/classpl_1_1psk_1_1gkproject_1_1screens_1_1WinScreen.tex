@@ -1,0 +1,75 @@
+\hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen}{}\doxysection{Dokumentacja klasy pl.\+psk.\+gkproject.\+screens.\+Win\+Screen}
+\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen}\index{pl.psk.gkproject.screens.WinScreen@{pl.psk.gkproject.screens.WinScreen}}
+Diagram dziedziczenia dla pl.\+psk.\+gkproject.\+screens.\+Win\+Screen\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen}
+\end{center}
+\end{figure}
+\doxysubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a94ee7034badd110e399d40392b6e85ad}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a94ee7034badd110e399d40392b6e85ad}} 
+{\bfseries Win\+Screen} (Game game)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_aa7125a5cdb3a694588c266604fbdce8a}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_aa7125a5cdb3a694588c266604fbdce8a}} 
+void {\bfseries show} ()
+\item 
+void \mbox{\hyperlink{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a0cb460902682ec13908ad02e7822ac49}{render}} (float delta)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a646eeeb2e74bbdecddf50d58204d2025}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a646eeeb2e74bbdecddf50d58204d2025}} 
+void {\bfseries resize} (int width, int height)
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a0f056d648f86bd026fcbcf02d88047b8}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a0f056d648f86bd026fcbcf02d88047b8}} 
+void {\bfseries pause} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a8ac561ebb8f9b3c742ed9625216c083a}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a8ac561ebb8f9b3c742ed9625216c083a}} 
+void {\bfseries resume} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_adc5890f6c1570062c94196ded4e2a94f}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_adc5890f6c1570062c94196ded4e2a94f}} 
+void {\bfseries hide} ()
+\item 
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_ad410f1e3a045681184335d47cc978ee9}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_ad410f1e3a045681184335d47cc978ee9}} 
+void {\bfseries dispose} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Ekran po przejściu gry 
+
+Definicja w linii 20 pliku Win\+Screen.\+java.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a0cb460902682ec13908ad02e7822ac49}\label{classpl_1_1psk_1_1gkproject_1_1screens_1_1WinScreen_a0cb460902682ec13908ad02e7822ac49}} 
+\index{pl.psk.gkproject.screens.WinScreen@{pl.psk.gkproject.screens.WinScreen}!render@{render}}
+\index{render@{render}!pl.psk.gkproject.screens.WinScreen@{pl.psk.gkproject.screens.WinScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void pl.\+psk.\+gkproject.\+screens.\+Win\+Screen.\+render (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Wyrenderowanie ekranu
+
+
+\begin{DoxyParams}{Parametry}
+{\em delta} & czas renderu \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 55 pliku Win\+Screen.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                                     \{}
+\DoxyCodeLine{56         Gdx.gl.glClearColor(0, 0, 0, 1);}
+\DoxyCodeLine{57         Gdx.gl.glClear(GL20.GL\_COLOR\_BUFFER\_BIT);}
+\DoxyCodeLine{58         stage.draw();}
+\DoxyCodeLine{59     \}}
+
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+core/src/pl/psk/gkproject/screens/Win\+Screen.\+java\end{DoxyCompactItemize}

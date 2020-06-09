@@ -14,7 +14,13 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
 
+/**
+ * Ekran po przejściu gry
+ */
 public class WinScreen implements Screen {
+    /**
+     * Scena, na której zostanie umieszczona informacja o zakończonej grze
+     */
     private final Stage stage;
 
     public WinScreen(Game game) {
@@ -40,6 +46,11 @@ public class WinScreen implements Screen {
 
     }
 
+    /**
+     * Wyrenderowanie ekranu
+     *
+     * @param delta czas renderu
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);

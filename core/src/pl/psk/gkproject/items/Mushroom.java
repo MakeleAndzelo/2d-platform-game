@@ -9,15 +9,31 @@ import pl.psk.gkproject.scenes.Hud;
 import pl.psk.gkproject.screens.PlayScreen;
 import pl.psk.gkproject.sprites.Mario;
 
+/**
+ * Klasa obiektu grzyba
+ */
 public class Mushroom extends Item {
+    /**
+     * Wartość punktowa po zjedzeniu grzyba
+     */
     private static final int MUSHROOM_SCORE_VALUE = 30;
 
+    /**
+     * Konstruktor klasy grzyba
+     *
+     * @param playScreen główny ekran gry
+     * @param x pozycja X grzyba
+     * @param y pozycja Y grzyba
+     */
     public Mushroom(PlayScreen playScreen, float x, float y) {
         super(playScreen, x, y);
         setRegion(playScreen.getAtlas().findRegion("mushroom"), 0, 0, 16, 16);
         velocity = new Vector2(0.7f, -0.5f);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void defineItem() {
         BodyDef bodyDef = new BodyDef();
@@ -39,6 +55,9 @@ public class Mushroom extends Item {
         body.createFixture(fixtureDef).setUserData(this);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void use(Mario mario) {
         if (!mario.isMarioIsBig()) {
@@ -48,6 +67,9 @@ public class Mushroom extends Item {
         destroy();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void update(float deltaTime) {
         super.update(deltaTime);

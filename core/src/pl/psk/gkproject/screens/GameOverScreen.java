@@ -15,14 +15,10 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import pl.psk.gkproject.PlatformGame;
 
 public class GameOverScreen implements Screen {
-    private Viewport viewport;
-    private Stage stage;
-
-    private Game game;
+    private final Stage stage;
 
     public GameOverScreen(Game game) {
-        this.game = game;
-        viewport = new FitViewport(PlatformGame.V_WIDTH, PlatformGame.V_HEIGHT, new OrthographicCamera());
+        Viewport viewport = new FitViewport(PlatformGame.V_WIDTH, PlatformGame.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, ((PlatformGame) game).getBatch());
 
         Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);

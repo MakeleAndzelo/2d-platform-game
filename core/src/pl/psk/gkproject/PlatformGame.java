@@ -32,7 +32,7 @@ public class PlatformGame extends Game {
 	public static final short MARIO_HEAD_BIT = 512;
 	public static final short NOTHING_BIT = 1024;
 
-	private Queue<String> levels = new LinkedList<>(Arrays.asList("level1.tmx", "level2.tmx", "level3.tmx"));
+	private final Queue<String> levels = new LinkedList<>(Arrays.asList("level1.tmx", "level2.tmx", "level3.tmx"));
 
 	private Hud hud;
 

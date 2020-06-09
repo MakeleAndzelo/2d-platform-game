@@ -11,7 +11,7 @@ public class MenuScreen implements Screen {
     private final Texture playBtn = new Texture("new_game.png");
     private final Texture resumeBtn = new Texture("resume_game.png");
     private final Texture closeBtn = new Texture("close_game.png");
-    private PlatformGame game;
+    private final PlatformGame game;
 
     public MenuScreen(PlatformGame game) {
         this.game = game;
@@ -63,10 +63,10 @@ public class MenuScreen implements Screen {
         game.getBatch().begin();
         game.getBatch().draw(background, 0, 0, 700, 480);
         if (!game.getPreferences().getString("level").isEmpty()) {
-            game.getBatch().draw(resumeBtn, (PlatformGame.V_WIDTH / 2) + 20, 230, 200, 80);
+            game.getBatch().draw(resumeBtn, ((float) PlatformGame.V_WIDTH / 2) + 20, 230, 200, 80);
         }
-        game.getBatch().draw(playBtn, (PlatformGame.V_WIDTH / 2) + 20, 180, 200, 80);
-        game.getBatch().draw(closeBtn, (PlatformGame.V_WIDTH / 2) + 20, 140, 200, 80);
+        game.getBatch().draw(playBtn, ((float) PlatformGame.V_WIDTH / 2) + 20, 180, 200, 80);
+        game.getBatch().draw(closeBtn, ((float) PlatformGame.V_WIDTH / 2) + 20, 140, 200, 80);
         game.getBatch().end();
     }
 

@@ -4,18 +4,15 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.physics.box2d.*;
 import pl.psk.gkproject.items.Item;
-import pl.psk.gkproject.screens.PlayScreen;
 import pl.psk.gkproject.sprites.*;
 
 public class WorldContactListener implements ContactListener {
-    private TiledMap map;
+    private final TiledMap map;
     public static TiledMapTileSet tileSet;
-    private PlayScreen playScreen;
 
-    public WorldContactListener(TiledMap map, PlayScreen playScreen) {
+    public WorldContactListener(TiledMap map) {
         this.map = map;
         tileSet = map.getTileSets().getTileSet("tileset_gutter");
-        this.playScreen = playScreen;
     }
 
     @Override

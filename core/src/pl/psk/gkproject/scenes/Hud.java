@@ -13,14 +13,13 @@ import pl.psk.gkproject.PlatformGame;
 
 public class Hud {
     public Stage stage;
-    private Viewport viewport;
     public static Integer score;
 
     public static Label scoreLabel;
 
     public Hud(SpriteBatch spriteBatch) {
         score = 0;
-        viewport = new FitViewport(
+        Viewport viewport = new FitViewport(
                 PlatformGame.V_WIDTH,
                 PlatformGame.V_HEIGHT,
                 new OrthographicCamera());

@@ -15,12 +15,12 @@ import pl.psk.gkproject.screens.PlayScreen;
 
 public class Goomba extends Enemy {
     private float stateTime = 0.0f;
-    private Array<TextureRegion> frames = new Array<>();
-    private Animation<TextureRegion> walkAnimation;
+    private final Animation<TextureRegion> walkAnimation;
 
     public Goomba(PlayScreen playScreen, float x, float y) {
         super(playScreen, x, y);
 
+        Array<TextureRegion> frames = new Array<>();
         for (int i = 0; i < 2; i++) {
             frames.add(new TextureRegion(screen.getAtlas().findRegion("goomba"), i * 16, 0, 16, 16));
         }

@@ -12,22 +12,22 @@ import pl.psk.gkproject.PlatformGame;
 import pl.psk.gkproject.screens.PlayScreen;
 
 public class Mario extends Sprite {
-    public enum State {FALLING, JUMPING, STANDING, RUNNING, GROWING, DEAD};
+    public enum State {FALLING, JUMPING, STANDING, RUNNING, DEAD}
     public State currentState;
     public State previousState;
-    private Animation marioRun;
-    private TextureRegion marioJump;
+    private final Animation<TextureRegion> marioRun;
+    private final TextureRegion marioJump;
     private float stateTimer;
     private boolean runningRight;
     public World world;
     public Body body;
-    private TextureRegion marioStand;
-    private TextureRegion marioDead;
+    private final TextureRegion marioStand;
+    private final TextureRegion marioDead;
     private boolean marioIsDead = false;
     private boolean marioWon = false;
-    private TextureRegion bigMarioStand;
-    private TextureRegion bigMarioJump;
-    private Animation<TextureRegion> bigMarioRun;
+    private final TextureRegion bigMarioStand;
+    private final TextureRegion bigMarioJump;
+    private final Animation<TextureRegion> bigMarioRun;
     private boolean marioIsBig = false;
     private boolean timeToDefineBigMario = false;
 
@@ -152,7 +152,7 @@ public class Mario extends Sprite {
                 region = marioIsBig ? bigMarioJump : marioJump;
                 break;
             case RUNNING:
-                region = marioIsBig ? bigMarioRun.getKeyFrame(stateTimer, true) : (TextureRegion) marioRun.getKeyFrame(stateTimer, true);
+                region = marioIsBig ? bigMarioRun.getKeyFrame(stateTimer, true) : marioRun.getKeyFrame(stateTimer, true);
                 break;
             case FALLING:
             case STANDING:
